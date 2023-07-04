@@ -1,6 +1,7 @@
 ﻿
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Trang Chủ";
+    Layout = null;
 }
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -8,7 +9,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/themes/vip/css/style.css" type="text/css" /><title>Trang chủ</title><meta name="generator" content="vFramework 1.10.0 (https://vipcom.vn)" />
+    <link rel="stylesheet" href="/themes/vip/css/style.css" type="text/css" />
+    <title> Trang chủ</title>
+    <link rel="icon" type="image/gif" href="/images/assets/logo.png">
+    <meta name="generator" content="vFramework 1.10.0 (https://vipcom.vn)" />
+    
     <meta name="robots" content="index, follow">
     <meta name="author" content="">  
     
@@ -17,6 +22,7 @@
     <link rel="manifest" href="/themes/vip/assets/images/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
+    
     <!-- build:css ./assets/styles/internal.min.css inline-->
     <style>body{color:#333}</style>    
     <link rel="stylesheet" href="/themes/vip/assets/styles/main.min.css"/>
@@ -26,7 +32,7 @@
     <link rel="stylesheet" href="~/css/fixstyle.css" />
     <!-- main:js -->
     <script src="~/js/main.min.js"></script><!-- endinject -->
-
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   </head>
   <body class="lang-vn">
       <noscript>JavaScript is off. Please enable to view full site.</noscript>  
@@ -59,8 +65,10 @@
     </li>
     
     <li><a class="nav-main__menu-link" href="/dich-vu/" title="Dịch vụ">Dịch vụ</a>
-       
-        <span class="ion ion-ios-arrow-down"></span>
+
+        <span class="ion ion-ios-arrow-down">
+                             
+        </span>
         <ul class="nav-main__menu-second">
          
           <li><a class="nav-main__menu-second-link" href="/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/" title="Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế">Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</a></li>
@@ -149,7 +157,7 @@
             </div>
             <div class="col-12">
             <div class="homepage-service-list">
-                <div class="thumb-img"><img src="/images/assets/images/img-service.jpg" alt=""></div>
+                <div class="thumb-img"><img src="/images/assets/img-service.jpg" alt=""></div>
                 <div class="list-service">
 
                             <ul>
@@ -190,7 +198,7 @@
 
                                 <li class="" style="display:none"><a href="/dich-vu/cung-cap-dich-vu-xin-phep-nhap-canh-vao-viet-nam/" title="Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam">Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</a></li>
 
-                            </ul><a class="btn-viewall" href="/dich-vu/" title="Xem tất cả"><span>Xem tất cả</span><span><img src="/images/assets/images/icon/icon-view-all.png" alt=""></span></a>
+                            </ul><a class="btn-viewall" href="/dich-vu/" title="Xem tất cả"><span>Xem tất cả</span><span><img src="/images/assets/icon/icon-view-all.png" alt=""></span></a>
 
                         </div>
             </div>
@@ -204,7 +212,7 @@
     <div class="row">
       <div class="col-12">
         <div class="homepage-item-about">
-          <div class="thumb-about"><img src="/images/assets/images/img-about-us.jpg" alt=""></div>
+          <div class="thumb-about"><img src="/images/assets/img-about-us.jpg" alt=""></div>
           <div class="homepage-about-content">
           
             <h3> <span>Về Hinh Lam</span></h3>
@@ -221,11 +229,11 @@
     <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="list-logo"><div class="item-logo"><img src="/images/assets/images/logo-doi-tac-hinh-lam.jpg" alt="" /></div>
-<div class="item-logo"><img src="/images/assets/images/logo-doi-tac-hinh-lam.jpg" alt="" /></div>
-<div class="item-logo"><img src="/images/assets/images/logo-doi-tac-hinh-lam.jpg" alt="" /></div>
-<div class="item-logo"><img src="/images/assets/images/logo-doi-tac-hinh-lam.jpg" alt="" /></div>
-<div class="item-logo"><img src="/images/assets/images/logo-doi-tac-hinh-lam.jpg" alt="" /></div></div>
+            <div class="list-logo"><div class="item-logo"><img src="/images/assets/logo-doi-tac-hinh-lam.jpg" alt="" /></div>
+<div class="item-logo"><img src="/images/assets/logo-doi-tac-hinh-lam.jpg" alt="" /></div>
+<div class="item-logo"><img src="/images/assets/logo-doi-tac-hinh-lam.jpg" alt="" /></div>
+<div class="item-logo"><img src="/images/assets/logo-doi-tac-hinh-lam.jpg" alt="" /></div>
+<div class="item-logo"><img src="/images/assets/logo-doi-tac-hinh-lam.jpg" alt="" /></div></div>
           </div>
         </div>
     </div>
@@ -311,7 +319,7 @@
             <div class="homepage-items-news">
               <div class="thumb-img"><a class="link-news-detail" href="/tin-tuc/bhxh-viet-nam-trien-khai-dang-ky-giao-dich-dien-tu-cho-ca-nhan-duoi-18-tuoi-chua-co-cmnd-cccd.html" title="BHXH Việt Nam: Triển khai đăng ký giao dịch điện tử cho cá nhân dưới 18 tuổi chưa có CMND, CCCD"><img src="/images/2021/angiang-phucvu.png" alt="BHXH Việt Nam: Triển khai đăng ký giao dịch điện tử cho cá nhân dưới 18 tuổi chưa có CMND, CCCD" /></a></div>
               <div class="summary-news"><a href="/tin-tuc/bhxh-viet-nam-trien-khai-dang-ky-giao-dich-dien-tu-cho-ca-nhan-duoi-18-tuoi-chua-co-cmnd-cccd.html" title="BHXH Việt Nam: Triển khai đăng ký giao dịch điện tử cho cá nhân dưới 18 tuổi chưa có CMND, CCCD">BHXH Việt Nam: Triển khai đăng ký giao dịch điện tử cho cá nhân dưới 18 tuổi chưa có CMND, CCCD</a>
-              <a class="d-flex btn-news-details" href="/tin-tuc/bhxh-viet-nam-trien-khai-dang-ky-giao-dich-dien-tu-cho-ca-nhan-duoi-18-tuoi-chua-co-cmnd-cccd.html" title="Xem thêm"><span>Xem thêm</span><span> <img src="/images/assets/images/icon/arrow-detail-news.png" alt=""></span></a></div>
+              <a class="d-flex btn-news-details" href="/tin-tuc/bhxh-viet-nam-trien-khai-dang-ky-giao-dich-dien-tu-cho-ca-nhan-duoi-18-tuoi-chua-co-cmnd-cccd.html" title="Xem thêm"><span>Xem thêm</span><span> <img src="/images/assets/icon/arrow-detail-news.png" alt=""></span></a></div>
             </div>
           </div>
         
@@ -319,7 +327,7 @@
             <div class="homepage-items-news">
               <div class="thumb-img"><a class="link-news-detail" href="/tin-tuc/nghiem-cam-viec-nhan-ho-tro-tu-don-vi-duoc-kiem-toan.html" title="Nghiêm cấm việc nhận hỗ trợ từ đơn vị được kiểm toán"><img src="/images/2021/chi-phi-ban-hang.png" alt="Nghiêm cấm việc nhận hỗ trợ từ đơn vị được kiểm toán" /></a></div>
               <div class="summary-news"><a href="/tin-tuc/nghiem-cam-viec-nhan-ho-tro-tu-don-vi-duoc-kiem-toan.html" title="Nghiêm cấm việc nhận hỗ trợ từ đơn vị được kiểm toán">Nghiêm cấm việc nhận hỗ trợ từ đơn vị được kiểm toán</a>
-              <a class="d-flex btn-news-details" href="/tin-tuc/nghiem-cam-viec-nhan-ho-tro-tu-don-vi-duoc-kiem-toan.html" title="Xem thêm"><span>Xem thêm</span><span> <img src="/images/assets/images/icon/arrow-detail-news.png" alt=""></span></a></div>
+              <a class="d-flex btn-news-details" href="/tin-tuc/nghiem-cam-viec-nhan-ho-tro-tu-don-vi-duoc-kiem-toan.html" title="Xem thêm"><span>Xem thêm</span><span> <img src="/images/assets/icon/arrow-detail-news.png" alt=""></span></a></div>
             </div>
           </div>
                       
@@ -349,14 +357,14 @@
 <div class="list-sp">
 <div class="d-md-flex">
 <div class="list-item">
-<div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0983204115"><span><img src="/images/assets/images/icon/icon-zalo.png" alt="" /></span><span>0983 204 115</span></a></div>
-<div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0919 724872"><span><img src="/images/assets/images/icon/icon-zalo.png" alt="" /></span><span>0919 724 872</span></a></div>
-<div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0274 6267789"><span><img src="/images/assets/images/icon/icon-phone.png" alt="" /></span><span>0274 626 77 89</span></a></div>
+<div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0983204115"><span><img src="/images/assets/icon/icon-zalo.png" alt="" /></span><span>0983 204 115</span></a></div>
+<div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0919 724872"><span><img src="/images/assets/icon/icon-zalo.png" alt="" /></span><span>0919 724 872</span></a></div>
+<div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0274 6267789"><span><img src="/images/assets/icon/icon-phone.png" alt="" /></span><span>0274 626 77 89</span></a></div>
 </div>
 <div class="list-item">
-<div class="item-sp"><a class="d-flex align-items-center" href="mailto:dailythuehinhlam@gmail.com"><span><img src="/images/assets/images/icon/icon-email.png" alt="" /></span><span>dailythuehinhlam@gmail.com</span></a></div>
-<div class="item-sp"><a class="d-flex align-items-center" href="skype:dailythue_hinhlam?chat"><span><img src="/images/assets/images/icon/icon-skype.png" alt="" /></span><span>dailythue_hinhlam</span></a></div>
-<div class="item-sp"><a class="d-flex align-items-center" href="https://api.whatsapp.com/send?phone=dailythe_hinhlam"><span><img src="/images/assets/images/icon/icon-what.png" alt="" /></span><span>dailythe_hinhlam</span></a></div>
+<div class="item-sp"><a class="d-flex align-items-center" href="mailto:dailythuehinhlam@gmail.com"><span><img src="/images/assets/icon/icon-email.png" alt="" /></span><span>dailythuehinhlam@gmail.com</span></a></div>
+<div class="item-sp"><a class="d-flex align-items-center" href="skype:dailythue_hinhlam?chat"><span><img src="/images/assets/icon/icon-skype.png" alt="" /></span><span>dailythue_hinhlam</span></a></div>
+<div class="item-sp"><a class="d-flex align-items-center" href="https://api.whatsapp.com/send?phone=dailythe_hinhlam"><span><img src="/images/assets/icon/icon-what.png" alt="" /></span><span>dailythe_hinhlam</span></a></div>
 </div>
 </div>
 </div>
@@ -386,7 +394,7 @@
 
 <div class="vf_block">	 
 	  
-	  <p><a href="https://www.facebook.com/Hinhlamtaxingaccouting/?ref=pages_you_manage" target="_blank" title="facebook"><img src="/images/assets/images/icon/icon-facebook.png" alt="facebook" /></a></p>
+	  <p><a href="https://www.facebook.com/Hinhlamtaxingaccouting/?ref=pages_you_manage" target="_blank" title="facebook"><img src="/images/assets/icon/icon-facebook.png" alt="facebook" /></a></p>
 </div>	
               
             </div>
