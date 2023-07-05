@@ -17571,19 +17571,19 @@ header {
     header .logo {
         display: inline-block;
         vertical-align: middle;
-        height: 83px;
-        width: 65px
+        height: 120%;
+        width: 50%;
+        margin-top:23px;
     }
 
         header .logo img {
-            max-width: 100%;
-            max-height: 100%
+            max-width: 150%;
+            max-height: 150%
         }
 
     header .header-top {
         height: 115px;
         padding-right: 160px;
-        border-right: 1px solid #fff;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
