@@ -27,7 +27,7 @@ namespace HinhLam_Dev
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Service}/{id?}");
+                pattern: "{controller=Home}/{action=News}/{id?}");
 
             app.Run();
         }
