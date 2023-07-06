@@ -25,10 +25,23 @@ namespace HinhLam_Dev
 
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=News}/{id?}");
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "en",
+                    pattern: "en/{controller=Home}/{action=Home}/{id?}"
+                );
 
+                endpoints.MapControllerRoute(
+                    name: "cn",
+                    pattern: "cn/{controller=Home}/{action=Home}/{id?}"
+                );
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Home}/{id?}"
+                );
+            });
             app.Run();
         }
     }
