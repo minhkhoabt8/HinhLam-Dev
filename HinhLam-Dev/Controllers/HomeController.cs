@@ -13,13 +13,23 @@ namespace HinhLam_Dev.Controllers
             _logger = logger;
         }
 
-        //[HttpGet("/trang-chu")]
+        
         public IActionResult Home()
         {
             return View();
         }
 
-       
-       
+        [HttpGet("/cn/", Name = "HomeCN")]
+        public IActionResult HomeCN()
+        {
+            return View("Home-cn");
+        }
+
+        [HttpGet("/en/", Name = "HomeEN")]
+        public IActionResult HomeEN()
+        {
+            return View("Home-en");
+        }
+
     }
 }
