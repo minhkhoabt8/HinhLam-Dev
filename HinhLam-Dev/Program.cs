@@ -29,17 +29,17 @@ namespace HinhLam_Dev
             {
                 endpoints.MapControllerRoute(
                     name: "en",
-                    pattern: "en/{controller=Home}/{action=Home}/{id?}"
+                    pattern: "en/{controller=Home}/{action=Home}"
                 );
 
                 endpoints.MapControllerRoute(
                     name: "cn",
-                    pattern: "cn/{controller=Home}/{action=Home}/{id?}"
+                    pattern: "cn/{controller=Home}/{action=Home}"
                 );
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Home}/{id?}"
+                    pattern: "{controller=Home}/{action=Home}"
                 );
             });
             app.Run();
