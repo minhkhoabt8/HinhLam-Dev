@@ -17560,7 +17560,7 @@ img {
 
 header {
     height: 115px;
-    background: #2856a3;
+    background: #ffff;
     position: fixed;
     left: 0;
     right: 0;
@@ -17801,7 +17801,7 @@ header .nav-main {
         }
 
 .nav-main__menu-link {
-    color: #fff;
+    color: #2856a3;
     padding: 20px 0;
     display: block;
     text-decoration: none;
