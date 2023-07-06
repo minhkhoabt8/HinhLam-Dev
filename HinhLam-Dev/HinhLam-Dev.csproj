@@ -12,6 +12,14 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HinhLam-Infrastructure\HinhLam-Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\cvs\" />
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties wwwroot_4themes_4vip_4assets_4images_4manifest_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

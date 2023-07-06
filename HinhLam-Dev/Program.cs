@@ -1,3 +1,5 @@
+using HinhLam_Dev.Extensions;
+
 namespace HinhLam_Dev
 {
     public class Program
@@ -8,6 +10,8 @@ namespace HinhLam_Dev
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddBusinessServices();
+
 
             var app = builder.Build();
 

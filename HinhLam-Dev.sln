@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HinhLam-Dev", "HinhLam-Dev\HinhLam-Dev.csproj", "{F8B67278-252A-424B-9CBF-BAAB3976486D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HinhLam-Dev", "HinhLam-Dev\HinhLam-Dev.csproj", "{F8B67278-252A-424B-9CBF-BAAB3976486D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HinhLam-DataObject", "HinhLam-DataObject\HinhLam-DataObject.csproj", "{051EA556-9A66-46CF-9BE5-D7F70440A142}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HinhLam-Infrastructure", "HinhLam-Infrastructure\HinhLam-Infrastructure.csproj", "{931D78ED-357E-40A6-988D-61AA14D48D6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F8B67278-252A-424B-9CBF-BAAB3976486D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8B67278-252A-424B-9CBF-BAAB3976486D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8B67278-252A-424B-9CBF-BAAB3976486D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{051EA556-9A66-46CF-9BE5-D7F70440A142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051EA556-9A66-46CF-9BE5-D7F70440A142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051EA556-9A66-46CF-9BE5-D7F70440A142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051EA556-9A66-46CF-9BE5-D7F70440A142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{931D78ED-357E-40A6-988D-61AA14D48D6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{931D78ED-357E-40A6-988D-61AA14D48D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{931D78ED-357E-40A6-988D-61AA14D48D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{931D78ED-357E-40A6-988D-61AA14D48D6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Tuyển dụng";
+﻿@page "/lien-he"
+@{
+
     Layout = null;
 }
 
@@ -11,13 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/themes/vip/css/style.css" type="text/css" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Tuyển dụng" />
-    <title>Tuyển dụng</title>
+    <title>Liên hệ</title>
     <meta name="generator" content="vFramework 1.10.0 (https://vipcom.vn)" />
     <meta name="robots" content="index, follow">
     <meta name="author" content="">
-
+    <link rel="icon" type="image/gif" href="/images/assets/newlogo.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;600;700&amp;display=swap" rel="stylesheet">
     <link rel="manifest" href="/themes/vip/assets/images/manifest.json">
@@ -45,11 +44,11 @@
 
                     <div class="language">
 
-                        <a href="/tuyen-dung/"><img src="/themes/vip/img/flag-vn.png"></a>
+                        <a href="/lien-he/"><img src="/themes/vip/img/flag-vn.png"></a>
 
-                        <a href="/en/careers/"><img src="/themes/vip/img/flag-en.png"></a>
+                        <a href="/en/contact/"><img src="/themes/vip/img/flag-en.png"></a>
 
-                        <a href="/cn/careers-chinese/"><img src="/themes/vip/img/flag-cn.png"></a>
+                        <a href="/cn/contact-chinese/"><img src="/themes/vip/img/flag-cn.png"></a>
 
                     </div>
 
@@ -135,7 +134,7 @@
 
     <div class="section-banner">
 
-        <img src="/images/b/banner-inner_3.jpg" alt="" class="banner-desktop">
+        <img src="/images/b/banner-inner_4.jpg" alt="" class="banner-desktop">
 
         <div class="container">
             <div class="row">
@@ -155,117 +154,67 @@
 
         <a href="/">Trang chủ</a>
 
-        <span>Tuyển dụng</span>
+        <span>Liên hệ</span>
 
     </div>
 
-    <div class="pageTitle hidden">Tuyển dụng</div>
-
-    <div class="section-main">
+    <div class="pageTitle hidden">Liên hệ</div>
+    <div class="section-contact-page">
         <div class="container">
+            <div class="row information-block">
+                <div class="col-12">
 
-            <div class="row">
-                <div class="col-12 col-md-10 ml-auto mr-auto">
-                    <div class="heading-page"><div class="d-md-flex"><h3 class="w-100">Tuyển dụng</h3></div></div>
+                    <h3>CÔNG TY TNHH DỊCH VỤ TƯ VẤN THUẾ HINH LAM</h3>
+                    <p> <strong>Địa chỉ:</strong>Số 40 đường N5, KDC Dịch vụ Tân Bình, Phường Tân Bình, Thành Phố Dĩ An, Tỉnh Bình Dương</p>
+                    <p> <strong>Điện thoại:</strong>0983 204 115</p>
+                    <p> <strong>Email: </strong><a href="mailto:dailythuehinhlam@gmail.com, elena.nguyen@hinhlam.com">dailythuehinhlam@gmail.com, elena.nguyen@hinhlam.com</a></p>
+                    <p><strong>Mã số thuế</strong>: <span>3702862785</span></p>
+                    <p><strong>Fanpage</strong>: <a href="https://www.facebook.com/Hinhlamtaxingaccouting/?ref=pages_you_manage" target="_blank">Công ty TNHH Dịch Vụ Tư Vấn Thuế Hinh Lam</a></p>
+
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-10 ml-auto mr-auto">
-                   @* <div class="detail-content"><p>Hiện tại chúng tôi chưa có nhu cầu Tuyển Dụng. Xin hẹn gặp lại các bạn vào đợt tuyển dụng sau.</p></div>*@
+                <div class="col-12 col-md-6">
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1958.7183288660144!2d106.77205000817435!3d10.930350998054298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d98f4046eadb%3A0xfe7a4a590aed137!2zQ8O0bmcgVHkgVE5ISCBE4buLY2ggVuG7pSBUxrAgVuG6pW4gVGh14bq_IEhpbmggTGFt!5e0!3m2!1sen!2s!4v1617885215307!5m2!1sen!2s" width="100%" height="625" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                </div>
+                <div class="col-12 col-md-6">
+                    <a id="formcontacts"></a>
+
+
                     <form class="frm-contact" name="cartform" method="POST" action="#formcontacts" ENCTYPE="multipart/form-data">
-                       
-                            <div class="container h-100">
-                                <div class="row d-flex justify-content-center align-items-center h-100">
-                                    <div class="col-xl-9">
-
-                                        <div class="card" style="border-radius: 15px;">
-                                            <div class="card-body">
-
-                                                <div class="row align-items-center pt-4 pb-3">
-                                                    <div class="col-md-3 ps-5">
-
-                                                        <h6 class="mb-0">Họ và tên</h6>
-
-                                                    </div>
-                                                    <div class="col-md-9 pe-5">
-
-                                                        <input type="text" class="form-control form-control-lg" />
-
-                                                    </div>
-                                                </div>
-
-                                                <hr class="mx-n3">
-
-                                                <div class="row align-items-center py-3">
-                                                    <div class="col-md-3 ps-5">
-
-                                                        <h6 class="mb-0">Email *</h6>
-
-                                                    </div>
-                                                    <div class="col-md-9 pe-5">
-
-                                                        <input type="email" class="form-control form-control-lg" placeholder="vd: abc@hinhlam.com" required />
-
-                                                    </div>
-                                                </div>
-
-                                                <hr class="mx-n3">
-
-                                                <div class="row align-items-center py-3">
-                                                    <div class="col-md-3 ps-5">
-
-                                                        <h6 class="mb-0">Số điện thoại *</h6>
-
-                                                    </div>
-                                                    <div class="col-md-9 pe-5">
-
-                                                        <input type="number" class="form-control form-control-lg" required />
-
-                                                    </div>
-                                                </div>
-
-                                                <hr class="mx-n3">
-
-                                                <div class="row align-items-center py-3">
-                                                    <div class="col-md-3 ps-5">
-
-                                                        <h6 class="mb-0">Hồ sơ xin việc</h6>
-
-                                                    </div>
-                                                    <div class="col-md-9 pe-5">
-                                                    <label for="imageUpload" class="form-control form-control-lg">Chọn tệp (.pdf*)</label>
-                                                    <input class="form-control form-control-lg" id="imageUpload" type="file" style="display: none" accept="application/pdf" />
-                                                        <div class="small text-muted mt-2">
-                                                        Tải lên Hồ sơ/Bản tóm tắt của bạn hoặc bất kỳ tệp nào có liên quan.
-                                                        Kích thước tối đa 50 MB
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                                <hr class="mx-n3">
-
-                                            <div class="px-5 py-4" style="display: flex;
-                                                                    align-items: center;
-                                                                    justify-content: center">
-                                                    <button type="submit" class="btn btn-primary btn-lg">Gửi đơn</button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                        <input type="hidden" name="submit" value="1" />
+                        <div class="form-group">
+                            <label for="fullname">Họ tên *</label>
+                            <input class="form-control" type="text" name="fullname" id="fullname" placeholder="" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Công ty</label>
+                            <input class="form-control" type="text" name="company" id="company" placeholder="" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input class="form-control" type="text" name="email" id="email" placeholder="" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Điện thoại</label>
+                            <input class="form-control" type="text" name="telephone" id="telephone" placeholder="" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Nội dung</label>
+                            <textarea class="form-control" name="content" id="content" rows="5"></textarea>
+                        </div>
+                        <div class="actions">
+                            <input class="btn-submit" type="submit" value="Gửi">
+                        </div>
                     </form>
 
-
                 </div>
             </div>
-
         </div>
     </div>
-    <footer id="footer" style="margin-top: 80px">
+    <footer id="footer">
         <div class="container">
             <div class="row hightlight">
                 <div class="col-12 col-md-6">
@@ -357,4 +306,3 @@
 
 </body>
 </html>
-
