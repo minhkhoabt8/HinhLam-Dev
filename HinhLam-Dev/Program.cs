@@ -45,6 +45,9 @@ namespace HinhLam_Dev
                     name: "default",
                     pattern: "{controller=Home}/{action=Home}"
                 );
+
+
+                
             });
             app.Run();
         }

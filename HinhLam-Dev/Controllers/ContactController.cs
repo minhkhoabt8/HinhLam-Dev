@@ -9,5 +9,17 @@ namespace HinhLam_Dev.Controllers
         {
             return View();
         }
+
+        [HttpGet("/cn/contact-chinese/", Name = "ContactCN")]
+        public IActionResult HomeCN()
+        {
+            return View("Contact-cn");
+        }
+
+        [HttpGet("/en/contact/", Name = "ContactEN")]
+        public IActionResult HomeEN()
+        {
+            return View("Contact-en");
+        }
     }
 }

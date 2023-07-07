@@ -22,5 +22,11 @@ namespace HinhLam_Dev.Controllers
         {
             return View("Service-en");
         }
+
+        [HttpGet("/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/", Name = "ServiceDetailsEN")]
+        public IActionResult ServiceDetailsEN()
+        {
+            return View("ServiceDetails");
+        }
     }
 }

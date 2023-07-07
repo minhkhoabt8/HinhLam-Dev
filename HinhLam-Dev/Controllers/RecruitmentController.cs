@@ -9,5 +9,16 @@ namespace HinhLam_Dev.Controllers
         {
             return View();
         }
+
+        [HttpGet("/en/careers/", Name = "Recruitment-chinese")]
+        public IActionResult RecruitmentEN()
+        {
+            return View("Recruitment-en");
+        }
+        [HttpGet("/cn/careers-chinese/", Name = "Recruitment")]
+        public IActionResult RecruitmentCN()
+        {
+            return View("Recruitment-cn");
+        }
     }
 }
