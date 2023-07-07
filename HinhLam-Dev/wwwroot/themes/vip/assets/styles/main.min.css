@@ -13033,7 +13033,8 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .ion-ios-arrow-down:before {
-    content: "\f3d0"
+    content: "\f3d0";
+    color: #2856a3;
 }
 
 .ion-ios-arrow-dropdown:before {

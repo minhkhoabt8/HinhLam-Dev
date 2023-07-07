@@ -13,13 +13,14 @@ namespace HinhLam_DataObject.Model
     [Table("Menu")]
     public class Menu
     {
-        [Key]
-        [MaxLength(50)]
-        public string MiD { get; set; } = Guid.NewGuid().ToString();
-        [Required]
-        [Column(TypeName = "nvarchar")]
-        [MaxLength(100)]
+        [Key][MaxLength(50)]
+        public string MenuId { get; set; } = Guid.NewGuid().ToString();
+        [Required][Column(TypeName = "nvarchar")][MaxLength(100)]
         public string MenuName { get; set; }
+        [Required][Column(TypeName = "nvarchar")][MaxLength(100)]
+        public string MenuNameCN { get; set; }
+        [Required][Column(TypeName = "nvarchar")][MaxLength(100)]
+        public string MenuNameEN { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public bool Status { get; set; } = true;
         public virtual ICollection<MenuSubMenu> MenuSubMenu { get; set; }

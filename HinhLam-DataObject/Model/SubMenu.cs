@@ -9,17 +9,16 @@ namespace HinhLam_DataObject.Model
     [Table("SubMenu")]
     public class SubMenu
     {
-        [Key]
-        [MaxLength(50)]
+        [Key][MaxLength(50)]
         public string SubMenuID { get; set; } = Guid.NewGuid().ToString();
-        [Required]
-        [Column(TypeName = "nvarchar")]
-        [MaxLength(100)]
+        [Required][Column(TypeName = "nvarchar")][MaxLength(100)]
         public string Title { get; set; }
-        [Column(TypeName = "ntext")]
+        [Required][Column(TypeName = "nvarchar")][MaxLength(100)]
+        public string TitleEN { get; set; }
+        [Required][Column(TypeName = "nvarchar")][MaxLength(100)]
+        public string TitleCN { get; set; }
+        [Column(TypeName = "ntext")][MaxLength(100)]
         public string Description { get; set; }
-        [Column(TypeName = "nvarchar")]
-        public string FilePath { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public bool Status { get; set; } = true;
 
