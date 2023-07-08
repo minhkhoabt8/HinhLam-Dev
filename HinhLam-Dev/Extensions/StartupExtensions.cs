@@ -1,6 +1,7 @@
 ﻿using HinhLam_DataObject.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using System.Reflection;
 
 namespace HinhLam_Dev.Extensions
 {
@@ -9,20 +10,22 @@ namespace HinhLam_Dev.Extensions
        
         public static void AddBusinessServices(this IServiceCollection services)
         {
-            //services.AddScoped<IUserServices, UserServices>();
-            //services.AddScoped<IMailService, MailService>();
-            //services.AddScoped<IContentService, ContentService>();
-            //services.AddScoped<IMenuService, MenuService>();
-            //services.AddScoped<ISubMenuService, SubMenuService>();
-            //services.AddScoped<IRoleService, RoleService>();
+            
         }
-        public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+
+        public static void AddRepositories(this IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString")));
 
+        }
+            public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
+        {
 
-            // Other services configuration...
+            services.AddDbContext<ApplicationDbContext>(opt =>
+            {
+                opt.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString"),
+                    b => b.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name)
+                );
+            });
         }
     }
 }
