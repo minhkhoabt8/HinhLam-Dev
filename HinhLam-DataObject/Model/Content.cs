@@ -19,6 +19,7 @@ namespace HinhLam_DataObject.Model
         public string ContentsCN { get; set; }
         [Required][Column(TypeName = "ntext")]
         public string ContentsEN { get; set; }
+        public int ContentCount { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public bool Status { get; set; } = true;
         public virtual ICollection<SubMenuContent> SubMenuContent { get; set; }

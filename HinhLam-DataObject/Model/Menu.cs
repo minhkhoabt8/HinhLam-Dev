@@ -21,6 +21,7 @@ namespace HinhLam_DataObject.Model
         public string MenuNameCN { get; set; }
         [Required][Column(TypeName = "nvarchar")][MaxLength(100)]
         public string MenuNameEN { get; set; }
+        public int MenuCount { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public bool Status { get; set; } = true;
         public virtual ICollection<MenuSubMenu> MenuSubMenu { get; set; }
