@@ -1,12 +1,15 @@
+using AutoMapper;
 using HinhLam_Dev.Extensions;
-
+using HinhLam_Infrastructure.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddBusinessServices();
+builder.Services.AddRepositories();
 builder.Services.AddDbContext(builder.Configuration);
+builder.Services.AddAutoMapper();
 
 var app = builder.Build();
 
