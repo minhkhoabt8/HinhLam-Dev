@@ -48,6 +48,9 @@ namespace HinhLam_DataObject.DataAccess
                 b.Property(e => e.MenuName).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
                 b.Property(e => e.MenuNameCN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
                 b.Property(e => e.MenuNameEN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                b.Property(e => e.HrefLink).HasColumnType("nvarchar").HasMaxLength(100);
+                b.Property(e => e.HrefLinkCN).HasColumnType("nvarchar").HasMaxLength(100);
+                b.Property(e => e.HrefLinkEN).HasColumnType("nvarchar").HasMaxLength(100);
                 b.Property(e => e.MenuCount).HasColumnType("int");
 
                 b.HasMany(e => e.MenuSubMenu)

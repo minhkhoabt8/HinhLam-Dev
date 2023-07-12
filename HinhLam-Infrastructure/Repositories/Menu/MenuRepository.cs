@@ -24,7 +24,7 @@ namespace HinhLam_Infrastructure.Repositories.Menu
 
         public List<HinhLam_DataObject.Model.Menu> GetAllMenu()
         {
-            return _context.Menu.ToList();
+            return _context.Menu.OrderBy(m=>m.MenuCount).ToList();
         }
 
         public HinhLam_DataObject.Model.Menu? GetMenuById(string id)
