@@ -3,80 +3,12 @@
 @using HinhLam_DataObject.ViewModels;
 @{
     ViewData["Title"] = "Services";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutEN.cshtml";
 }
 
 <body class="lang-en">
     <noscript>JavaScript is off. Please enable to view full site.</noscript>
-    <header id="header">
-        <div class="container">
-            <div class="header-top">
-                <a class="logo" href="/" title="Công ty TNHH Dịch Vụ Tư Vấn Thuế Hinh Lam"><img alt="Công ty TNHH Dịch Vụ Tư Vấn Thuế Hinh Lam" src="\images\assets\newlogo.png"></a><a class="hamburger-menu" data-toggle-menu data-toggle-target="#menuWrapper" data-toggle-accordion="false" href="javascript:void(0);" title="Menu"><span><span></span><span></span></span><span><span></span><span></span></span><span><span></span><span></span></span></a>
-            </div>
-            <div class="header-bottom">
-                <nav class="nav-main" id="menuWrapper">
-
-                    <div class="language">
-
-                        <a href="/"><img src="/themes/vip/img/flag-vn.png"></a>
-
-                        <a href="/en/"><img src="/themes/vip/img/flag-en.png"></a>
-
-                        <a href="/cn/"><img src="/themes/vip/img/flag-cn.png"></a>
-
-                    </div>
-
-                    <ul class="nav-main__menu">
-
-                        <li>
-                            <a class="nav-main__menu-link" href="/" title="Trang chủ">Trang chủ</a>
-
-                        </li>
-
-                        <li>
-                            <a class="nav-main__menu-link" href="/gioi-thieu/" title="Giới thiệu">Giới thiệu</a>
-
-                        </li>
-
-                        <li>
-                            <a class="nav-main__menu-link" href="/dich-vu/" title="Dịch vụ">Dịch vụ</a>
-
-                            <span class="ion ion-ios-arrow-down">
-
-                            </span>
-                            <ul class="nav-main__menu-second">
-
-                                @foreach (var menuItem in Model)
-                                {
-                                    <li><a class="nav-main__menu-second-link" href="@menuItem.HrefLink" title="@menuItem.MenuName">@menuItem.MenuName</a></li>
-                                }
-
-                            </ul>
-
-                        </li>
-
-                        <li>
-                            <a class="nav-main__menu-link" href="/tin-tuc/" title="Tin tức">Tin tức</a>
-
-                        </li>
-
-                        <li>
-                            <a class="nav-main__menu-link" href="/tuyen-dung/" title="Tuyển dụng">Tuyển dụng</a>
-
-                        </li>
-
-                        <li>
-                            <a class="nav-main__menu-link" href="/lien-he/" title="Liên hệ">Liên hệ</a>
-
-                        </li>
-
-                    </ul>
-
-                </nav>
-            </div>
-        </div>
-    </header>
-
+   
     <div class="section-banner-homepage">
         <ul>
 
@@ -87,7 +19,7 @@
             <li><img src="/images/b/ke-toan-hinh-lam-b5.jpg" alt=""></li>
 
             <li><img src="/images/b/ke-toan-hinh-lam-b6.jpg" alt=""></li>
-
+        </ul>
     </div>
 
 
@@ -105,12 +37,17 @@
                 <div class="col-12">
                     <div class="homepage-service-list">
                         <div class="thumb-img">
-                            <img src="/images/2021/img-service-1_9.jpg" />
+                            <img src="/images/assets/img-service.jpg" alt="" />
                         </div>
                         <div class="list-service">
 
                             <ul>
+                                @for (int i = 0; i < 6; i++)
+                                {
+                                    <li class="acitve-items" style=""><a href="@Model.ElementAt(i).HrefLinkEN" title="@Model.ElementAt(i).MenuNameEN">@Model.ElementAt(i).MenuNameEN</a></li>
 
+                                }
+@*                              
                                 <li class="acitve-items" style=""><a href="/en/services/troubleshooting-accounting-books/" title="Troubleshooting accounting books">Troubleshooting accounting books</a></li>
 
                                 <li class="" style=""><a href="/en/services/providing-complete-package-accounting-service/" title="Providing complete-package accounting service">Providing complete-package accounting service</a></li>
@@ -146,7 +83,7 @@
                                 <li class="" style="display:none"><a href="/en/services/apply-for-replacement-drivers-license-for-foreigners/" title="Apply for replacement driver's licenses for foreigners">Apply for replacement driver's licenses for foreigners</a></li>
 
                                 <li class="" style="display:none"><a href="/en/services/providing-services-of-applying-for-entry-to-vietnam/" title="Providing services of applying for entry permits to Vietnam.">Providing services of applying for entry permits to Vietnam.</a></li>
-
+*@
                             </ul><a class="btn-viewall" href="/en/services/" title="View All"><span>View All</span><span><img src="/images/assets/images/icon/icon-view-all.png" alt=""></span></a>
 
                         </div>

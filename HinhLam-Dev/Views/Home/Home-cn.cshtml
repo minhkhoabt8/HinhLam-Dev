@@ -3,7 +3,7 @@
 @using HinhLam_DataObject.ViewModels;
 @{
     ViewData["Title"] = "Services";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutCN.cshtml";
 }
 
 
@@ -43,7 +43,12 @@
                         <div class="list-service">
 
                             <ul>
+                                @for (int i = 0; i < 6; i++)
+                                {
+                                    <li class="acitve-items" style=""><a href="@Model.ElementAt(i).HrefLinkCN" title="@Model.ElementAt(i).MenuNameCN">@Model.ElementAt(i).MenuNameCN</a></li>
 
+                                }
+@*
                                 <li class="acitve-items" style=""><a href="/cn/services-chinese/troubleshooting-accounting-books-chinese/" title="會計賬簿、會計服務、退稅等故障排除">會計賬簿、會計服務、退稅等故障排除</a></li>
 
                                 <li class="" style=""><a href="/cn/services-chinese/providing-complete-package-accounting-service/" title="提供全套的會計服務">提供全套的會計服務</a></li>
@@ -79,7 +84,7 @@
                                 <li class="" style="display:none"><a href="/cn/services-chinese/apply-for-replacement-drivers-license-for-foreigners/" title="為外國人申請駕駛證">為外國人申請駕駛證</a></li>
 
                                 <li class="" style="display:none"><a href="/cn/services-chinese/providing-services-of-applying-for-entry-to-vietnam/" title="提供申請越南入境許可的服務">提供申請越南入境許可的服務</a></li>
-
+*@
                             </ul><a class="btn-viewall" href="/cn/services-chinese/" title="Xem tất cả"><span>Xem tất cả</span><span><img src="/images/assets/images/icon/icon-view-all.png" alt=""></span></a>
 
                         </div>

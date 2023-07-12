@@ -26,13 +26,15 @@ namespace HinhLam_Dev.Controllers
         [HttpGet("/cn/", Name = "HomeCN")]
         public IActionResult HomeCN()
         {
-            return View("Home-cn");
+            var result = _menuService.GetAllMenu();
+            return View("Home-cn", result);
         }
 
         [HttpGet("/en/", Name = "HomeEN")]
         public IActionResult HomeEN()
         {
-            return View("Home-en");
+            var result = _menuService.GetAllMenu();
+            return View("Home-en", result);
         }
 
     }

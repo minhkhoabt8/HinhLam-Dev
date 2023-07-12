@@ -12,7 +12,9 @@ namespace HinhLam_DataObject.ViewModels
         public string MenuNameCN { get; set; }
         public DateTime CreatedDate { get; set; }
         public int MenuCount { get; set; }
-        public string HrefLink { get; set; }    
+        public string HrefLink { get; set; }
+        public string HrefLinkEN { get; set; }
+        public string HrefLinkCN { get; set; }
         public bool Status { get; set; }
     }
 
