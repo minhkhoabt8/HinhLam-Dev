@@ -13,5 +13,6 @@ namespace HinhLam_Infrastructure.Repositories.SubMenu
         void Remove(HinhLam_DataObject.Model.SubMenu menu);
         void Create(HinhLam_DataObject.Model.SubMenu menu);
         void Update(HinhLam_DataObject.Model.SubMenu menu);
+        HinhLam_DataObject.Model.SubMenu GetSubMenuWithContentOfMenu(string menu);
     }
 }

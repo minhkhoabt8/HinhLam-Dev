@@ -30,6 +30,11 @@ namespace HinhLam_Infrastructure.Services.SubMenu
             throw new NotImplementedException();
         }
 
+        public SubMenuInfoModel GetContentOfMenu(string menu)
+        {
+            throw new NotImplementedException();
+        }
+
         public SubMenuInfoModel GetSubMenuById(string id)
         {
             throw new NotImplementedException();

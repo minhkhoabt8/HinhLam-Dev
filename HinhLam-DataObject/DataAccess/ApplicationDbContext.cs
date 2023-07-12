@@ -26,6 +26,8 @@ namespace HinhLam_DataObject.DataAccess
                 b.Property(e => e.ContentID).HasMaxLength(50);
 
                 b.Property(e => e.Title).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                b.Property(e => e.TitleEN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                b.Property(e => e.TitleCN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
                 b.Property(e => e.Contents).HasColumnType("ntext").IsRequired();
                 b.Property(e => e.ContentsCN).HasColumnType("ntext").IsRequired();
                 b.Property(e => e.ContentsEN).HasColumnType("ntext").IsRequired();
@@ -73,6 +75,8 @@ namespace HinhLam_DataObject.DataAccess
                 b.Property(e => e.TitleEN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
                 b.Property(e => e.TitleCN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
                 b.Property(e => e.Description).HasColumnType("ntext").HasMaxLength(100);
+                b.Property(e => e.DescriptionEN).HasColumnType("ntext").HasMaxLength(100);
+                b.Property(e => e.DescriptionCN).HasColumnType("ntext").HasMaxLength(100);
                 b.Property(e => e.SubMenuCount).HasColumnType("int");
 
                 b.HasMany(e => e.MenuSubMenu)

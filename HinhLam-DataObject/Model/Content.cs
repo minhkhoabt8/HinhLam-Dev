@@ -13,6 +13,12 @@ namespace HinhLam_DataObject.Model
         public string ContentID { get; set; } = Guid.NewGuid().ToString();
         [Column(TypeName = "nvarchar")][MaxLength(100)]
         public string Title { get; set; }
+        [Column(TypeName = "nvarchar")]
+        [MaxLength(100)]
+        public string TitleCN { get; set; }
+        [Column(TypeName = "nvarchar")]
+        [MaxLength(100)]
+        public string TitleEN { get; set; }
         [Required][Column(TypeName = "ntext")]
         public string Contents { get; set; }
         [Required][Column(TypeName = "ntext")]

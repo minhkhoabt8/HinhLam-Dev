@@ -19,6 +19,12 @@ namespace HinhLam_DataObject.Model
         public string TitleCN { get; set; }
         [Column(TypeName = "ntext")][MaxLength(100)]
         public string Description { get; set; }
+        [Column(TypeName = "ntext")]
+        [MaxLength(100)]
+        public string DescriptionEN { get; set; }
+        [Column(TypeName = "ntext")]
+        [MaxLength(100)]
+        public string DescriptionCN { get; set; }
         public int SubMenuCount { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public bool Status { get; set; } = true;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HinhLam_DataObject.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace HinhLam_DataObject.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
+        public List<Content> Contents { get; set; }
     }
 
     public class CreateSubMenuModel

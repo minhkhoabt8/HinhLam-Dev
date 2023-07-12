@@ -31,6 +31,11 @@ namespace HinhLam_Infrastructure.Services.Menu
             return _mapper.Map<List<MenuInfoModel>>(menu);
         }
 
+        public MenuInfoModel GetContentOfMenu(string menuName)
+        {
+            throw new NotImplementedException();
+        }
+
         public MenuInfoModel GetMenuById(string id)
         {
             var menu = _menuRepository.GetMenuById(id);

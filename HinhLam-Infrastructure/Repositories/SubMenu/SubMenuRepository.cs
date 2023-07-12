@@ -1,4 +1,5 @@
 ﻿using HinhLam_DataObject.DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +27,16 @@ namespace HinhLam_Infrastructure.Repositories.SubMenu
             return _context.SubMenu.ToList();
         }
 
+        
+
         public HinhLam_DataObject.Model.SubMenu? GetMenuById(string id)
         {
             return _context.SubMenu.FirstOrDefault( s => s.SubMenuID == id);
+        }
+
+        public HinhLam_DataObject.Model.SubMenu? GetSubMenuWithContentOfMenu(string menu)
+        {
+            return _context.SubMenu.Include(c => c.SubMenuContent.Select(c => c.Content)).FirstOrDefault();
         }
 
         public void Remove(HinhLam_DataObject.Model.SubMenu menu)

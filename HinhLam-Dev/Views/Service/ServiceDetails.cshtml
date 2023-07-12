@@ -1,4 +1,8 @@
-﻿@{
+﻿@model MenuInfoModel;
+@using HinhLam_Infrastructure.Services.Menu;
+@using HinhLam_DataObject.Model;
+@using HinhLam_DataObject.ViewModels;
+@{
     ViewData["Title"] = "Chi tiết";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -109,8 +113,13 @@
                         <div class="list-menu-service">
 
                             <ul>
+                                @inject IMenuService menuService;
+                                @foreach (var menuItem in menuService.GetAllMenu())
+                                {
+                                    <li><a class="nav-main__menu-second-link" href="@menuItem.HrefLink" title="@menuItem.MenuName">@menuItem.MenuName</a></li>
+                                }
 
-                                <li class="active-menu"><a href="/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/" title="Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế">Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</a></li>
+                              @*  <li class="active-menu"><a href="/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/" title="Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế">Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</a></li>
 
                                 <li class=""><a href="/dich-vu/cung-cap-dich-vu-ke-toan-tron-goi/" title="Cung cấp dịch vụ kế toán trọn gói">Cung cấp dịch vụ kế toán trọn gói</a></li>
 
@@ -145,7 +154,7 @@
                                 <li class=""><a href="/dich-vu/xin-cap-doi-giay-phep-lai-xe-cho-nguoi-nuoc-ngoai/" title="Xin cấp đổi giấy phép lái xe  cho người nước ngoài">Xin cấp đổi giấy phép lái xe  cho người nước ngoài</a></li>
 
                                 <li class=""><a href="/dich-vu/cung-cap-dich-vu-xin-phep-nhap-canh-vao-viet-nam/" title="Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam">Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</a></li>
-
+*@
                             </ul>
 
                         </div>

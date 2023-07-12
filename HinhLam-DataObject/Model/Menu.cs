@@ -33,6 +33,6 @@ namespace HinhLam_DataObject.Model
             public string HrefLinkEN { get; set; }
             public DateTime CreatedDate { get; set; } = DateTime.Now;
             public bool Status { get; set; } = true;
-        public virtual ICollection<MenuSubMenu> MenuSubMenu { get; set; }
-    }
+            public virtual ICollection<MenuSubMenu> MenuSubMenu { get; set; }
+        }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HinhLam_DataObject.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace HinhLam_DataObject.ViewModels
     {
         public string MiD { get; set; }
         public string MenuName { get; set; }
-        public string MenuNameEN { get;set; }
+        public string MenuNameEN { get; set; }
         public string MenuNameCN { get; set; }
         public DateTime CreatedDate { get; set; }
         public int MenuCount { get; set; }
@@ -16,6 +17,7 @@ namespace HinhLam_DataObject.ViewModels
         public string HrefLinkEN { get; set; }
         public string HrefLinkCN { get; set; }
         public bool Status { get; set; }
+        public List<SubMenu> SubMenus { get; set; }
     }
 
     public class CreateMenuModel
@@ -35,7 +37,10 @@ namespace HinhLam_DataObject.ViewModels
         public string MenuNameCN { get; set; }
         public int MenuCount { get; set; }
         public string HrefLink { get; set; }
+
     }
+
+
 
     public class AddSubMenuModel
     {

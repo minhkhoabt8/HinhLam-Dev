@@ -13,9 +13,13 @@ namespace HinhLam_Infrastructure.Mapper
     {
         public MappingProfile() 
         {
-            CreateMap<Menu,MenuInfoModel>();
+            CreateMap<Menu,MenuInfoModel>()
+                .ForMember(dest => dest.SubMenus, opt => opt.MapFrom(src => src.MenuSubMenu.Select(c => c.SubMenu)));
             CreateMap<CreateMenuModel, Menu>();
             CreateMap<UpdateMenuModel, Menu>();
+
+            CreateMap<SubMenu, SubMenuInfoModel>()
+                .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.SubMenuContent.Select(c => c.Content)));
         }
     }
 }

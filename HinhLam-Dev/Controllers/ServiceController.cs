@@ -1,9 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HinhLam_Infrastructure.Services.Menu;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HinhLam_Dev.Controllers
 {
     public class ServiceController : Controller
     {
+        private readonly IMenuService _menuService;
+
+        public ServiceController(IMenuService menuService)
+        {
+            _menuService = menuService;
+        }
 
         [HttpGet("/dich-vu")]
         public IActionResult Service()
@@ -26,7 +33,8 @@ namespace HinhLam_Dev.Controllers
         [HttpGet("/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/", Name = "ServiceDetailsEN")]
         public IActionResult ServiceDetailsEN()
         {
-            return View("ServiceDetails");
+            var result = _menuService.GetContentOfMenu("Gỡ rối sổ sách kế toán");
+            return View("ServiceDetails", result);
         }
     }
 }
