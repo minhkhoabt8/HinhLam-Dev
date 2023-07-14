@@ -13,8 +13,9 @@ namespace HinhLam_Infrastructure.Mapper
     {
         public MappingProfile() 
         {
-            CreateMap<Menu,MenuInfoModel>()
-                .ForMember(dest => dest.SubMenus, opt => opt.MapFrom(src => src.MenuSubMenu.Select(c => c.SubMenu)));
+            CreateMap<Menu, MenuInfoModel>()
+                .ForMember(dest => dest.SubMenus, opt => opt.MapFrom(src => src.MenuSubMenu.Select(c => c.SubMenu)))
+                .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.MenuSubMenu.SelectMany(ms => ms.SubMenu.SubMenuContent).Select(smc => smc.Content)));
             CreateMap<CreateMenuModel, Menu>();
             CreateMap<UpdateMenuModel, Menu>();
 

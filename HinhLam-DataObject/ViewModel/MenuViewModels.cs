@@ -18,6 +18,7 @@ namespace HinhLam_DataObject.ViewModels
         public string HrefLinkCN { get; set; }
         public bool Status { get; set; }
         public List<SubMenu> SubMenus { get; set; }
+        public List<Content> Contents { get; set; }
     }
 
     public class CreateMenuModel

@@ -14,7 +14,6 @@ namespace HinhLam_Infrastructure.Repositories.Menu
         void Remove(HinhLam_DataObject.Model.Menu menu);
         void Create(HinhLam_DataObject.Model.Menu menu);
         void Update(HinhLam_DataObject.Model.Menu menu);
-        HinhLam_DataObject.Model.Menu GetContentOfMenu(string MenuName);
-
+        HinhLam_DataObject.Model.Menu? GetAllContentOfMenu(string id);
     }
 }

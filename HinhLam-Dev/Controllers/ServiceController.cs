@@ -31,7 +31,7 @@ namespace HinhLam_Dev.Controllers
         }
 
         [HttpGet("/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/", Name = "ServiceDetailsEN")]
-        public IActionResult ServiceDetailsEN()
+        public IActionResult Services()
         {
             //var result = _menuService.GetContentOfMenu("Gỡ rối sổ sách kế toán");
             return View("ServiceDetails");

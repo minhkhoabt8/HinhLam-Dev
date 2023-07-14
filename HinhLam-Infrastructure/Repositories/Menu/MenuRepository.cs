@@ -1,4 +1,5 @@
 ﻿using HinhLam_DataObject.DataAccess;
+using HinhLam_DataObject.Model;
 using HinhLam_DataObject.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -28,18 +29,17 @@ namespace HinhLam_Infrastructure.Repositories.Menu
             return _context.Menu.OrderBy(m=>m.MenuCount).ToList();
         }
 
-        public HinhLam_DataObject.Model.Menu? GetContentOfMenu(string menuName)
+        public HinhLam_DataObject.Model.Menu? GetAllContentOfMenu(string menuId)
         {
-            // Retrieve data from the context, including related entities
-            var query = _context.Menu
-                .Where(menu => menu.MenuName == menuName || menu.MenuNameEN == menuName || menu.MenuNameCN == menuName)
-                .Include(c => c.MenuSubMenu) // Include MenuSubMenu navigation property
-                    .ThenInclude(c => c.SubMenu) // Include SubMenu navigation property
-                        .ThenInclude(c => c.SubMenuContent) // Include SubMenuContent navigation property
-                            .ThenInclude(c => c.Content)
-                            .FirstOrDefault(); // Include Content navigation property
-            // Return the result
-            return query;
+            // Assuming you have an instance of your database context called "dbContext"
+
+            // Get the menu by its MenuId with included related entities
+           return _context.Menu
+                .Include(m => m.MenuSubMenu)
+                    .ThenInclude(ms => ms.SubMenu)
+                        .ThenInclude(sm => sm.SubMenuContent)
+                            .ThenInclude(sc => sc.Content)
+                .FirstOrDefault(m => m.MenuId == menuId );
         }
 
         public HinhLam_DataObject.Model.Menu? GetMenuById(string id)
