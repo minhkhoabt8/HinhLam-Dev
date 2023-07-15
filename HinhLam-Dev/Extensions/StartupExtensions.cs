@@ -12,6 +12,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using Microsoft.Extensions.Localization;
 
 namespace HinhLam_Dev.Extensions
 {
@@ -23,7 +24,7 @@ namespace HinhLam_Dev.Extensions
             services.AddScoped<IMenuService, MenuService>();
 
         }
-
+       
         public static void AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IMenuRepository, MenuRepository>();

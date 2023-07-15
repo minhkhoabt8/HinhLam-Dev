@@ -2,12 +2,14 @@
 @using HinhLam_Infrastructure.Services.Menu;
 @using HinhLam_DataObject.Model;
 @using HinhLam_DataObject.ViewModels;
+
+@using System.Web;
+
 @{
     ViewData["Title"] = "Chi tiết";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
+ 
 <body class="lang-vn">
     <noscript>JavaScript is off. Please enable to view full site.</noscript>
     
@@ -28,8 +30,6 @@
         </div>
 
     </div>
-
-
     <div class="profileHinhLam  hide">
 
         <div class="profile-block">
@@ -59,7 +59,7 @@
         <a href="/dich-vu/">Dịch vụ</a>
 
        @* <span>Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</span>*@
-        <span>@Model.MenuName</span>
+        <span>@Html.Raw(Model.MenuName)</span>
 
     </div>
 
@@ -83,34 +83,497 @@
                         </div>
                     </div>
 
-                    <div class="detail-content">
+                    @{
+                        var id = Model.MenuId;
+                    }
+                    <div class="switch-menu">
+                    @switch (id)
+                    {
+                        case "1":
+                            <div class="content">
+                                <!-- Content for page 1 -->
+                                <div class="detail-content">
 
-                        <h3 class="title-detail">@Model.MenuName</h3>
-                        <p>@Model.SubMenus.ElementAt(0).Description@*Kế toán là một phần quan trọng không thể thiếu trong mọi hoạt động của doanh nghiệp. Dù là doanh nghiệp mới thành lập hay là doanh nghiệp hoạt động lâu năm thì luôn cần một hệ thống kế toán đầy đủ, chính xác, an toàn và bảo mật. Để có được hệ thống kế toán như vậy cần đòi hỏi cao về nhân sự và kinh phí, và hệ thống kế toán hoàn thiện để có thể thích ứng với sự thay đổi nhanh chóng của luật pháp. Tuy nhiên yêu cầu này là bài toán khó cho các doanh nghiệp vừa và nhỏ hiện nay trên địa bàn Tp.HCM, Bình Phước, Bình Dương, Đồng Nai.*@</p>
-                        <p><img src="/images/2021/img-ykien-khach-hang_1_1.jpg" alt="" width="743" height="498" /></p>
-                        <h3>@Model.Contents.ElementAt(0).Title</h3>
-                        
-                        <p>Sau nhiều năm hoạt động, trải qua nhiều lần thay đổi nhân sự kế toán, bạn sẽ gặp nhiều khó khăn trong việc theo dõi sổ sách. Bạn dần cảm thấy đó là rủi ro pháp lý trong doanh nghiệp của mình.</p>
-                        <p>Bạn là chủ doanh nghiệp, bạn đang lo lắng về tình hình sổ sách kế toán của doanh nghiệp mình không đúng theo quy định của pháp luật. Bạn lo lắng về sự rắc rối về các chứng từ bị thiếu sót, các chứng từ cần bổ sung, điều chỉnh. Và hơn hết bạn lo lắng về nhân viên kế toán không đủ kinh nghiệm để giải quyết các vấn đề phát sinh bất thường trong quá trình hoạt động.</p>
-                        <p>Chứng từ hóa đơn tại doanh nghiệp lộn xộn, không theo hệ thống quy định, mọi vấn đề trở nên bề bộn không thể nào giải quyết được. Kế toán tại công ty thường xuyên thay đổi, không một ai chịu trách nhiệm về số liệu và giải trình các số liệu trên.</p>
-                        <h3>@Model.Contents.ElementAt(1).Title@*Chi tiết về dịch vụ gỡ rối sổ sách kế toán*@</h3>
-                        
-                        <ul>
-                            <li>Kiểm tra sổ sách của doanh nghiệp.</li>
-                            <li>Rà soát kiểm tra tính hợp lệ của hóa đơn, chứng từ, đánh giá lại các chứng từ cần bổ sung điều chỉnh.</li>
-                            <li>Kiểm tra việc hạch toán các nghiệp vụ phát sinh, so sánh đối chiếu với các chứng từ khác như sổ phụ ngân hàng, bảng tồn kho….</li>
-                            <li>Kiểm tra các báo cáo đã nộp cho cơ quan thuế (Báo cáo thuế GTGT hàng tháng, quý, Báo cáo quyết toán năm, Báo cáo tài chính năm, Báo cáo tình hình sử dụng hóa đơn, …)</li>
-                            <li>Kiểm tra việc in sổ sách kế toán, phiếu thu, chi, nhập, xuất (nếu có)</li>
-                            <li>Xử lý gỡ rối, hoàn thiện sổ sách cho doanh nghiệp.</li>
-                            <li>Sắp xếp hóa đơn, chứng từ phù hợp cho hoạt động của từng doanh nghiệp (theo thời gian, công trình, yếu tố chi phí, …)</li>
-                            <li>Điều chỉnh, bổ sung những chứng từ nghiệp vụ kế toán còn thiếu sót trong quá trình hoạt động.</li>
-                            <li>Kê khai bổ sung, điều chỉnh các báo cáo đã nộp cho cơ quan thuế khi có sai sót.</li>
-                            <li>Hoàn thiện toàn bộ sổ sách của doanh nghiệp như: Báo cáo tài chính, chứng từ khai thuế, chứng từ nội bộ doanh nghiệp.</li>
-                            <li>Đại diện cho doanh nghiệp đứng ra giải trình số liệu đã xử lý này cho cơ quan thuế khi cần thiết</li>
-                            <li>Tư vấn dịch vụ doanh nghiệp xử lý một số vấn đề phát sinh bất thường.</li>
-                        </ul>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
+                                    <p>@Html.Raw(@Model.SubMenus.ElementAt(0).Description)</p>
+                                    <p><img src="/images/2021/img-ykien-khach-hang_1_1.jpg" alt="" width="743" height="498" /></p>
+                                    <h3>@Html.Raw(Model.Contents.ElementAt(0).Title)</h3>
 
-                        <p>Trong một số trường hợp đặc biệt, chúng tôi sẽ có nhân viên dày dặn kinh nghiệm để xử lý vấn đề liên quan đến cơ quan chính quyền sở tại.</p>
+                                    @{
+                                        var textSegments = Model.Contents.ElementAt(0).Contents.Split('|', StringSplitOptions.RemoveEmptyEntries);
+                                        @foreach (var segment in textSegments)
+                                        {
+                                            <p>@segment</p>
+                                        }
+
+                                    }
+                                    <h3>@Html.Raw(Model.Contents.ElementAt(1).Title)</h3>
+                                    @{
+                                        var replacedContent = @Model.Contents.ElementAt(1).Contents.Replace("|", "<li>");
+                                        <ul>
+                                            @Html.Raw(replacedContent)
+                                        </ul>
+                                    }
+                                        <p> @Html.Raw(Model.Contents.ElementAt(2).Contents)</p>
+                                </div>
+                                    
+                            </div>
+                            break;
+
+                        case "2":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Cung cấp dịch vụ kế toán trọn gói</h3>
+                                <p><strong><span lang="en-US">Dịch vụ kế toán trọn gói bao gồm những gì:</span></strong></p>
+                                <ul>
+                                    <li>
+                                        <p><span lang="en-US">Tiếp nhận thông tin</span></p>
+                                    </li>
+                                    <li>
+                                        <p><span lang="en-US">Tiến hành hạch toán và lập báo cáo thuế</span></p>
+                                    </li>
+                                    <li>
+                                        <p><span lang="en-US">Tiến hành trao đổi và bàn giao chứng từ hàng tháng</span></p>
+                                    </li>
+                                </ul>
+                                <p><strong><span lang="en-US">Đối tượng phù hợp sử dụng dịch vụ này:</span></strong></p>
+                                <ul>
+                                    <li>
+                                        <p><span lang="en-US">Cần tìm một dịch vụ giúp giải quyết tất cả mọi thứ liên quan đến Luật Kế toán, thông tư, nghị định, chuẩn mực kế toán để doanh nghiệp an tâm kinh doanh không lo đụng phải vấn đề pháp lý.</span></p>
+                                    </li>
+                                    <li>
+                                        <p><span lang="en-US">Doanh nghiệp mới thành lập, không biết bắt đầu từ đâu để tránh rủi ro về sau.</span></p>
+                                    </li>
+                                    <li>
+                                        <p><span lang="en-US">Doanh nghiệp vừa và nhỏ, chưa tuyển được Kế toán có kinh nghiệm, nội bộ ít người. </span></p>
+                                    </li>
+                                    <li>
+                                        <p><span lang="en-US">Doanh nghiệp đang thuê kế toán viên bên ngoài mang hồ sơ về nhà làm, điều này rủi ro nếu đột nhiên Kế toán bất khả kháng không thể làm được tiếp.</span></p>
+                                    </li>
+                                    <li>
+                                        <p><span lang="en-US">Các công ty cần quản lý toàn bộ hệ thống kế toán cũng như dọn dẹp sổ sách, quyết toán thuế hàng tháng, quyết toán thuế cuối năm và làm việc với cơ quan thuế.</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                            break;
+                        case "3":
+                            <div class="content">
+                                <!-- Content for page 3 -->
+                                <div class="detail-content">
+                                    <h3 class="title-detail">Đào tạo kế toán thực hành</h3>
+                                    <p><strong>MỤC TIÊU:</strong></p>
+                                    <p>Sau khi học xong chương trình, học viên có thể:<br />- Hiểu được các kiến thức nền tảng về kế toán doanh nghiệp. Biết cách hạch toán kế toán các nghiệp vụ kinh tế xảy ra tại doanh nghiệp. Thực hiện được việc lập chứng từ, ghi sổ kế toán và lập báo cáo tài chính.<br />- Hiểu được các kiến thức mới nhất về các luật thuế. Thực hiện được nghiệp vụ khai báo thuế cho doanh nghiệp liên quan đến thuế thu nhập cá nhân, thuế thu nhập doanh nghiệp và thuế giá trị gia tăng.</p>
+                                    <p><strong>ĐỐI TƯỢNG THEO HỌC:</strong></p>
+                                    <p>Các học viên muốn tìm hiểu từ căn bản đến chuyên sâu về nghiệp vụ kế toán, về công việc khai báo thuế để có thể trở thành chuyên viên kế toán trong doanh nghiệp.<br />Các nhà quản lý doanh nghiệp, chủ cơ sở kinh doanh, các nhà đầu tư cần hiểu rõ kế toán và thuế để điều hành, quản lý công việc.<br />Các sinh viên chưa biết gì về kế toán, thuế hoặc cần hệ thống lại kiến thức đã học, mở rộng kiến thức thực tế để phục vụ tốt hơn cho việc học tại trường và đặc biệt là để đáp ứng nhu cầu tìm việc làm sau khi tốt nghiệp.<br /><br /><strong>NỘI DUNG CHƯƠNG TRÌNH HỌC:</strong></p>
+                                    <p><strong>Liên hệ: 0274 626 77 89.</strong></p>
+                                </div>
+                            </div>
+                            break;
+                        case "4":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Đại lý thuế</h3>
+                                <p><span>Đại lý thuế là cụm từ ra đời từ năm 2008 tại Việt Nam, là một ngành nghề trong hệ thống danh mục ngành nghề Việt Nam. Đại lý thuế là dịch vụ chuyên làm thủ tục kê khai thuế, báo cáo thuế, quyết toán thuế cho các doanh nghiệp.</span></p>
+                                <p><span><strong>Ưu điểm của Dịch vụ Đại lý thuế:</strong></span></p>
+                                <ul>
+                                    <li><span><span>Giúp các doanh nghiệp kê khai thuế, giảm thiểu các rủi ro về thuế.</span></span></li>
+                                    <li>Giúp cập nhật văn bản thuế thường xuyên cho doanh nghiệp.</li>
+                                    <li>Là cánh tay nối dài của cơ quan thuế, kề vai sát cánh cùng ngành thuế để giúp doanh nghiệp khai đúng và tránh các sai sót.</li>
+                                    <li>Doanh nghiệp sẽ được quyền ký hợp đồng với công ty làm thủ tục về thuế để họ “Thay mặt doanh nghiệp kê khai, nộp thuế và chịu trách nhiệm pháp lý” về những nội dung đã. </li>
+                                </ul>
+                                <p><strong>Dịch vụ Đại lý thuế tại Hinh Lam:</strong></p>
+                                <ul>
+                                    <li><em>Kê khai thuế hàng tháng, quý, năm.</em></li>
+                                    <li><em>Báo cáo tình hình sử dụng hóa đơn hàng quý.</em></li>
+                                    <li><em>Lập sổ sách kế toán theo các nghiệp vụ kinh tế phát sinh.</em></li>
+                                    <li><em>Lập báo cáo tài chính tạm tính theo quý, năm.</em></li>
+                                    <li><em>Giải trình số liệu với có quan thuế khi có yêu cầu.</em></li>
+                                    <li><em>Làm việc với cơ quan thuế về các thủ tục hành chính.</em></li>
+                                    <li><em>Tối ưu hóa thuế thu nhập doanh nghiệp, doanh thu, chi phí</em></li>
+                                    <li><em>Quyết toán thuế GTGT, thuế TNDN, thuế TNCN.</em></li>
+                                </ul>
+                            </div>
+                            break;
+                        case "5":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Hoàn thuế GTGT dự án</h3>
+                                <p><strong>Điều kiện và thủ tục hoàn thuế của dự án đầu tư ?</strong></p>
+                                <ul>
+                                    <li>Đang hoạt động thuộc đối tượng nộp thuế GTGT theo phương pháp khấu trừ.</li>
+                                    <li>Có dự án đầu tư, trừ dự án đầu tư xây dựng nhà để bán hoặc cho thuê mà không hình thành tài sản cố định hoặc các cơ sở kinh doanh thuộc diện không được hoàn thuế.</li>
+                                    <li>Kê khai riêng đối với dự án đầu tư.</li>
+                                    <li>Phải kết chuyển thuế GTGT đầu vào của dự án đầu tư để bù trừ với việc kê khai thuế GTGT của hoạt động sản xuất kinh doanh đang thực hiện.</li>
+                                </ul>
+                                <p> </p>
+                                <p><strong> </strong></p>
+                            </div>
+                            break;
+
+                        case "6":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài</h3>
+                                <h3 id="Các_bước_thực_hiện_thủ_tục_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài:">Các bước thực hiện thủ tục thành lập công ty có vốn đầu tư nước ngoài:</h3>
+                                <ul>
+                                    <li>Xin cấp Giấy chứng nhận đăng ký đầu tư.</li>
+                                    <li>Xin cấp Giấy chứng nhận đăng ký doanh nghiệp.</li>
+                                    <li>Xin cấp Giấy phép kinh doanh đối với công ty bán lẻ hàng hóa trực tiếp tới người tiêu dùng, Giấy phép lập cơ sở bán lẻ hoặc Giấy phép chuyên ngành của Bộ theo các lĩnh vực hoạt động đặc thù như: Đào tạo, Lữ hành, Kiểm toán, Giáo dục, Y tế...</li>
+                                </ul>
+                                <h3 id="Hồ_sơ_khách_hàng_cần_chuẩn_bị_khi_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài_tại_Việt_Nam:"><span style="color: #0000ff;">Hồ sơ khách hàng cần chuẩn bị khi thành lập công ty có vốn đầu tư nước ngoài tại Việt Nam:</span></h3>
+                                <p id="Đối_với_nhà_đầu_tư_là_cá_nhân_(do_cá_nhân,_các_cá_nhân_người_nước_ngoài_góp_vốn_thành_lập_công_ty_tại_Việt_Nam)."><strong>Đối với nhà đầu tư là cá nhân (do cá nhân, các cá nhân người nước ngoài góp vốn thành lập công ty tại Việt Nam).</strong></p>
+                                <ul>
+                                    <li>Bản sao chứng minh nhân dân, thẻ căn cước hoặc hộ chiếu (Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài- cả quyển hộ chiếu).</li>
+                                    <li>Xác nhận số dư tài khoản ngân hàng của nhà đầu tư tương ứng với vốn dự kiến đầu tư tại Việt Nam (Nếu là Ngân hàng nước ngoài xác nhận cần cung cấp bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
+                                    <li>Hợp đồng thuê trụ sở, Giấy tờ chứng minh quyền cho thuê của bên cho thuê (Giấy chứng nhận quyền sử dụng đất, Giấy phép xây dựng, Giấy chứng nhận đăng ký kinh doanhcó chức năng kinh doanh bất động sản của bên cho thuê hoặc các giấy tờ tương đương).</li>
+                                </ul>
+                                <p id="Đối_với_nhà_đầu_tư_là_tổ_chức_(do_công_ty_có_trụ_sở_tại_nước_ngoài_góp_vốn,_đầu_tư_vốn_thành_lập_công_ty_tại_Việt_Nam)."><strong>Đối với nhà đầu tư là tổ chức (do công ty có trụ sở tại nước ngoài góp vốn, đầu tư vốn thành lập công ty tại Việt Nam).</strong></p>
+                                <ul>
+                                    <li>Bản sao Giấy chứng nhận thành lập hoặc tài liệu tương đương khác xác nhận tư cách pháp lý đối với nhà đầu tư (Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
+                                    <li>Bản sao một trong các tài liệu sau: báo cáo tài chính 02 năm gần nhất của nhà đầu tư; cam kết hỗ trợ tài chính của công ty mẹ; cam kết hỗ trợ tài chính của tổ chức tài chính; bảo lãnh về năng lực tài chính của nhà đầu tư; Xác nhận số dư tài khoản ngân hàng của nhà đầu tư tương ứng với vốn dự kiến đầu tư tại Việt Nam. (Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
+                                    <li>Hộ chiếu công chứng của người đại diện theo pháp luật của công ty tại nước ngoài (Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
+                                    <li>Hộ chiếu công chứng của giám đốc – người đại diện theo pháp luật công ty tại Việt Nam (Nếu là người nước ngoài Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
+                                    <li>Hợp đồng thuê trụ sở, Giấy tờ chứng minh quyền cho thuê của bên cho thuê (Giấy chứng nhận quyền sử dụng đất, Giấy phép xây dựng, Giấy chứng nhận đăng ký kinh doanh có chức năng kinh doanh bất động sản của bên cho thuê hoặc các giấy tờ tương đương).</li>
+                                    <li>Nếu dự án có sử dụng công nghệ cần kèm theo bản giải trình về sử dụng công nghệ đối với dự án quy định gồm các nội dung: tên công nghệ, xuất xứ công nghệ, sơ đồ quy trình công nghệ; thông số kỹ thuật chính, tình trạng sử dụng của máy móc, thiết bị và dây chuyền công nghệ chính.</li>
+                                </ul>
+                                <h3>Dịch vụ thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài:</h3>
+                                <ul>
+                                    <li>Tư vấn điều kiện thành lập công ty vốn đầu tư nước ngoài: tỷ lệ góp vốn của nhà đầu tư nước ngoài tại Việt Nam; điều kiện kinh doanh các ngành nghề; địa điểm thực hiện dự án; lưu ý các thủ tục trước và sau thành lập công ty vốn đầu tư nước ngoài.</li>
+                                    <li>Tư vấn lựa chọn loại hình công ty phù hợp cho nhà đầu tư: Công ty TNHH hay Công ty cổ phần.</li>
+                                    <li>Tư vấn mở tài khoản chuyển vốn, thời hạn góp vốn.</li>
+                                    <li>Tư vấn hướng dẫn nhà đầu tư chuẩn bị tài liệu cần thiết để thành lập công ty có vốn đầu tư nước ngoài.</li>
+                                    <li>Tư vấn, soạn thảo hồ sơ thành lập công ty cho nhà đầu tư.</li>
+                                </ul>
+                            </div>
+                            break;
+                        case "7":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Điều chỉnh thay đổi giấy phép kinh doanh, giấy phép đầu tư</h3>
+                                <p><span>Trong quá trình hoạt động kinh doanh của doanh nghiệp. Khi phát sinh những thay đổi về tình hình thực tế thì doanh nghiệp cần phải thực hiện thủ tục thay đổi giấy chứng nhận đầu tư (thay đổi thông tin trên Giấy chứng nhận đầu tư). Đồng thời doanh nghiệp phải thực hiện thủ tục thay đổi giấy chứng nhận đăng ký doanh nghiệp (thay đổi Giấy chứng nhận đăng ký doanh nghiệp) để tránh bị xử phạt vi phạm hành chính trong lĩnh vực kế hoạch đầu tư, tránh bị xử phạt sẽ gây rắc rối rất lớn cho doanh nghiệp có vốn đầu tư nước ngoài hoạt động kinh doanh tại Việt Nam trong tương lai.</span></p>
+                                <p>Tổ chức kinh tế chuẩn bị hồ sơ theo quy định tại Điều 15 Nghị định 09/2018/NĐ-CP, bao gồm:</p>
+                                <p>– Đơn đề nghị điều chỉnh Giấy phép kinh doanh.</p>
+                                <p>– Trường hợp thay đổi tên, mã số doanh nghiệp, địa chỉ trụ sở chính và người đại diện theo pháp luật, trừ trường hợp chuyển địa điểm đặt trụ sở chính, chuẩn bị thêm Bản sao Giấy chứng nhận đăng ký doanh nghiệp ghi nhận nội dung điều chỉnh;</p>
+                                <p>– Trường hợp thay đổi các nội dung khác của Giấy phép kinh doanh thì phải thêm một số tài liệu sau:</p>
+                                <ul>
+                                    <li>Bản giải trình.</li>
+                                    <li>Tài liệu của cơ quan thuế chứng minh không còn nợ thuế quá hạn.</li>
+                                    <li>Bản sao: Giấy chứng nhận đăng ký doanh nghiệp; Giấy chứng nhận đăng ký đầu tư dự án hoạt động mua bán hàng hóa và các hoạt động liên quan trực tiếp đến mua bán hàng hóa (nếu có).</li>
+                                </ul>
+                                <p><strong>Trình tự điều chỉnh Giấy phép kinh doanh: </strong>được thực hiện như thủ tục cấp mới Giấy phép kinh doanh. Cụ thể như sau:</p>
+                                <p><strong>Bước 1: Chuẩn bị và nộp hồ sơ</strong></p>
+                                <p>Tổ chức kinh tế có vốn đầu tư nước ngoài chuẩn bị hồ sơ theo quy định trên.</p>
+                                <p>Hồ sơ gửi trực tiếp hoặc qua đường bưu chính hoặc qua mạng điện tử (nếu đủ điều kiện áp dụng) đến Cơ quan cấp Giấy phép trong vòng 10 ngày làm việc kể từ ngày có Giấy chứng nhận đăng ký doanh nghiệp ghi nhận nội dung điều chỉnh.</p>
+                                <p><strong><em>Lưu ý về số lượng hồ sơ:</em></strong></p>
+                                <p>– Trường hợp điều chỉnh Giấy phép kinh doanh để thực hiện hoạt động quy định tại điểm a khoản 1 Điều 5 Nghị định này: 01 bộ;</p>
+                                <p>– Trường hợp điều chỉnh Giấy phép kinh doanh để <span lang="VI">thực hiện hoạt động quy định tại các điểm b, d, đ, e, g, h và i khoản 1 Điều 5 Nghị định này: 02 bộ;</span></p>
+                                <p>– Trường hợp điều chỉnh Giấy phép kinh doanh để thực hiện hoạt động quy định tại điểm c khoản 1 Điều 5 Nghị định này: 03 bộ.</p>
+                                <p>Bước 2: Tiếp nhận, xử lý hồ sơ</p>
+                                <p>– Trong thời hạn 03 ngày làm việc kể từ ngày nhận được hồ sơ, Cơ quan cấp Giấy phép kiểm tra và yêu cầu sửa đổi, bổ sung nếu hồ sơ chưa đủ và hợp lệ.</p>
+                                <p><strong>Bước 3: Kiểm tra hồ sơ</strong></p>
+                                <p><span lang="VI">Trong thời hạn 10 ngày làm việc kể từ ngày nhận được hồ sơ đủ và hợp lệ, Cơ quan cấp Giấy phép kiểm tra việc đáp ứng điều kiện để điều chỉnh Giấy phép kinh doanh.</span></p>
+                                <p>– Trường hợp không đáp ứng điều kiện, Cơ quan cấp Giấy phép có văn bản trả lời và nêu rõ lý do;</p>
+                                <p>– Trường hợp đáp ứng ứng điều kiện</p>
+                                <p>+ Cơ quan cấp Giấy phép điều chỉnh Giấy phép kinh doanh để thực hiện hoạt động quy định tại điểm a khoản 1 Điều 5 Nghị định này; trường hợp từ chối điều chỉnh, phải có văn bản trả lời và nêu rõ lý do;</p>
+                                <p>+ Cơ quan cấp Giấy phép gửi hồ sơ kèm văn bản lấy ý kiến Bộ Công Thương, bộ quản lý ngành theo quy định tại điểm a hoặc b khoản 3 Điều 8 Nghị định này (Mẫu số 09 tại Phụ lục ban hành kèm theo Nghị định này).</p>
+                                <p><strong>Bước 4: Giải quyết hồ sơ</strong></p>
+                                <p>– Trong thời hạn 15 ngày kể từ ngày nhận được hồ sơ, Bộ Công Thương và bộ quản lý ngành căn cứ vào nội dung tương ứng quy định tại Điều 10 Nghị định này để có văn bản chấp thuận điều chỉnh Giấy phép kinh doanh; trường hợp từ chối, phải có văn bản trả lời và nêu rõ lý do mẫu số 10 tại Phụ lục ban hành kèm theo Nghị định này).</p>
+                                <p>– Trong thời hạn 03 ngày làm việc kể từ ngày nhận được văn bản chấp thuận của Bộ Công Thương và bộ quản lý ngành, Cơ quan cấp Giấy phép điều chỉnh Giấy phép kinh doanh. Trường hợp Bộ Công Thương hoặc bộ quản lý ngành có văn bản từ chối, Cơ quan cấp Giấy phép có văn bản trả lời và nêu rõ lý do.</p>
+                                <p><strong>Bước 5: Hoàn trả Giấy phép kinh doanh đã được cấp trước đó</strong></p>
+                                <p>Trong thời hạn 05 ngày làm việc kể từ ngày nhận được Giấy phép kinh doanh đã được điều chỉnh, tổ chức kinh tế có vốn đầu tư nước ngoài có trách nhiệm hoàn trả Giấy phép kinh doanh đã được cấp cho Cơ quan cấp Giấy phép.</p>
+                            </div>
+                            break;
+                        case "8":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Sát Nhập công ty trong nước và công ty nước ngoài</h3>
+                                <p><span>Với nhiều năm kinh nghiệm, chúng tôi cung cấp dịch vụ sáp nhập doanh nghiệp uy tín, nhanh chóng.</span></p>
+                                <p><strong>Dịch vụ gồm các công việc sau:</strong></p>
+                                <p>– Tư vấn và đưa ra các phương án sáp nhập.</p>
+                                <p>– Soạn thảo bộ hồ sơ sáp nhập công ty.</p>
+                                <p>– Nộp và nhận kết quả tại Sở Kế hoạch và Đầu tư.</p>
+                                <p>– Sửa đổi, bổ sung, giải trình bộ hồ sơ theo yêu cầu của cơ quan có thẩm quyền.</p>
+                                <p>– Nộp phí, lệ phí nhà nước.</p>
+                            </div>
+                            break;
+                        case "9":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Giải thể công ty, tạm ngưng hoạt động</h3>
+                                <div class="wpb_row wf-container">
+                                    <div class="vc_col-sm-12 wpb_column column_container ">
+                                        <div class="wpb_wrapper">
+                                            <div id="ultimate-heading60ab1faca908e" class="uvc-heading uvc-6973 " data-hspacer="no_spacer" data-halign="left">
+                                                <div class="uvc-main-heading ult-responsive" data-ultimate-target="#ultimate-heading60ab1faca908e h2" data-responsive-json-new="{">
+                                                    <p><strong>Lưu ý: Tạm ngưng hoạt động kinh doanh: </strong></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_row wf-container">
+                                    <div class="vc_col-sm-12 wpb_column column_container ">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element  ">
+                                                <div class="wpb_wrapper">
+                                                    <ul>
+                                                        <li>Trong thời gian tạm ngưng hoạt động kinh doanh, doanh nghiệp vẫn phải nộp đầy đủ các khoản thuế còn nợ. Tiếp tục thanh toán các khoản nợ, thực hiện hợp đồng đã ký với khách hàng và người lao động (nếu có), trừ trường hợp chủ nợ, khách hàng và người lao động có thỏa thuận khác.</li>
+                                                        <li>Trong thời gian tạm ngừng kinh doanh, doanh nghiệp không phải nộp thuế môn bài, không kê khai thuế giá trị gia tăng hàng tháng, không nộp báo cáo tài chính cuối năm</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_row wf-container">
+                                    <div class="vc_col-sm-6 wpb_column column_container  _mce_tagged_br">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element  ">
+                                                <div class="wpb_wrapper">
+                                                    <ul>
+                                                        <li>Khi tạm ngừng kinh doanh, doanh nghiệp có thể bớt đi nỗi lo về tiền lương cho người lao động, thuế, các khoản chi khác.</li>
+                                                        <li>Khi hết thời hạn tạm ngưng hoạt động, thì doanh nghiệp sẽ hoạt động lại bình thường, và phải đáp ứng đầy đủ các thủ tục theo doanh nghiệp bình thường.</li>
+                                                        <li>Trong một số trường hợp bạn không muốn tiếp tục kinh doanh thì chuyển qua làm hồ sơ giải thể doanh nghiệp.</li>
+                                                    </ul>
+                                                    <p><strong>GIẢI THỂ DOANH NGHIỆP</strong></p>
+                                                    <p>Giải thể doanh nghiệp là việc doanh nghiệp thực hiện thủ tục chấm dứt hoạt động kinh doanh của mình. Doanh nghiệp chỉ giải thể trong các trường hợp sau:</p>
+                                                    <ul>
+                                                        <li>Kết thúc thời hạn hoạt động đã ghi trong Điều lệ công ty mà không có quyết định gia hạn;</li>
+                                                        <li>Theo quyết định Đại hội đồng cổ đông;</li>
+                                                        <li>Công ty không còn đủ số lượng thành viên tối thiểu theo quy định của Luật doanh nghiệp 2014 trong thời hạn 06 tháng liên tục mà không làm thủ tục chuyển đổi loại hình doanh nghiệp;</li>
+                                                        <li>Bị thu hồi Giấy chứng nhận đăng ký doanh nghiệp hoặc theo quyết định của Tòa án;</li>
+                                                        <li>Doanh nghiệp chỉ được giải thể khi bảo đảm thanh toán hết các khoản nợ và nghĩa vụ tài sản khác và doanh nghiệp không trong quá trình giải quyết tranh chấp tại Tòa án hoặc cơ quan trọng tài.</li>
+                                                    </ul>
+                                                    <p>Trường hợp doanh nghiệp bị giải thể do bị thu hồi Giấy chứng nhận đăng ký doanh nghiệp thì người quản lý có liên quan và doanh nghiệp cùng liên đới chịu trách nhiệm về các khoản nợ của doanh nghiệp.<br />Đối với doanh nghiệp có các đơn vị trực thuộc (chi nhánh, văn phòng đại diện, địa điểm kinh doanh) thì trước khi thực hiện thủ tục giải thể, doanh nghiệp phải làm thủ tục chấm dứt hoạt động các đơn vị trực thuộc đó.</p>
+                                                    <p><span>Với những chuyên viên có nhiều kinh nghiệm trong việc làm thủ tục <strong>giải thể công ty, tạm ngưng hoạt động,</strong> <strong>Hinh Lam</strong> sẽ tư vấn và hỗ trợ doanh nghiệp thực hiện đầy đủ và chính xác tất cả những thủ tục cần thiết trong quá trình giải thể. </span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            break;
+                        case "10":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Thiết lập, tư vấn bộ phận kế toán, hệ thống kế toán</h3>
+                                <p><span>Hệ thống kế toán là bộ phận nắm vai trò quan trọng, góp phần ổn định hệ thống tài chính, xây dựng nền tảng vững chắc cho sự phát triển của doanh nghiệp. Hệ thống kế toán phù hợp cung cấp đầy đủ thông tin cần thiết để:</span></p>
+                                <ul>
+                                    <li><span>Hỗ trợ tối đa việc sản xuất các sản phẩm với chi phí thấp (nguyên liệu, nhân công, khấu hao,…)</span></li>
+                                    <li><span>Hỗ trợ việc kinh doanh (phân loại khách hàng, hàng hóa tiêu thụ,…)</span></li>
+                                    <li><span>Hỗ trợ công tác tài chính (nguồn vay, lãi suất,…)</span></li>
+                                    <li><span>Hỗ trợ việc quản trị (lập báo cáo phân tích dòng tiền, doanh thu, lợi nhuận,…)</span></li>
+                                </ul>
+                                <p><strong>Quy trình xây dựng tư vấn thiết lập hệ thống kế toán:</strong></p>
+                                <ul style="list-style-type: circle;">
+                                    <li>Bước 1: Xác định mục tiêu của hệ thống kế toán.</li>
+                                    <li>Bước 2: Xác định các trung tâm trách nhiệm.</li>
+                                    <li>Bước 3: Xây dựng hệ thống phân loại trong kế toán.</li>
+                                    <li>Bước 4: Xây dựng hệ thống báo cáo.</li>
+                                    <li>Bước 5: Lựa chọn phương pháp kế toán quản trị chi phí và giá thành dịch vụ.</li>
+                                    <li>Bước 6: Thiết kế hệ thống chứng từ, tài khoản.</li>
+                                    <li>Bước 7: Xây dựng hệ thống dự toán.</li>
+                                    <li>Bước 8: Soạn thảo Quy định về thực hiện kế toán. </li>
+                                    <li>Bước 9: Triển khai hệ thống kế toán.</li>
+                                </ul>
+                                <p>Nếu bạn đang có bất cứ thắc mắc nào liên quan Gở rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế, thành lập công ty trọn gói, dịch vụ kế toán thuế, dịch vụ hoàn thuế giá trị gia tăng, dịch vụ báo cáo thuế cuối năm và các vấn đề khác có liên quan bạn có thể liên hệ tới Hinh Lam - <span><span style="color: #0000ff;"><strong>0983</strong></span> <span style="color: #0000ff;"><strong>204 115 -0919 724 872</strong></span> </span>để được tư vấn miễn phí.</p>
+                            </div>
+                            break;
+                        case "11":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Cung cấp phần mềm kế toán</h3>
+                                <p>Phần mềm kế toán được phát triển bởi một đội ngũ chuyên gia kế toán, kiểm toán, kỹ thuật viên theo yêu cầu đặc thù của các Doanh nghiệp lớn và doanh nghiệp có quy mô vừa và nhỏ khác.</p>
+                                <ul class="list3t">
+                                    <li> Hỗ trợ chuyên nghiệp</li>
+                                    <li> Hướng dẫn chi tiết</li>
+                                    <li> Cập nhật thường xuyên</li>
+                                </ul>
+                                <p><strong>Đối tác</strong></p>
+                                <p><strong><img src="/images/2021/phan-mem-misa-hinh-lam_1.png" alt="" width="344" height="198" /> </strong></p>
+                                <p> </p>
+                            </div>
+                            break;
+                        case "12":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Cung cấp phần mềm hoá đơn điện tử</h3>
+                                <p>Thời kỳ hiện đại hóa, công nghệ hóa, Hóa đơn điện tử là hình thức hóa đơn đang được sử dụng rộng rãi trong các doanh nghiệp hiện nay. Nhà nước Việt Nam đã triển khai sử dụng hóa đơn điện tử thực sự là giải pháp tối ưu trong việc tiết kiệm chi phí, thời gian, nguồn nhân lực, rút ngắn các thủ tục hành chính về hóa đơn.</p>
+                                <p><strong>Đầy đủ nghiệp vụ: </strong>Đáp ứng đầy đủ nghiệp vụ theo Thông tư 32/2011/TT-BTC, Thông tư 39/2014/TT-BTC và sẵn sàng đáp ứng Nghị định 119/2018/NĐ-CP, Thông tư 68/2019/TT-BTC, Nghị định 123/2020/NĐ-CP.</p>
+                                <p><strong>Quản trị toàn diện: </strong>Người bán thực hiện phát hành, quản lý, báo cáo hóa đơn mọi lúc, mọi nơi qua mobile, website, desktop.</p>
+                                <div>
+                                    <p><strong>An toàn, bảo mật: </strong>Phần mềm hóa đơn điện tử đầu tiên tại Việt Nam ứng dụng công nghệ Blockchain đảm bảo an toàn, bảo mật và chống làm giả hóa đơn.</p>
+                                    <p><strong>Hinh Lam đồng hành cùng các nhà cung cấp hóa đơn điện tử uy tín nhất Việt Nam</strong></p>
+                                    <p><img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-2021_2.png" alt="" width="729" height="163" /></p>
+                                    <p><img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-misa.png" alt="" width="729" height="163" /></p>
+                                    <p> </p>
+                                </div>
+                            </div>
+                            break;
+                        case "13":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Cung cấp chữ ký số</h3>
+                                <p><strong>Đối tác</strong></p>
+                                <p><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="/images/2021/chu-ky-so-hinh-lam.jpg" alt="" width="398" height="126" /></strong></p>
+                                <p><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="/images/2021/chu-ky-so-hinh-lam-2021-2.jpg" alt="" width="800" height="240" /></strong></p>
+                                <ul>
+                                    <li><strong>Chữ ký số</strong> hoạt động theo giấy phép GP-BTTTT do Bộ Thông tin và Truyền thông cấp.</li>
+                                    <li>Chữ Ký Số có hệ thống vận hành bảo mật và an ninh thông tin đáp ứng tiêu chuẩn quốc tế FIPS PUB 140-2.</li>
+                                    <li>Đáp ứng hầu hết các giao dịch điện tử.</li>
+                                </ul>
+                                <p><strong>Tiện ích của chữ ký số:</strong></p>
+                                <ul style="list-style-type: circle;">
+                                    <li><span lang="EN-US">Nộp thuế môn bài công ty trực tuyến qua mạng.</span></li>
+                                    <li><span lang="EN-US">Dùng để kê khai Bảo hiểm xã hội.</span></li>
+                                    <li><span lang="EN-US">Dùng để kê khai làm thủ tục bên hải quan</span></li>
+                                    <li><span lang="EN-US">Dùng để kê khai thuế lên chi cục thuế</span></li>
+                                </ul>
+                                <p><span lang="EN-US"><strong>Hồ sơ đăng ký gồm</strong>:</span></p>
+                                <ul>
+                                    <li>01 Bản sao giấy đăng ký kinh doanh hoặc quyết định thành lập của đơn vị, tổ chức, doanh nghiệp.</li>
+                                    <li>01 Bản sao CMND hoặc hộ chiếu người đại diện pháp lý.</li>
+                                </ul>
+                                <p><strong>Hinh Lam gửi quý khách: </strong></p>
+                                <ul>
+                                    <li>Một thiết bị USB TOKEN chữ ký số.</li>
+                                    <li>Một giấy chứng nhận sử dụng chứng thư số.</li>
+                                    <li>Một hóa đơn VAT tương ứng với gói cước dịch vụ mà Quý khách đã đăng ký.</li>
+                                    <li>Một bản hợp đồng cung cấp dịch vụ.</li>
+                                    <li>Thông tin tài khoản đăng nhập gồm Tên đăng nhập và Mật khẩu của quý khách.</li>
+                                </ul>
+                                <p> </p>
+                            </div>
+                            break;
+                        case "14":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Cung cấp phần mềm khai báo Bảo Hiểm Xã Hội</h3>
+                                <p>Phần mềm kê khai BHXH điện tử KBHXH là công cụ giúp Doanh nghiệp thực hiện quy trình kê khai BHXH. KBHXH giúp Doanh nghiệp dễ dàng lập và quản lý các bộ hồ sơ theo nghiệp vụ BHXH. Thông qua KBHXH, Doanh nghiệp có thể kê khai và nộp hồ sơ BHXH qua mạng Internet tới cơ quan BHXH quản lý thông qua Cổng thông tin điện tử BHXH Việt Nam hoặc kết xuất bộ hồ sơ điện tử thành bộ hồ sơ giấy để nộp trực tiếp.</p>
+                            </div>
+                            break;
+                        case "15":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Xin giấy phép lao động cho người nước ngoài</h3>
+                                <p><span>Thời kỳ kinh tế Việt Nam ngày càng phát triển với nền kinh tế mở, nhu cầu tuyển dụng người lao động nước ngoài vào Việt Nam làm việc ngày càng nhiều, pháp luật Việt Nam cho phép doanh nghiệp, cơ quan, tổ chức, cá nhân, nhà thầu tuyển dụng người lao động Người nước ngoài vào Việt Nam ngày một tăng cao. Để người lao động nước ngoài làm việc hợp pháp tại Việt Nam thì người lao động nước ngoài cần có giấy phép lao động. Công ty Hinh Lam thông tin cơ bản đến quý khách:</span></p>
+                                <h3 id="Đối_tượng_người_nước_ngoài_nào_được_cấp_giấy_phép_lao_động_tại_Việt_Nam">Đối tượng người nước ngoài nào được cấp giấy phép lao động tại Việt Nam:</h3>
+                                <ul>
+                                    <li>Thực hiện hợp đồng lao động.</li>
+                                    <li>Di chuyển trong nội bộ doanh nghiệp.</li>
+                                    <li>Thực hiện các loại hợp đồng hoặc thỏa thuận về kinh tế, thương mại, tài chính, ngân hàng, bảo hiểm, khoa học kỹ thuật, văn hóa, thể thao, giáo dục, giáo dục nghề nghiệp và y tế.</li>
+                                    <li>Nhà cung cấp dịch vụ theo hợp đồng.</li>
+                                    <li>Chào bán dịch vụ.</li>
+                                    <li>Làm việc cho tổ chức phi chính phủ nước ngoài, tổ chức quốc tế tại Việt Nam được phép hoạt động theo quy định của pháp luật Việt Nam.</li>
+                                    <li>Tình nguyện viên.</li>
+                                    <li>Người chịu trách nhiệm thành lập hiện diện thương mại.</li>
+                                    <li>Nhà quản lý, giám đốc điều hành, chuyên gia, lao động kỹ thuật.</li>
+                                    <li>Tham gia thực hiện các gói thầu, dự án tại Việt Nam.</li>
+                                    <li>Thân nhân thành viên cơ quan đại diện nước ngoài tại Việt Nam được phép làm việc tại Việt Nam theo quy định tại điều ước quốc tế mà nước Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên.</li>
+                                </ul>
+                                <p><strong>Hồ sơ xin cấp giấy phép theo quy định mới bao gồm:</strong></p>
+                                <p>1. Đơn đề nghị  xin cấp giấy phép lao động theo Mẫu số 11/PLI - Phụ lục 11 <span lang="VI">(Kèm theo Nghị định số 152/2020/NĐ-CP ngày 30 tháng 12 năm 2020 của Chính phủ).</span></p>
+                                <p>2. Giấy chứng nhận sức khỏe khám tại nước ngoài hoặc giấy khám sức khỏe khám tại Việt Nam tại các bệnh viện, phòng khám, có sở y tế đủ điều kiện theo quy định của Bộ y tế ( trong thời hạn 12 tháng).</p>
+                                <p>3. Lý lịch tư pháp của người nước ngoài cấp tại nước ngoài hoặc phiếu lý lịch số 1 được cấp tại Việt Nam (Được cấp không quá 06 tháng).</p>
+                                <p>4. Văn bản thông báo chấp thuận vị trí công việc sử dụng người lao động nước ngoài.</p>
+                                <p>5. Bản chứng thực hộ chiếu và visa của người nước ngoài.</p>
+                                <p>6. Văn bản chứng minh là quản lý, giám đốc điều hành, chuyên gia, lao động kỹ thuật, giáo viên ( Bằng đại học, giấy xác nhận kinh nghiệm làm việc nước ngoài tối thiểu là 03 năm,…)</p>
+                                <p><em>Ngoài ra, đối với các ngành, nghề có yêu cầu đặc biệt (cầu thủ bóng đá, phi công, bảo dưỡng máy bay) hoặc các trường hợp lao động nước ngoài cung cấp dịch vụ hoặc thực hiện hợp đồng, chào bán dịch vụ…tại Việt Nam, hồ sơ sẽ bao gồm các giấy tờ khác theo quy định của pháp luật.</em></p>
+                                <p>7. 02 ảnh chân dung, kích thước 4x6, phông nền trắng, không đeo kính.</p>
+                                <p>8. Các giấy tờ liên quan đến người lao động nước ngoài ( tùy từng trường hợp theo quy định: Quyết định bổ nhiệm của công ty mẹ, hợp đồng lao động, Điều lệ công ty…)</p>
+                                <p><em>Lưu ý: Các giấy tờ được cấp ở nước ngoài hoặc được cấp bởi cơ quan Đại diện ngoại giao của nước ngoài tại Việt Nam phải được Hợp pháp hoá lãnh sự và dịch thuật công chứng ra tiếng Việt.</em></p>
+                                <h3 id="Dịch_vụ_tư_vấn_cấp_giấy_phép_lao_động_cho_người_nước_ngoài_của_Công_ty_luật_Việt_An"><span style="color: #0000ff;">Quy trình tự chuẩn bị hồ sơ và đăng ký khá mất nhiều thời gian khi Quý khách chưa thành thạo, Công ty Hinh Lam rất hân hạnh hỗ trợ quý khách hoàn thành quá trình đăng ký giấy phép lao động cho người nước ngoài:</span></h3>
+                                <ul>
+                                    <li>Dịch, công chứng dịch, hợp pháp lãnh sự các tài liệu phục vụ cho việc cấp giấy phép lao động.</li>
+                                    <li>Tư vấn điều kiện để được cấp giấy phép lao động tại Việt Nam.</li>
+                                    <li>Hoàn thiện hồ sơ cấp giấy phép lao động tại Việt Nam cho khách hàng.</li>
+                                    <li>Tư vấn các trường hợp không thuộc diện phải cấp giấy phép lao động và thực hiện thủ tục cấp xác nhận thuộc trường hợp không phải xin cấp giấy phép lao động.</li>
+                                    <li>Đại diện doanh nghiệp và người lao động thực hiện thủ tục xin cấp giấy phép lao động tại cơ quan nhà nước có thẩm quyền.</li>
+                                    <li>Tư vấn, hướng dẫn chuẩn bị hồ sơ cấp thẻ tạm trú cho người nước ngoài sau khi được cấp giấy phép lao động.</li>
+                                </ul>
+                            </div>
+                            break;
+                        case "16":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Xin cấp thị thực cho người nước ngoài</h3>
+                                <p><strong>Thủ tục xin cấp thị thực (visa) cho người nước ngoài sau khi có công văn nhập cảnh.</strong></p>
+                                <p>Khi có Công văn nhập cảnh, Khách hàng làm thủ tục nhập cảnh (tại Đại sứ quán hoặc Cửa khẩu quốc tế Nội Bài, Tân Sơn Nhất, Đà Nẵng…), đóng thêm lệ phí xin visa là có thể yên tâm vào Việt Nam theo đúng nhu cầu mong muốn, thủ tục bao gồm:</p>
+                                <ul>
+                                    <li>Hộ chiếu gốc.</li>
+                                    <li>Công văn chấp thuận thị thực bản photo.</li>
+                                    <li>02 Ảnh hộ chiếu 4 cm x 6 cm.</li>
+                                    <li>Đơn khai nhập cảnh theo mẫu: NA1/NG1/...</li>
+                                    <li>Lệ phí cấp visa (Khách hàng nộp phí theo giá trị visa tương ứng).</li>
+                                </ul>
+                                <p>Trong trường hợp đến Việt Nam ngoài mục đích du lịch thì cần thêm các giấy tờ sau:</p>
+                                <ul>
+                                    <li>Bản sao công chứng Giấy chứng nhận đăng ký kinh doanh hoặc giấy tờ có giá trị tương đương.</li>
+                                    <li>Bản sao công chứng Giấy chứng nhận đăng ký mẫu dấu.</li>
+                                </ul>
+                                <h5>Dịch vụ xin cấp thị thực/visa cho người nước ngoài tại Việt Nam của Công ty Hinh Lam:</h5>
+                                <ul>
+                                    <li>Hướng dẫn khách hàng chuẩn bị các loại giấy tờ, tài liệu cần thiết để xin cấp visa cho người lao động nước ngoài.</li>
+                                    <li>Hoàn thiện hồ sơ xin cấp visa tại Việt Nam cho khách hàng.</li>
+                                    <li>Thay mặt khách hàng thực hiện thủ tục cấp visa tại cơ quan nhà nước có thẩm quyền.</li>
+                                </ul>
+                                <p> </p>
+                                <p><em><strong>Liên hệ ngay để có được sự hỗ trợ nhanh nhất, hiệu quả, tư vấn hoàn toàn miễn phí.</strong></em></p>
+                            </div>
+                            break;
+                        case "17":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Xin cấp đổi giấy phép lái xe  cho người nước ngoài</h3>
+                                <p>Thủ tục đổi giấy phép lái xe cho người nước ngoài được thực hiện theo quy định pháp luật. Theo đó, người nước ngoài hoặc người Việt Nam cư trú ở nước ngoài có nhu cầu lái xe ở Việt Nam nếu có giấy phép lái xe quốc gia phải làm thủ tục đổi sang giấy phép lái xe tương ứng của Việt Nam.</p>
+                                <p><span style="color: #0000ff;"><strong>Dịch vụ đổi giấy phép lái xe cho người nước ngoài của Công ty Hinh Lam:</strong></span></p>
+                                <ul>
+                                    <li>Hướng dẫn khách hàng chuẩn bị các loại giấy tờ, tài liệu cần thiết để xin cấp visa cho người lao động nước ngoài.</li>
+                                    <li>Hoàn thiện hồ sơ xin cấp visa tại Việt Nam cho khách hàng.</li>
+                                    <li>Thay mặt khách hàng thực hiện thủ tục cấp visa tại cơ quan nhà nước có thẩm quyền.</li>
+                                </ul>
+                                <p><strong>Hồ sơ cần chuẩn bị:</strong></p>
+                                <ul>
+                                    <li>Đơn <span>đề nghị đổi</span> giấy phép lái xe theo mẫu quy định (mẫu dùng cho người nước ngoài).</li>
+                                    <li>Bản dịch giấy phép lái xe nước ngoài ra tiếng Việt được bảo chứng chất lượng dịch thuật của cơ quan Công chứng hoặc Đại sứ quán, Lãnh sự quán tại Việt Nam mà người dịch làm việc, đóng dấu giáp lai với bản sao giấy phép lái xe.</li>
+                                </ul>
+                                <p>Đối với người Việt Nam xuất trình hợp pháp hóa lãnh sự giấy phép lái xe hoặc bằng lái xe của nước ngoài theo quy định của pháp luật về chứng nhận lãnh sự, hợp pháp hóa lãnh sự, trừ các trường hợp được miễn trừ theo quy định của pháp luật.</p>
+                                <ul>
+                                    <li>Bản sao hộ chiếu (gồm phần số hộ chiếu, họ tên và ảnh người được cấp, thời hạn sử dụng và trang thị thực nhập cảnh vào Việt Nam).</li>
+                                    <li>Bản sao chụp một trong các giấy tờ sau đây: thẻ <span>cư trú</span>, thẻ lưu trú, thẻ tạm trú, thẻ thường trú, giấy tờ xác minh định cư lâu dài tại Việt Nam.</li>
+                                    <li>2 ảnh 3×4 nền xanh như thẻ căn cước hoặc CMND.</li>
+                                </ul>
+                                <p><strong>Điều kiện đổi giấy phép lái xe quy định như sau:</strong></p>
+                                <ul>
+                                    <li>Người nước ngoài có thời gian cư trú, làm việc, học tập tại Việt Nam từ 03 tháng trở lên.</li>
+                                    <li>Giấy phép lái xe nước ngoài còn đủ các yếu tố cần thiết: Còn thời hạn sử dụng, hạng xe được phép điều khiển, không có biểu hiện tẩy xóa hoặc rách nát, không có sự khác biệt về nhận dạng.</li>
+                                    <li>Không đổi giấy phép lái xe tạm thời của nước ngoài, giấy phép lái xe quốc tế.</li>
+                                </ul>
+                                <p><span>Cơ quan có thẩm quyền đổi giấy phép lái xe là Tổng cục Đường bộ Việt Nam hoặc Sở Giao thông vận tải (nơi đăng ký cư trú, lưu trú, </span><span>tạm trú</span><span> hoặc định cư lâu dài).</span></p>
+                            </div>
+                            break;
+                        case "18":
+                            <div class="detail-content">
+                                <h3 class="title-detail">Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</h3>
+                                <p>Hiện nay, để đảm bảo thực hiện các biện pháp an toàn phòng, chống dịch Covid-19, Chính phủ Việt Nam chỉ giải quyết cho người nước ngoài là:</p>
+                                <p>- Nhà đầu tư.</p>
+                                <p>- Chuyên gia kỹ thuật.</p>
+                                <p>- Lao động tay nghề cao.</p>
+                                <p>- Nhà quản lý doanh nghiệp vào Việt Nam làm việc và phải đảm bảo phương án cách ly.</p>
+                                <p>- Thân nhân là cha, mẹ, vợ, chồng, con của chuyên gia nước ngoài.</p>
+                                <p>- Học sinh, sinh viên nước ngoài đang học tập tại Việt Nam.</p>
+                                <p>- Người hoặc tổ chức được các cơ quan, tổ chức tại Việt Nam mời, đón nhập cảnh.</p>
+                                <p>Người nước ngoài thuộc các diện đối tượng này, nếu có nhu cầu nhập cảnh Việt Nam trong thời điểm hiện nay, cần liên hệ với cơ quan, tổ chức tại Việt Nam nơi dự kiến làm việc để làm thủ tục cấp thị thực nhập cảnh theo quy định. Cục Quản lý xuất nhập cảnh sẽ xem xét, giải quyết sau khi Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương đồng ý về việc nhập cảnh của Người nước ngoài  thuộc các diện đối tượng trên theo đề nghị của cơ quan, tổ chức tại Việt Nam.</p>
+                                <p>Việc cách ly đối với Người nước ngoài nhập cảnh Việt Nam đang thực hiện theo Hướng dẫn tại công văn số 4674/BYT-MT ngày 31/8/2020 của Bộ Y tế.</p>
+                                <p><span style="color: #0000ff;"><strong>Hinh Lam cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</strong></span></p>
+                                <ul>
+                                    <li>
+                                        <h3><span><span>Xin công văn chấp thuận của UBND.</span></span></h3>
+                                    </li>
+                                    <li>
+                                        <h3><span><span>Tiến hành xin Công Văn Nhập Cảnh trên Cục xuất nhập cảnh.</span></span></h3>
+                                    </li>
+                                    <li>
+                                        <h3><span><span>Xin công văn phương án cách ly tại trung tâm kiểm dịch quốc tế tại HCM.</span></span></h3>
+                                    </li>
+                                    <li>
+                                        <h3><span><span>Booking vé máy bay.</span></span></h3>
+                                    </li>
+                                    <li>
+                                        <h3><span><span>Booking khách sạn.</span></span></h3>
+                                    </li>
+                                    <li>
+                                        <h3><span>Đặt xe y tế đưa đón từ sân bay về khách sạn.</span></h3>
+                                    </li>
+                                </ul>
+                            </div>
+                            break;
+                    }
                     </div>
                 </div>
                 <div class="col-12 col-md-4 order-md-1">
@@ -122,53 +585,19 @@
                                 @inject IMenuService menuService;
                                 @{
                                     var menuList = menuService.GetAllMenu().ToList();
+                                    var currentPage = Model.MenuId;
                                 }
 
-                                <li class="active-menu"><a id="@menuList.First().MenuId" href="@menuList.First().HrefLink" title="@menuList.First().MenuName">@menuList.First().MenuName</a></li>
-
-                                @foreach (var menuItem in menuList.Skip(1))
+                                @foreach (var menuItem in menuList)
                                 {
-                                    <li><a id="@menuItem.MenuId" href="@menuItem.HrefLink" title="@menuItem.MenuName">@menuItem.MenuName</a></li>
+                                    var isActive = currentPage.Equals(menuItem.MenuId);
+
+                                    <li class="@(isActive ? "active-menu" : "")">
+                                        @Html.Raw($"<a id=\"{menuItem.MenuId}\" href=\"{menuItem.HrefLink}\" title=\"{menuItem.MenuName}\">{menuItem.MenuName}</a>")
+                                    </li>
                                 }
-
-                              @*  <li class="active-menu"><a href="/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/" title="Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế">Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</a></li>
-
-                                <li class=""><a href="/dich-vu/cung-cap-dich-vu-ke-toan-tron-goi/" title="Cung cấp dịch vụ kế toán trọn gói">Cung cấp dịch vụ kế toán trọn gói</a></li>
-
-                                <li class=""><a href="/dich-vu/dao-tao-ke-toan-thuc-hanh/" title="Đào tạo kế toán thực hành">Đào tạo kế toán thực hành</a></li>
-
-                                <li class=""><a href="/dich-vu/dai-ly-thue/" title="Đại lý thuế">Đại lý thuế</a></li>
-
-                                <li class=""><a href="/dich-vu/hoan-thue-gtgt-du-an/" title="Hoàn thuế GTGT dự án">Hoàn thuế GTGT dự án</a></li>
-
-                                <li class=""><a href="/dich-vu/thanh-lap-doanh-nghiep-viet-nam-va-doanh-nghiep-nuoc-ngoai/" title="Thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài">Thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài</a></li>
-
-                                <li class=""><a href="/dich-vu/dieu-chinh-thay-doi-giay-phep-kinh-doanh-giay-phep-dau-tu/" title="Điều chỉnh thay đổi giấy phép kinh doanh, giấy phép đầu tư">Điều chỉnh thay đổi giấy phép kinh doanh, giấy phép đầu tư</a></li>
-
-                                <li class=""><a href="/dich-vu/sat-nhap-cong-ty-trong-nuoc-va-cong-ty-nuoc-ngoai/" title="Sát Nhập công ty trong nước và công ty nước ngoài">Sát Nhập công ty trong nước và công ty nước ngoài</a></li>
-
-                                <li class=""><a href="/dich-vu/giai-the-cong-ty-tam-ngung-hoat-dong/" title="Giải thể công ty, tạm ngưng hoạt động">Giải thể công ty, tạm ngưng hoạt động</a></li>
-
-                                <li class=""><a href="/dich-vu/thiet-lap-tu-van-bo-phan-ke-toan-he-thong-ke-toan/" title="Thiết lập, tư vấn bộ phận kế toán, hệ thống kế toán">Thiết lập, tư vấn bộ phận kế toán, hệ thống kế toán</a></li>
-
-                                <li class=""><a href="/dich-vu/cung-cap-phan-mem-ke-toan/" title="Cung cấp phần mềm kế toán">Cung cấp phần mềm kế toán</a></li>
-
-                                <li class=""><a href="/dich-vu/cung-cap-phan-mem-hoa-don-dien-tu/" title="Cung cấp phần mềm hoá đơn điện tử">Cung cấp phần mềm hoá đơn điện tử</a></li>
-
-                                <li class=""><a href="/dich-vu/cung-cap-chu-ky-so/" title="Cung cấp chữ ký số">Cung cấp chữ ký số</a></li>
-
-                                <li class=""><a href="/dich-vu/cung-cap-phan-mem-khai-bao-bao-hiem-xa-hoi/" title="Cung cấp phần mềm khai báo Bảo Hiểm Xã Hội">Cung cấp phần mềm khai báo Bảo Hiểm Xã Hội</a></li>
-
-                                <li class=""><a href="/dich-vu/xin-giay-phep-lao-dong-cho-nguoi-nuoc-ngoai/" title="Xin giấy phép lao động cho người nước ngoài">Xin giấy phép lao động cho người nước ngoài</a></li>
-
-                                <li class=""><a href="/dich-vu/xin-cap-thi-thuc-cho-nguoi-nuoc-ngoai/" title="Xin cấp thị thực cho người nước ngoài">Xin cấp thị thực cho người nước ngoài</a></li>
-
-                                <li class=""><a href="/dich-vu/xin-cap-doi-giay-phep-lai-xe-cho-nguoi-nuoc-ngoai/" title="Xin cấp đổi giấy phép lái xe  cho người nước ngoài">Xin cấp đổi giấy phép lái xe  cho người nước ngoài</a></li>
-
-                                <li class=""><a href="/dich-vu/cung-cap-dich-vu-xin-phep-nhap-canh-vao-viet-nam/" title="Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam">Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</a></li>
-*@
                             </ul>
-
+                            
                         </div>
                         <div class="blockLeft"></div>
                     </div>

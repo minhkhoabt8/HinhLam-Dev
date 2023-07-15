@@ -30,6 +30,22 @@ namespace HinhLam_Dev.Controllers
             return View("Service-en");
         }
 
+        [HttpGet("/en/services/{name}", Name = "ServiceDetailsEN")]
+        public IActionResult ServiceDetailsEN(string name)
+        {
+            var result = _menuService.GetAllContentOfMenu(name);
+
+            return View("ServiceDetails-en", result);
+        }
+
+        [HttpGet("/cn/services-chinese/{name}", Name = "ServiceDetailsCN")]
+        public IActionResult ServiceDetailsCN(string name)
+        {
+            var result = _menuService.GetAllContentOfMenu(name);
+
+            return View("ServiceDetails-cn", result);
+        }
+
         [HttpGet("/dich-vu/{name}", Name = "ServiceDetails")]
         public IActionResult Services(string name)
         {

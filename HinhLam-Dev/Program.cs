@@ -30,11 +30,39 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
+        name: "en",
+        pattern: "en/{controller=Home}/{action=Home}"
+    );
+
+    endpoints.MapControllerRoute(
+        name: "cn",
+        pattern: "cn/{controller=Home}/{action=Home}"
+    );
+
+    endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Home}"
     );
 
+    endpoints.MapControllerRoute(
+        name: "en-services",
+        pattern: "en/services/{name}",
+        defaults: new { controller = "Service", action = "ServiceDetailsEN" }
+    );
+
+    endpoints.MapControllerRoute(
+        name: "cn-services",
+        pattern: "cn/services-chinese/{name}",
+        defaults: new { controller = "Service", action = "ServiceDetailsCN" }
+    );
+
+    endpoints.MapControllerRoute(
+        name: "services",
+        pattern: "dich-vu/{name}",
+        defaults: new { controller = "Service", action = "Services" }
+    );
 });
+
 app.Run();
 
 

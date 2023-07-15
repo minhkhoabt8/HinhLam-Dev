@@ -1,4 +1,4 @@
-﻿@model List<MenuInfoModel>;
+﻿
 @using HinhLam_DataObject.Model;
 @using HinhLam_DataObject.ViewModels;
 @using HinhLam_Infrastructure.Services.Menu;
@@ -78,7 +78,7 @@
                                 @inject IMenuService menuService;
                                 @foreach (var menuItem in menuService.GetAllMenu())
                                 {
-                                    <li><a class="nav-main__menu-second-link" href="@menuItem.HrefLinkCN" title="@menuItem.MenuNameCN">@menuItem.MenuNameCN</a></li>
+                                    <li>@Html.Raw($"<a class=\"nav-main__menu-second-link\" href=\"{menuItem.HrefLinkCN}\" title=\"{menuItem.MenuNameCN}\">{menuItem.MenuNameCN}</a>")</li>
                                 }
 
                             </ul>

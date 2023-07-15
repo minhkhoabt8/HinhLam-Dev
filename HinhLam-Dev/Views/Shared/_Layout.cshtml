@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/themes/vip/css/style.css" type="text/css" />
@@ -71,9 +71,10 @@
                             </span>
                             <ul class="nav-main__menu-second">
                                 @inject IMenuService menuService;
+
                                 @foreach (var menuItem in menuService.GetAllMenu())
                                 {
-                                    <li><a class="nav-main__menu-second-link" href="@menuItem.HrefLink" title="@menuItem.MenuName">@menuItem.MenuName</a></li>
+                                    <li>@Html.Raw($"<a class=\"nav-main__menu-second-link\" href=\"{menuItem.HrefLink}\" title=\"{menuItem.MenuName}\">{menuItem.MenuName}</a>")</li>
                                 }
 
                             </ul>
