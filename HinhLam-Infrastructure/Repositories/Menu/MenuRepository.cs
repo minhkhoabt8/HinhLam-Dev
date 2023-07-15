@@ -34,17 +34,24 @@ namespace HinhLam_Infrastructure.Repositories.Menu
             // Assuming you have an instance of your database context called "dbContext"
 
             // Get the menu by its MenuId with included related entities
-           return _context.Menu
+            //return _context.Menu
+            //     .Include(m => m.MenuSubMenu)
+            //         .ThenInclude(ms => ms.SubMenu)
+            //             .ThenInclude(sm => sm.SubMenuContent)
+            //                 .ThenInclude(sc => sc.Content)
+            //     .FirstOrDefault(m => m.HrefLink.Contains(menuName) && m.Status == true || m.HrefLinkCN.Contains(menuName) && m.Status == true || m.HrefLinkEN.Contains(menuName) && m.Status == true);
+            return _context.Menu
                 .Include(m => m.MenuSubMenu)
                     .ThenInclude(ms => ms.SubMenu)
                         .ThenInclude(sm => sm.SubMenuContent)
                             .ThenInclude(sc => sc.Content)
-                .FirstOrDefault(m => m.HrefLink.Contains(menuName) || m.HrefLinkCN.Contains(menuName) || m.HrefLinkEN.Contains(menuName));
+                .Where(m => (m.HrefLink.Contains(menuName) || m.HrefLinkCN.Contains(menuName) || m.HrefLinkEN.Contains(menuName)) && m.Status == true)
+                .FirstOrDefault(m => m.MenuSubMenu.Any(ms => ms.SubMenu.Status == true && ms.SubMenu.SubMenuContent.Any(sc => sc.Content.Status == true)));
         }
 
         public HinhLam_DataObject.Model.Menu? GetMenuById(string id)
         {
-            return _context.Menu.FirstOrDefault(m => m.MenuId == id);
+            return _context.Menu.FirstOrDefault(m => m.MenuId == id && m.Status == true);
         }
 
         public void Remove(HinhLam_DataObject.Model.Menu menu)

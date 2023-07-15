@@ -31,12 +31,12 @@ namespace HinhLam_Infrastructure.Repositories.SubMenu
 
         public HinhLam_DataObject.Model.SubMenu? GetMenuById(string id)
         {
-            return _context.SubMenu.FirstOrDefault( s => s.SubMenuID == id);
+            return _context.SubMenu.FirstOrDefault( s => s.SubMenuID == id && s.Status == true);
         }
 
         public HinhLam_DataObject.Model.SubMenu? GetSubMenuWithContentOfMenu(string menu)
         {
-            return _context.SubMenu.Include(c => c.SubMenuContent.Select(c => c.Content)).FirstOrDefault();
+            return _context.SubMenu.Include(c => c.SubMenuContent.Select(c => c.Content)).FirstOrDefault(s => s.Status == true);
         }
 
         public void Remove(HinhLam_DataObject.Model.SubMenu menu)
