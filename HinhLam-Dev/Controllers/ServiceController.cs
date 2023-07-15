@@ -30,11 +30,17 @@ namespace HinhLam_Dev.Controllers
             return View("Service-en");
         }
 
-        [HttpGet("/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/", Name = "ServiceDetailsEN")]
-        public IActionResult Services()
+        [HttpGet("/dich-vu/{name}", Name = "ServiceDetails")]
+        public IActionResult Services(string name)
         {
-            //var result = _menuService.GetContentOfMenu("Gỡ rối sổ sách kế toán");
-            return View("ServiceDetails");
+            //if(name == null)
+            //{
+            //    name = "Gỡ rối sổ sách kế toán";
+            //}
+
+            var result = _menuService.GetAllContentOfMenu(name);
+
+            return View("ServiceDetails", result);
         }
     }
 }

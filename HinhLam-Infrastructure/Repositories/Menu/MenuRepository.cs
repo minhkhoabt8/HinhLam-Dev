@@ -29,7 +29,7 @@ namespace HinhLam_Infrastructure.Repositories.Menu
             return _context.Menu.OrderBy(m=>m.MenuCount).ToList();
         }
 
-        public HinhLam_DataObject.Model.Menu? GetAllContentOfMenu(string menuId)
+        public HinhLam_DataObject.Model.Menu? GetAllContentOfMenu(string menuName)
         {
             // Assuming you have an instance of your database context called "dbContext"
 
@@ -39,7 +39,7 @@ namespace HinhLam_Infrastructure.Repositories.Menu
                     .ThenInclude(ms => ms.SubMenu)
                         .ThenInclude(sm => sm.SubMenuContent)
                             .ThenInclude(sc => sc.Content)
-                .FirstOrDefault(m => m.MenuId == menuId );
+                .FirstOrDefault(m => m.HrefLink.Contains(menuName) || m.HrefLinkCN.Contains(menuName) || m.HrefLinkEN.Contains(menuName));
         }
 
         public HinhLam_DataObject.Model.Menu? GetMenuById(string id)

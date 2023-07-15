@@ -25,11 +25,11 @@ namespace HinhLam_Infrastructure.Services.Menu
             throw new NotImplementedException();
         }
 
-        public MenuInfoModel GetAllContentOfMenu(string id)
+        public MenuInfoModel GetAllContentOfMenu(string menuName)
         {
-            if(id != null)
+            if(menuName != null)
             {
-                var result = _menuRepository.GetAllContentOfMenu(id);
+                var result = _menuRepository.GetAllContentOfMenu(menuName);
                 return _mapper.Map<MenuInfoModel>(result);
             }
             return null;

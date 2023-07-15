@@ -7,7 +7,7 @@ namespace HinhLam_DataObject.ViewModels
 {
     public class MenuInfoModel
     {
-        public string MiD { get; set; }
+        public string MenuId { get; set; }
         public string MenuName { get; set; }
         public string MenuNameEN { get; set; }
         public string MenuNameCN { get; set; }

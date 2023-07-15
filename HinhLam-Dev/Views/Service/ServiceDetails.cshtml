@@ -58,7 +58,8 @@
 
         <a href="/dich-vu/">Dịch vụ</a>
 
-        <span>Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</span>
+       @* <span>Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</span>*@
+        <span>@Model.MenuName</span>
 
     </div>
 
@@ -81,15 +82,19 @@
                             </script>
                         </div>
                     </div>
+
                     <div class="detail-content">
-                        <h3 class="title-detail">Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</h3>
-                        <p>Kế toán là một phần quan trọng không thể thiếu trong mọi hoạt động của doanh nghiệp. Dù là doanh nghiệp mới thành lập hay là doanh nghiệp hoạt động lâu năm thì luôn cần một hệ thống kế toán đầy đủ, chính xác, an toàn và bảo mật. Để có được hệ thống kế toán như vậy cần đòi hỏi cao về nhân sự và kinh phí, và hệ thống kế toán hoàn thiện để có thể thích ứng với sự thay đổi nhanh chóng của luật pháp. Tuy nhiên yêu cầu này là bài toán khó cho các doanh nghiệp vừa và nhỏ hiện nay trên địa bàn Tp.HCM, Bình Phước, Bình Dương, Đồng Nai.</p>
+
+                        <h3 class="title-detail">@Model.MenuName</h3>
+                        <p>@Model.SubMenus.ElementAt(0).Description@*Kế toán là một phần quan trọng không thể thiếu trong mọi hoạt động của doanh nghiệp. Dù là doanh nghiệp mới thành lập hay là doanh nghiệp hoạt động lâu năm thì luôn cần một hệ thống kế toán đầy đủ, chính xác, an toàn và bảo mật. Để có được hệ thống kế toán như vậy cần đòi hỏi cao về nhân sự và kinh phí, và hệ thống kế toán hoàn thiện để có thể thích ứng với sự thay đổi nhanh chóng của luật pháp. Tuy nhiên yêu cầu này là bài toán khó cho các doanh nghiệp vừa và nhỏ hiện nay trên địa bàn Tp.HCM, Bình Phước, Bình Dương, Đồng Nai.*@</p>
                         <p><img src="/images/2021/img-ykien-khach-hang_1_1.jpg" alt="" width="743" height="498" /></p>
-                        <h3>Lý do bạn cần dịch vụ gỡ rối sổ sách kế toán</h3>
+                        <h3>@Model.Contents.ElementAt(0).Title</h3>
+                        
                         <p>Sau nhiều năm hoạt động, trải qua nhiều lần thay đổi nhân sự kế toán, bạn sẽ gặp nhiều khó khăn trong việc theo dõi sổ sách. Bạn dần cảm thấy đó là rủi ro pháp lý trong doanh nghiệp của mình.</p>
                         <p>Bạn là chủ doanh nghiệp, bạn đang lo lắng về tình hình sổ sách kế toán của doanh nghiệp mình không đúng theo quy định của pháp luật. Bạn lo lắng về sự rắc rối về các chứng từ bị thiếu sót, các chứng từ cần bổ sung, điều chỉnh. Và hơn hết bạn lo lắng về nhân viên kế toán không đủ kinh nghiệm để giải quyết các vấn đề phát sinh bất thường trong quá trình hoạt động.</p>
                         <p>Chứng từ hóa đơn tại doanh nghiệp lộn xộn, không theo hệ thống quy định, mọi vấn đề trở nên bề bộn không thể nào giải quyết được. Kế toán tại công ty thường xuyên thay đổi, không một ai chịu trách nhiệm về số liệu và giải trình các số liệu trên.</p>
-                        <h3>Chi tiết về dịch vụ gỡ rối sổ sách kế toán</h3>
+                        <h3>@Model.Contents.ElementAt(1).Title@*Chi tiết về dịch vụ gỡ rối sổ sách kế toán*@</h3>
+                        
                         <ul>
                             <li>Kiểm tra sổ sách của doanh nghiệp.</li>
                             <li>Rà soát kiểm tra tính hợp lệ của hóa đơn, chứng từ, đánh giá lại các chứng từ cần bổ sung điều chỉnh.</li>
@@ -104,6 +109,7 @@
                             <li>Đại diện cho doanh nghiệp đứng ra giải trình số liệu đã xử lý này cho cơ quan thuế khi cần thiết</li>
                             <li>Tư vấn dịch vụ doanh nghiệp xử lý một số vấn đề phát sinh bất thường.</li>
                         </ul>
+
                         <p>Trong một số trường hợp đặc biệt, chúng tôi sẽ có nhân viên dày dặn kinh nghiệm để xử lý vấn đề liên quan đến cơ quan chính quyền sở tại.</p>
                     </div>
                 </div>
@@ -114,9 +120,15 @@
 
                             <ul>
                                 @inject IMenuService menuService;
-                                @foreach (var menuItem in menuService.GetAllMenu())
+                                @{
+                                    var menuList = menuService.GetAllMenu().ToList();
+                                }
+
+                                <li class="active-menu"><a id="@menuList.First().MenuId" href="@menuList.First().HrefLink" title="@menuList.First().MenuName">@menuList.First().MenuName</a></li>
+
+                                @foreach (var menuItem in menuList.Skip(1))
                                 {
-                                    <li><a class="nav-main__menu-second-link" href="@menuItem.HrefLink" title="@menuItem.MenuName">@menuItem.MenuName</a></li>
+                                    <li><a id="@menuItem.MenuId" href="@menuItem.HrefLink" title="@menuItem.MenuName">@menuItem.MenuName</a></li>
                                 }
 
                               @*  <li class="active-menu"><a href="/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/" title="Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế">Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</a></li>

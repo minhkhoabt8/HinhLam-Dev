@@ -15,7 +15,7 @@ namespace HinhLam_Infrastructure.Services.Menu
         void Create(CreateMenuModel model);
         void Update(UpdateMenuModel model);
         MenuInfoModel GetContentOfMenu(string menuName);
-        public MenuInfoModel GetAllContentOfMenu(string id);
+        public MenuInfoModel GetAllContentOfMenu(string menuName);
 
 
     }
