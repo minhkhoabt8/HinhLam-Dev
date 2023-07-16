@@ -10,6 +10,7 @@
     Layout = "~/Views/Shared/_LayoutCN.cshtml";
 }
 
+
 <body class="lang-vn">
     <noscript>JavaScript is off. Please enable to view full site.</noscript>
 
@@ -93,27 +94,27 @@
                                 <div class="content">
                                     <div class="detail-content">
 
-                                        <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
-                                        <p>@Html.Raw(@Model.SubMenus.ElementAt(0).Description)</p>
+                                        <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                        <p>@Html.Raw(@Model.SubMenus.ElementAt(0).DescriptionCN)</p>
                                         <p><img src="/images/2021/img-ykien-khach-hang_1_1.jpg" alt="" width="743" height="498" /></p>
-                                        <h3>@Html.Raw(Model.Contents.ElementAt(0).Title)</h3>
+                                        <h3>@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</h3>
 
                                         @{
-                                            var textSegments = Model.Contents.ElementAt(0).Contents.Split('|', StringSplitOptions.RemoveEmptyEntries);
+                                            var textSegments = Model.Contents.ElementAt(0).ContentsCN.Split('|', StringSplitOptions.RemoveEmptyEntries);
                                             @foreach (var segment in textSegments)
                                             {
-                                                <p>@segment</p>
+                                                <p>@Html.Raw(@segment)</p>
                                             }
 
                                         }
-                                        <h3>@Html.Raw(Model.Contents.ElementAt(1).Title)</h3>
+                                        <h3>@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</h3>
                                         @{
-                                            var replacedContent = @Model.Contents.ElementAt(1).Contents.Replace("|", "<li>");
+                                            var replacedContent = @Model.Contents.ElementAt(1).ContentsCN.Replace("|", "<li>");
                                             <ul>
                                                 @Html.Raw(replacedContent)
                                             </ul>
                                         }
-                                        <p> @Html.Raw(Model.Contents.ElementAt(2).Contents)</p>
+                                        <p> @Html.Raw(Model.Contents.ElementAt(2).ContentsCN)</p>
                                     </div>
                                    
                                 </div>
@@ -121,73 +122,66 @@
 
                             case "2":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Cung cấp dịch vụ kế toán trọn gói</h3>
-                                    <p><strong><span lang="en-US">Dịch vụ kế toán trọn gói bao gồm những gì:</span></strong></p>
-                                    <ul>
-                                        <li>
-                                            <p><span lang="en-US">Tiếp nhận thông tin</span></p>
-                                        </li>
-                                        <li>
-                                            <p><span lang="en-US">Tiến hành hạch toán và lập báo cáo thuế</span></p>
-                                        </li>
-                                        <li>
-                                            <p><span lang="en-US">Tiến hành trao đổi và bàn giao chứng từ hàng tháng</span></p>
-                                        </li>
-                                    </ul>
-                                    <p><strong><span lang="en-US">Đối tượng phù hợp sử dụng dịch vụ này:</span></strong></p>
-                                    <ul>
-                                        <li>
-                                            <p><span lang="en-US">Cần tìm một dịch vụ giúp giải quyết tất cả mọi thứ liên quan đến Luật Kế toán, thông tư, nghị định, chuẩn mực kế toán để doanh nghiệp an tâm kinh doanh không lo đụng phải vấn đề pháp lý.</span></p>
-                                        </li>
-                                        <li>
-                                            <p><span lang="en-US">Doanh nghiệp mới thành lập, không biết bắt đầu từ đâu để tránh rủi ro về sau.</span></p>
-                                        </li>
-                                        <li>
-                                            <p><span lang="en-US">Doanh nghiệp vừa và nhỏ, chưa tuyển được Kế toán có kinh nghiệm, nội bộ ít người. </span></p>
-                                        </li>
-                                        <li>
-                                            <p><span lang="en-US">Doanh nghiệp đang thuê kế toán viên bên ngoài mang hồ sơ về nhà làm, điều này rủi ro nếu đột nhiên Kế toán bất khả kháng không thể làm được tiếp.</span></p>
-                                        </li>
-                                        <li>
-                                            <p><span lang="en-US">Các công ty cần quản lý toàn bộ hệ thống kế toán cũng như dọn dẹp sổ sách, quyết toán thuế hàng tháng, quyết toán thuế cuối năm và làm việc với cơ quan thuế.</span></p>
-                                        </li>
-                                    </ul>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <p><strong><span lang="en-US">@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</span></strong></p>
+
+                                    @{
+                                        var content1 = @Model.Contents.ElementAt(0).ContentsCN.Replace("|", "<li>");
+                                        <ul>
+                                            @Html.Raw(content1)
+                                        </ul>
+                                    }
+                                    <p><strong><span lang="en-US">@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</span></strong></p>
+                                    @{
+                                        var content2 = @Model.Contents.ElementAt(1).ContentsCN.Replace("|", "<li>");
+                                        <ul>
+                                            @Html.Raw(content2)
+                                        </ul>
+                                    }
+
                                 </div>
                                 break;
                             case "3":
-                                <div class="content">
                                     <div class="detail-content">
-                                        <h3 class="title-detail">Đào tạo kế toán thực hành</h3>
-                                        <p><strong>MỤC TIÊU:</strong></p>
-                                        <p>Sau khi học xong chương trình, học viên có thể:<br />- Hiểu được các kiến thức nền tảng về kế toán doanh nghiệp. Biết cách hạch toán kế toán các nghiệp vụ kinh tế xảy ra tại doanh nghiệp. Thực hiện được việc lập chứng từ, ghi sổ kế toán và lập báo cáo tài chính.<br />- Hiểu được các kiến thức mới nhất về các luật thuế. Thực hiện được nghiệp vụ khai báo thuế cho doanh nghiệp liên quan đến thuế thu nhập cá nhân, thuế thu nhập doanh nghiệp và thuế giá trị gia tăng.</p>
-                                        <p><strong>ĐỐI TƯỢNG THEO HỌC:</strong></p>
-                                        <p>Các học viên muốn tìm hiểu từ căn bản đến chuyên sâu về nghiệp vụ kế toán, về công việc khai báo thuế để có thể trở thành chuyên viên kế toán trong doanh nghiệp.<br />Các nhà quản lý doanh nghiệp, chủ cơ sở kinh doanh, các nhà đầu tư cần hiểu rõ kế toán và thuế để điều hành, quản lý công việc.<br />Các sinh viên chưa biết gì về kế toán, thuế hoặc cần hệ thống lại kiến thức đã học, mở rộng kiến thức thực tế để phục vụ tốt hơn cho việc học tại trường và đặc biệt là để đáp ứng nhu cầu tìm việc làm sau khi tốt nghiệp.<br /><br /><strong>NỘI DUNG CHƯƠNG TRÌNH HỌC:</strong></p>
-                                        <p><strong>Liên hệ: 0274 626 77 89.</strong></p>
+                                        <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                        <p><strong>@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</strong></p>
+                                        @{
+                                            var content3 = @Model.Contents.ElementAt(0).ContentsCN.Replace("|", "<br/>");
+                                        <p>@Html.Raw(content3);</p>
+                                        }
+                                        <p><strong>@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</strong></p>
+                                        @{
+                                            var content4 = @Model.Contents.ElementAt(1).ContentsCN.Replace("|", "<br/>");
+                                            <p>@Html.Raw(content4);</p>
+                                        }
+                                        <p><strong>@Html.Raw(Model.Contents.ElementAt(2).TitleCN)</strong></p>
+                                        <p><strong>@Html.Raw(Model.Contents.ElementAt(2).ContentsCN)</strong></p>
                                     </div>
-                                </div>
                                 break;
                             case "4":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Đại lý thuế</h3>
-                                    <p><span>Đại lý thuế là cụm từ ra đời từ năm 2008 tại Việt Nam, là một ngành nghề trong hệ thống danh mục ngành nghề Việt Nam. Đại lý thuế là dịch vụ chuyên làm thủ tục kê khai thuế, báo cáo thuế, quyết toán thuế cho các doanh nghiệp.</span></p>
-                                    <p><span><strong>Ưu điểm của Dịch vụ Đại lý thuế:</strong></span></p>
-                                    <ul>
-                                        <li><span><span>Giúp các doanh nghiệp kê khai thuế, giảm thiểu các rủi ro về thuế.</span></span></li>
-                                        <li>Giúp cập nhật văn bản thuế thường xuyên cho doanh nghiệp.</li>
-                                        <li>Là cánh tay nối dài của cơ quan thuế, kề vai sát cánh cùng ngành thuế để giúp doanh nghiệp khai đúng và tránh các sai sót.</li>
-                                        <li>Doanh nghiệp sẽ được quyền ký hợp đồng với công ty làm thủ tục về thuế để họ “Thay mặt doanh nghiệp kê khai, nộp thuế và chịu trách nhiệm pháp lý” về những nội dung đã. </li>
-                                    </ul>
-                                    <p><strong>Dịch vụ Đại lý thuế tại Hinh Lam:</strong></p>
-                                    <ul>
-                                        <li><em>Kê khai thuế hàng tháng, quý, năm.</em></li>
-                                        <li><em>Báo cáo tình hình sử dụng hóa đơn hàng quý.</em></li>
-                                        <li><em>Lập sổ sách kế toán theo các nghiệp vụ kinh tế phát sinh.</em></li>
-                                        <li><em>Lập báo cáo tài chính tạm tính theo quý, năm.</em></li>
-                                        <li><em>Giải trình số liệu với có quan thuế khi có yêu cầu.</em></li>
-                                        <li><em>Làm việc với cơ quan thuế về các thủ tục hành chính.</em></li>
-                                        <li><em>Tối ưu hóa thuế thu nhập doanh nghiệp, doanh thu, chi phí</em></li>
-                                        <li><em>Quyết toán thuế GTGT, thuế TNDN, thuế TNCN.</em></li>
-                                    </ul>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <p><span>@Html.Raw(Model.SubMenus.ElementAt(0).DescriptionCN)</span></p>
+                                    <p><span><strong>@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</strong></span></p>
+                                    @{
+                                        var content5 = Model.Contents.ElementAt(0).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content5)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</strong></p>
+                                    @{
+                                        var content6 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content5)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
                                 </div>
                                 break;
                             case "5":

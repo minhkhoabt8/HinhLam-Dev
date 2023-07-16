@@ -49,9 +49,9 @@ namespace HinhLam_Dev.Controllers
         [HttpGet("/dich-vu/{name}", Name = "ServiceDetails")]
         public IActionResult Services(string name)
         {
-            //if(name == null)
+            //if (name == null)
             //{
-            //    name = "Gỡ rối sổ sách kế toán";
+            //    name = "/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/";
             //}
 
             var result = _menuService.GetAllContentOfMenu(name);
