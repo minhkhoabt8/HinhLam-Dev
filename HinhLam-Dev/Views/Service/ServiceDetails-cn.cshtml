@@ -128,14 +128,20 @@
                                     @{
                                         var content1 = @Model.Contents.ElementAt(0).ContentsCN.Replace("|", "<li>");
                                         <ul>
-                                            @Html.Raw(content1)
+                                            @foreach (var item in content1)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
                                         </ul>
                                     }
                                     <p><strong><span lang="en-US">@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</span></strong></p>
                                     @{
                                         var content2 = @Model.Contents.ElementAt(1).ContentsCN.Replace("|", "<li>");
                                         <ul>
-                                            @Html.Raw(content2)
+                                            @foreach (var item in content2)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
                                         </ul>
                                     }
 
@@ -186,111 +192,181 @@
                                 break;
                             case "5":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Hoàn thuế GTGT dự án</h3>
-                                    <p><strong>Điều kiện và thủ tục hoàn thuế của dự án đầu tư ?</strong></p>
-                                    <ul>
-                                        <li>Đang hoạt động thuộc đối tượng nộp thuế GTGT theo phương pháp khấu trừ.</li>
-                                        <li>Có dự án đầu tư, trừ dự án đầu tư xây dựng nhà để bán hoặc cho thuê mà không hình thành tài sản cố định hoặc các cơ sở kinh doanh thuộc diện không được hoàn thuế.</li>
-                                        <li>Kê khai riêng đối với dự án đầu tư.</li>
-                                        <li>Phải kết chuyển thuế GTGT đầu vào của dự án đầu tư để bù trừ với việc kê khai thuế GTGT của hoạt động sản xuất kinh doanh đang thực hiện.</li>
-                                    </ul>
-                                    <p> </p>
-                                    <p><strong> </strong></p>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <p><strong>@Html.Raw(Model.SubMenus.ElementAt(0).DescriptionCN)</strong></p>
+                                    @{
+                                        var content7 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content7)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
                                 </div>
                                 break;
 
                             case "6":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài</h3>
-                                    <h3 id="Các_bước_thực_hiện_thủ_tục_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài:">Các bước thực hiện thủ tục thành lập công ty có vốn đầu tư nước ngoài:</h3>
-                                    <ul>
-                                        <li>Xin cấp Giấy chứng nhận đăng ký đầu tư.</li>
-                                        <li>Xin cấp Giấy chứng nhận đăng ký doanh nghiệp.</li>
-                                        <li>Xin cấp Giấy phép kinh doanh đối với công ty bán lẻ hàng hóa trực tiếp tới người tiêu dùng, Giấy phép lập cơ sở bán lẻ hoặc Giấy phép chuyên ngành của Bộ theo các lĩnh vực hoạt động đặc thù như: Đào tạo, Lữ hành, Kiểm toán, Giáo dục, Y tế...</li>
-                                    </ul>
-                                    <h3 id="Hồ_sơ_khách_hàng_cần_chuẩn_bị_khi_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài_tại_Việt_Nam:"><span style="color: #0000ff;">Hồ sơ khách hàng cần chuẩn bị khi thành lập công ty có vốn đầu tư nước ngoài tại Việt Nam:</span></h3>
-                                    <p id="Đối_với_nhà_đầu_tư_là_cá_nhân_(do_cá_nhân,_các_cá_nhân_người_nước_ngoài_góp_vốn_thành_lập_công_ty_tại_Việt_Nam)."><strong>Đối với nhà đầu tư là cá nhân (do cá nhân, các cá nhân người nước ngoài góp vốn thành lập công ty tại Việt Nam).</strong></p>
-                                    <ul>
-                                        <li>Bản sao chứng minh nhân dân, thẻ căn cước hoặc hộ chiếu (Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài- cả quyển hộ chiếu).</li>
-                                        <li>Xác nhận số dư tài khoản ngân hàng của nhà đầu tư tương ứng với vốn dự kiến đầu tư tại Việt Nam (Nếu là Ngân hàng nước ngoài xác nhận cần cung cấp bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
-                                        <li>Hợp đồng thuê trụ sở, Giấy tờ chứng minh quyền cho thuê của bên cho thuê (Giấy chứng nhận quyền sử dụng đất, Giấy phép xây dựng, Giấy chứng nhận đăng ký kinh doanhcó chức năng kinh doanh bất động sản của bên cho thuê hoặc các giấy tờ tương đương).</li>
-                                    </ul>
-                                    <p id="Đối_với_nhà_đầu_tư_là_tổ_chức_(do_công_ty_có_trụ_sở_tại_nước_ngoài_góp_vốn,_đầu_tư_vốn_thành_lập_công_ty_tại_Việt_Nam)."><strong>Đối với nhà đầu tư là tổ chức (do công ty có trụ sở tại nước ngoài góp vốn, đầu tư vốn thành lập công ty tại Việt Nam).</strong></p>
-                                    <ul>
-                                        <li>Bản sao Giấy chứng nhận thành lập hoặc tài liệu tương đương khác xác nhận tư cách pháp lý đối với nhà đầu tư (Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
-                                        <li>Bản sao một trong các tài liệu sau: báo cáo tài chính 02 năm gần nhất của nhà đầu tư; cam kết hỗ trợ tài chính của công ty mẹ; cam kết hỗ trợ tài chính của tổ chức tài chính; bảo lãnh về năng lực tài chính của nhà đầu tư; Xác nhận số dư tài khoản ngân hàng của nhà đầu tư tương ứng với vốn dự kiến đầu tư tại Việt Nam. (Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
-                                        <li>Hộ chiếu công chứng của người đại diện theo pháp luật của công ty tại nước ngoài (Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
-                                        <li>Hộ chiếu công chứng của giám đốc – người đại diện theo pháp luật công ty tại Việt Nam (Nếu là người nước ngoài Bản sao công chứng, hợp pháp hóa lãnh sự tại cơ quan đại diện ngoại giao Việt Nam tại nước ngoài).</li>
-                                        <li>Hợp đồng thuê trụ sở, Giấy tờ chứng minh quyền cho thuê của bên cho thuê (Giấy chứng nhận quyền sử dụng đất, Giấy phép xây dựng, Giấy chứng nhận đăng ký kinh doanh có chức năng kinh doanh bất động sản của bên cho thuê hoặc các giấy tờ tương đương).</li>
-                                        <li>Nếu dự án có sử dụng công nghệ cần kèm theo bản giải trình về sử dụng công nghệ đối với dự án quy định gồm các nội dung: tên công nghệ, xuất xứ công nghệ, sơ đồ quy trình công nghệ; thông số kỹ thuật chính, tình trạng sử dụng của máy móc, thiết bị và dây chuyền công nghệ chính.</li>
-                                    </ul>
-                                    <h3>Dịch vụ thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài:</h3>
-                                    <ul>
-                                        <li>Tư vấn điều kiện thành lập công ty vốn đầu tư nước ngoài: tỷ lệ góp vốn của nhà đầu tư nước ngoài tại Việt Nam; điều kiện kinh doanh các ngành nghề; địa điểm thực hiện dự án; lưu ý các thủ tục trước và sau thành lập công ty vốn đầu tư nước ngoài.</li>
-                                        <li>Tư vấn lựa chọn loại hình công ty phù hợp cho nhà đầu tư: Công ty TNHH hay Công ty cổ phần.</li>
-                                        <li>Tư vấn mở tài khoản chuyển vốn, thời hạn góp vốn.</li>
-                                        <li>Tư vấn hướng dẫn nhà đầu tư chuẩn bị tài liệu cần thiết để thành lập công ty có vốn đầu tư nước ngoài.</li>
-                                        <li>Tư vấn, soạn thảo hồ sơ thành lập công ty cho nhà đầu tư.</li>
-                                    </ul>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <h3 id="Các_bước_thực_hiện_thủ_tục_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài:">@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</h3>
+                                    @{
+                                        var content8 = Model.Contents.ElementAt(0).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content8)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <h3 id="Hồ_sơ_khách_hàng_cần_chuẩn_bị_khi_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài_tại_Việt_Nam:"><span style="color: #0000ff;">@Html.Raw(Model.SubMenus.ElementAt(1).DescriptionCN)</span></h3>
+                                    <p id="Đối_với_nhà_đầu_tư_là_cá_nhân_(do_cá_nhân,_các_cá_nhân_người_nước_ngoài_góp_vốn_thành_lập_công_ty_tại_Việt_Nam)."><strong>@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</strong></p>
+                                    @{
+                                        var content9 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content9)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p id="Đối_với_nhà_đầu_tư_là_tổ_chức_(do_công_ty_có_trụ_sở_tại_nước_ngoài_góp_vốn,_đầu_tư_vốn_thành_lập_công_ty_tại_Việt_Nam)."><strong>@Html.Raw(Model.Contents.ElementAt(2).TitleCN)</strong></p>
+                                    @{
+                                        var content10 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content10)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <h3>@Html.Raw(Model.Contents.ElementAt(3).TitleCN)</h3>
+                                    @{
+                                        var content11 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content11)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
                                 </div>
                                 break;
                             case "7":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Điều chỉnh thay đổi giấy phép kinh doanh, giấy phép đầu tư</h3>
-                                    <p><span>Trong quá trình hoạt động kinh doanh của doanh nghiệp. Khi phát sinh những thay đổi về tình hình thực tế thì doanh nghiệp cần phải thực hiện thủ tục thay đổi giấy chứng nhận đầu tư (thay đổi thông tin trên Giấy chứng nhận đầu tư). Đồng thời doanh nghiệp phải thực hiện thủ tục thay đổi giấy chứng nhận đăng ký doanh nghiệp (thay đổi Giấy chứng nhận đăng ký doanh nghiệp) để tránh bị xử phạt vi phạm hành chính trong lĩnh vực kế hoạch đầu tư, tránh bị xử phạt sẽ gây rắc rối rất lớn cho doanh nghiệp có vốn đầu tư nước ngoài hoạt động kinh doanh tại Việt Nam trong tương lai.</span></p>
-                                    <p>Tổ chức kinh tế chuẩn bị hồ sơ theo quy định tại Điều 15 Nghị định 09/2018/NĐ-CP, bao gồm:</p>
-                                    <p>– Đơn đề nghị điều chỉnh Giấy phép kinh doanh.</p>
-                                    <p>– Trường hợp thay đổi tên, mã số doanh nghiệp, địa chỉ trụ sở chính và người đại diện theo pháp luật, trừ trường hợp chuyển địa điểm đặt trụ sở chính, chuẩn bị thêm Bản sao Giấy chứng nhận đăng ký doanh nghiệp ghi nhận nội dung điều chỉnh;</p>
-                                    <p>– Trường hợp thay đổi các nội dung khác của Giấy phép kinh doanh thì phải thêm một số tài liệu sau:</p>
-                                    <ul>
-                                        <li>Bản giải trình.</li>
-                                        <li>Tài liệu của cơ quan thuế chứng minh không còn nợ thuế quá hạn.</li>
-                                        <li>Bản sao: Giấy chứng nhận đăng ký doanh nghiệp; Giấy chứng nhận đăng ký đầu tư dự án hoạt động mua bán hàng hóa và các hoạt động liên quan trực tiếp đến mua bán hàng hóa (nếu có).</li>
-                                    </ul>
-                                    <p><strong>Trình tự điều chỉnh Giấy phép kinh doanh: </strong>được thực hiện như thủ tục cấp mới Giấy phép kinh doanh. Cụ thể như sau:</p>
-                                    <p><strong>Bước 1: Chuẩn bị và nộp hồ sơ</strong></p>
-                                    <p>Tổ chức kinh tế có vốn đầu tư nước ngoài chuẩn bị hồ sơ theo quy định trên.</p>
-                                    <p>Hồ sơ gửi trực tiếp hoặc qua đường bưu chính hoặc qua mạng điện tử (nếu đủ điều kiện áp dụng) đến Cơ quan cấp Giấy phép trong vòng 10 ngày làm việc kể từ ngày có Giấy chứng nhận đăng ký doanh nghiệp ghi nhận nội dung điều chỉnh.</p>
-                                    <p><strong><em>Lưu ý về số lượng hồ sơ:</em></strong></p>
-                                    <p>– Trường hợp điều chỉnh Giấy phép kinh doanh để thực hiện hoạt động quy định tại điểm a khoản 1 Điều 5 Nghị định này: 01 bộ;</p>
-                                    <p>– Trường hợp điều chỉnh Giấy phép kinh doanh để <span lang="VI">thực hiện hoạt động quy định tại các điểm b, d, đ, e, g, h và i khoản 1 Điều 5 Nghị định này: 02 bộ;</span></p>
-                                    <p>– Trường hợp điều chỉnh Giấy phép kinh doanh để thực hiện hoạt động quy định tại điểm c khoản 1 Điều 5 Nghị định này: 03 bộ.</p>
-                                    <p>Bước 2: Tiếp nhận, xử lý hồ sơ</p>
-                                    <p>– Trong thời hạn 03 ngày làm việc kể từ ngày nhận được hồ sơ, Cơ quan cấp Giấy phép kiểm tra và yêu cầu sửa đổi, bổ sung nếu hồ sơ chưa đủ và hợp lệ.</p>
-                                    <p><strong>Bước 3: Kiểm tra hồ sơ</strong></p>
-                                    <p><span lang="VI">Trong thời hạn 10 ngày làm việc kể từ ngày nhận được hồ sơ đủ và hợp lệ, Cơ quan cấp Giấy phép kiểm tra việc đáp ứng điều kiện để điều chỉnh Giấy phép kinh doanh.</span></p>
-                                    <p>– Trường hợp không đáp ứng điều kiện, Cơ quan cấp Giấy phép có văn bản trả lời và nêu rõ lý do;</p>
-                                    <p>– Trường hợp đáp ứng ứng điều kiện</p>
-                                    <p>+ Cơ quan cấp Giấy phép điều chỉnh Giấy phép kinh doanh để thực hiện hoạt động quy định tại điểm a khoản 1 Điều 5 Nghị định này; trường hợp từ chối điều chỉnh, phải có văn bản trả lời và nêu rõ lý do;</p>
-                                    <p>+ Cơ quan cấp Giấy phép gửi hồ sơ kèm văn bản lấy ý kiến Bộ Công Thương, bộ quản lý ngành theo quy định tại điểm a hoặc b khoản 3 Điều 8 Nghị định này (Mẫu số 09 tại Phụ lục ban hành kèm theo Nghị định này).</p>
-                                    <p><strong>Bước 4: Giải quyết hồ sơ</strong></p>
-                                    <p>– Trong thời hạn 15 ngày kể từ ngày nhận được hồ sơ, Bộ Công Thương và bộ quản lý ngành căn cứ vào nội dung tương ứng quy định tại Điều 10 Nghị định này để có văn bản chấp thuận điều chỉnh Giấy phép kinh doanh; trường hợp từ chối, phải có văn bản trả lời và nêu rõ lý do mẫu số 10 tại Phụ lục ban hành kèm theo Nghị định này).</p>
-                                    <p>– Trong thời hạn 03 ngày làm việc kể từ ngày nhận được văn bản chấp thuận của Bộ Công Thương và bộ quản lý ngành, Cơ quan cấp Giấy phép điều chỉnh Giấy phép kinh doanh. Trường hợp Bộ Công Thương hoặc bộ quản lý ngành có văn bản từ chối, Cơ quan cấp Giấy phép có văn bản trả lời và nêu rõ lý do.</p>
-                                    <p><strong>Bước 5: Hoàn trả Giấy phép kinh doanh đã được cấp trước đó</strong></p>
-                                    <p>Trong thời hạn 05 ngày làm việc kể từ ngày nhận được Giấy phép kinh doanh đã được điều chỉnh, tổ chức kinh tế có vốn đầu tư nước ngoài có trách nhiệm hoàn trả Giấy phép kinh doanh đã được cấp cho Cơ quan cấp Giấy phép.</p>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <p><span>@Html.Raw(Model.SubMenus.ElementAt(0).DescriptionCN)</span></p>
+                                    <p>@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</p>
+                                    @*<p>– Đơn đề nghị điều chỉnh Giấy phép kinh doanh.</p>
+                            <p>– Trường hợp thay đổi tên, mã số doanh nghiệp, địa chỉ trụ sở chính và người đại diện theo pháp luật, trừ trường hợp chuyển địa điểm đặt trụ sở chính, chuẩn bị thêm Bản sao Giấy chứng nhận đăng ký doanh nghiệp ghi nhận nội dung điều chỉnh;</p>
+                            *@
+                                    @{
+                                        var content12 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content12)
+                                            {
+                                                <p>@Html.Raw(@item)</p>
+                                            }
+                                        </ul>
+                                    }
+                                    @*<p>– Trường hợp thay đổi các nội dung khác của Giấy phép kinh doanh thì phải thêm một số tài liệu sau:</p>*@
+                                    <p>@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</p>
+                                    @{
+                                        var content13 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content13)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    @*Buoc 1*@
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(2).TitleCN) </strong> Html.Raw(@Model.Contents.ElementAt(2).ContentsCN)</p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(3).TitleCN)</strong></p>
+                                    @{
+                                        var content14 = Model.Contents.ElementAt(3).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content14)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
+                                    @*Luu y*@
+                                    <p><strong><em>@Html.Raw(Model.Contents.ElementAt(4).TitleCN)</em></strong></p>
+                                    @{
+                                        var content15 = Model.Contents.ElementAt(4).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content15)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
+                                    @*Buoc 2*@
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(6).TitleCN)</strong></p>
+                                    @{
+                                        var content16 = Model.Contents.ElementAt(6).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content16)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
+                                    @*Buoc 3*@
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(7).TitleCN)</strong></p>
+                                    @{
+                                        var content17 = Model.Contents.ElementAt(7).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content17)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
+                                    @*Buoc 4*@
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(8).TitleCN)</strong></p>
+                                    @{
+                                        var content18 = Model.Contents.ElementAt(8).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content18)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
+                                    @*Buoc 5*@
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(9).TitleCN)</strong></p>
+                                    @{
+                                        var content19 = Model.Contents.ElementAt(9).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content19)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
                                 </div>
                                 break;
                             case "8":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Sát Nhập công ty trong nước và công ty nước ngoài</h3>
-                                    <p><span>Với nhiều năm kinh nghiệm, chúng tôi cung cấp dịch vụ sáp nhập doanh nghiệp uy tín, nhanh chóng.</span></p>
-                                    <p><strong>Dịch vụ gồm các công việc sau:</strong></p>
-                                    <p>– Tư vấn và đưa ra các phương án sáp nhập.</p>
-                                    <p>– Soạn thảo bộ hồ sơ sáp nhập công ty.</p>
-                                    <p>– Nộp và nhận kết quả tại Sở Kế hoạch và Đầu tư.</p>
-                                    <p>– Sửa đổi, bổ sung, giải trình bộ hồ sơ theo yêu cầu của cơ quan có thẩm quyền.</p>
-                                    <p>– Nộp phí, lệ phí nhà nước.</p>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <p><span>@Html.Raw(Model.SubMenus.ElementAt(0).DescriptionCN)</span></p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</strong></p>
+                                    @{
+                                        var content20 = Model.Contents.ElementAt(9).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content20)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
                                 </div>
                                 break;
                             case "9":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Giải thể công ty, tạm ngưng hoạt động</h3>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
                                     <div class="wpb_row wf-container">
                                         <div class="vc_col-sm-12 wpb_column column_container ">
                                             <div class="wpb_wrapper">
                                                 <div id="ultimate-heading60ab1faca908e" class="uvc-heading uvc-6973 " data-hspacer="no_spacer" data-halign="left">
                                                     <div class="uvc-main-heading ult-responsive" data-ultimate-target="#ultimate-heading60ab1faca908e h2" data-responsive-json-new="{">
-                                                        <p><strong>Lưu ý: Tạm ngưng hoạt động kinh doanh: </strong></p>
+                                                        <p><strong>@Html.Raw(Model.SubMenus.ElementAt(0).TitleCN) </strong></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -301,10 +377,15 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element  ">
                                                     <div class="wpb_wrapper">
-                                                        <ul>
-                                                            <li>Trong thời gian tạm ngưng hoạt động kinh doanh, doanh nghiệp vẫn phải nộp đầy đủ các khoản thuế còn nợ. Tiếp tục thanh toán các khoản nợ, thực hiện hợp đồng đã ký với khách hàng và người lao động (nếu có), trừ trường hợp chủ nợ, khách hàng và người lao động có thỏa thuận khác.</li>
-                                                            <li>Trong thời gian tạm ngừng kinh doanh, doanh nghiệp không phải nộp thuế môn bài, không kê khai thuế giá trị gia tăng hàng tháng, không nộp báo cáo tài chính cuối năm</li>
-                                                        </ul>
+                                                        @{
+                                                            var content21 = Model.Contents.ElementAt(0).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                                            <ul>
+                                                                @foreach (var item in content21)
+                                                                {
+                                                                    <li>@Html.Raw(@item)</li>
+                                                                }
+                                                            </ul>
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
@@ -315,22 +396,28 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element  ">
                                                     <div class="wpb_wrapper">
-                                                        <ul>
-                                                            <li>Khi tạm ngừng kinh doanh, doanh nghiệp có thể bớt đi nỗi lo về tiền lương cho người lao động, thuế, các khoản chi khác.</li>
-                                                            <li>Khi hết thời hạn tạm ngưng hoạt động, thì doanh nghiệp sẽ hoạt động lại bình thường, và phải đáp ứng đầy đủ các thủ tục theo doanh nghiệp bình thường.</li>
-                                                            <li>Trong một số trường hợp bạn không muốn tiếp tục kinh doanh thì chuyển qua làm hồ sơ giải thể doanh nghiệp.</li>
-                                                        </ul>
-                                                        <p><strong>GIẢI THỂ DOANH NGHIỆP</strong></p>
-                                                        <p>Giải thể doanh nghiệp là việc doanh nghiệp thực hiện thủ tục chấm dứt hoạt động kinh doanh của mình. Doanh nghiệp chỉ giải thể trong các trường hợp sau:</p>
-                                                        <ul>
-                                                            <li>Kết thúc thời hạn hoạt động đã ghi trong Điều lệ công ty mà không có quyết định gia hạn;</li>
-                                                            <li>Theo quyết định Đại hội đồng cổ đông;</li>
-                                                            <li>Công ty không còn đủ số lượng thành viên tối thiểu theo quy định của Luật doanh nghiệp 2014 trong thời hạn 06 tháng liên tục mà không làm thủ tục chuyển đổi loại hình doanh nghiệp;</li>
-                                                            <li>Bị thu hồi Giấy chứng nhận đăng ký doanh nghiệp hoặc theo quyết định của Tòa án;</li>
-                                                            <li>Doanh nghiệp chỉ được giải thể khi bảo đảm thanh toán hết các khoản nợ và nghĩa vụ tài sản khác và doanh nghiệp không trong quá trình giải quyết tranh chấp tại Tòa án hoặc cơ quan trọng tài.</li>
-                                                        </ul>
-                                                        <p>Trường hợp doanh nghiệp bị giải thể do bị thu hồi Giấy chứng nhận đăng ký doanh nghiệp thì người quản lý có liên quan và doanh nghiệp cùng liên đới chịu trách nhiệm về các khoản nợ của doanh nghiệp.<br />Đối với doanh nghiệp có các đơn vị trực thuộc (chi nhánh, văn phòng đại diện, địa điểm kinh doanh) thì trước khi thực hiện thủ tục giải thể, doanh nghiệp phải làm thủ tục chấm dứt hoạt động các đơn vị trực thuộc đó.</p>
-                                                        <p><span>Với những chuyên viên có nhiều kinh nghiệm trong việc làm thủ tục <strong>giải thể công ty, tạm ngưng hoạt động,</strong> <strong>Hinh Lam</strong> sẽ tư vấn và hỗ trợ doanh nghiệp thực hiện đầy đủ và chính xác tất cả những thủ tục cần thiết trong quá trình giải thể. </span></p>
+                                                        <p><strong>@Html.Raw(Model.SubMenus.ElementAt(1).TitleCN)</strong></p>
+                                                        @{
+                                                            var content22 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                                            <ul>
+                                                            @foreach (var item in content22)
+                                                            {
+                                                                
+                                                                    <li>@Html.Raw(@item)</li>
+                                                                
+                                                            }
+                                                            </ul>
+                                                        }
+
+                                                        @{
+                                                            var content23 = Model.Contents.ElementAt(2).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                                            @foreach (var item in content23)
+                                                            {
+                                                                <p>@Html.Raw(@item)</p>
+                                                            }
+                                                        }
+                                                        <p><span>@Html.Raw(Model.Contents.ElementAt(3).ContentsCN)</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -340,52 +427,65 @@
                                 break;
                             case "10":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Thiết lập, tư vấn bộ phận kế toán, hệ thống kế toán</h3>
-                                    <p><span>Hệ thống kế toán là bộ phận nắm vai trò quan trọng, góp phần ổn định hệ thống tài chính, xây dựng nền tảng vững chắc cho sự phát triển của doanh nghiệp. Hệ thống kế toán phù hợp cung cấp đầy đủ thông tin cần thiết để:</span></p>
-                                    <ul>
-                                        <li><span>Hỗ trợ tối đa việc sản xuất các sản phẩm với chi phí thấp (nguyên liệu, nhân công, khấu hao,…)</span></li>
-                                        <li><span>Hỗ trợ việc kinh doanh (phân loại khách hàng, hàng hóa tiêu thụ,…)</span></li>
-                                        <li><span>Hỗ trợ công tác tài chính (nguồn vay, lãi suất,…)</span></li>
-                                        <li><span>Hỗ trợ việc quản trị (lập báo cáo phân tích dòng tiền, doanh thu, lợi nhuận,…)</span></li>
-                                    </ul>
-                                    <p><strong>Quy trình xây dựng tư vấn thiết lập hệ thống kế toán:</strong></p>
-                                    <ul style="list-style-type: circle;">
-                                        <li>Bước 1: Xác định mục tiêu của hệ thống kế toán.</li>
-                                        <li>Bước 2: Xác định các trung tâm trách nhiệm.</li>
-                                        <li>Bước 3: Xây dựng hệ thống phân loại trong kế toán.</li>
-                                        <li>Bước 4: Xây dựng hệ thống báo cáo.</li>
-                                        <li>Bước 5: Lựa chọn phương pháp kế toán quản trị chi phí và giá thành dịch vụ.</li>
-                                        <li>Bước 6: Thiết kế hệ thống chứng từ, tài khoản.</li>
-                                        <li>Bước 7: Xây dựng hệ thống dự toán.</li>
-                                        <li>Bước 8: Soạn thảo Quy định về thực hiện kế toán. </li>
-                                        <li>Bước 9: Triển khai hệ thống kế toán.</li>
-                                    </ul>
-                                    <p>Nếu bạn đang có bất cứ thắc mắc nào liên quan Gở rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế, thành lập công ty trọn gói, dịch vụ kế toán thuế, dịch vụ hoàn thuế giá trị gia tăng, dịch vụ báo cáo thuế cuối năm và các vấn đề khác có liên quan bạn có thể liên hệ tới Hinh Lam - <span><span style="color: #0000ff;"><strong>0983</strong></span> <span style="color: #0000ff;"><strong>204 115 -0919 724 872</strong></span> </span>để được tư vấn miễn phí.</p>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <p><span>@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</span></p>
+                                    @{
+                                        var content24 = Model.Contents.ElementAt(0).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in content24)
+                                            {
+
+                                                <li>@Html.Raw(@item)</li>
+
+                                            }
+                                        </ul>
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</strong></p>
+                                    @{
+                                        var content25 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul style="list-style-type: circle;">
+                                            @foreach (var item in content25)
+                                            {
+
+                                                <li>@Html.Raw(@item)</li>
+
+                                            }
+                                        </ul>
+                                    }
+                                    <p>@Html.Raw(Model.Contents.ElementAt(2).ContentsCN)</p>
                                 </div>
                                 break;
                             case "11":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Cung cấp phần mềm kế toán</h3>
-                                    <p>Phần mềm kế toán được phát triển bởi một đội ngũ chuyên gia kế toán, kiểm toán, kỹ thuật viên theo yêu cầu đặc thù của các Doanh nghiệp lớn và doanh nghiệp có quy mô vừa và nhỏ khác.</p>
-                                    <ul class="list3t">
-                                        <li> Hỗ trợ chuyên nghiệp</li>
-                                        <li> Hướng dẫn chi tiết</li>
-                                        <li> Cập nhật thường xuyên</li>
-                                    </ul>
-                                    <p><strong>Đối tác</strong></p>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <p>@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</p>
+                                    @{
+                                        var content26 = Model.Contents.ElementAt(1).ContentsCN.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul class="list3t">
+                                            @foreach (var item in content26)
+                                            {
+
+                                                <li>@Html.Raw(@item)</li>
+
+                                            }
+                                        </ul>
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(1).TitleCN)</strong></p>
                                     <p><strong><img src="/images/2021/phan-mem-misa-hinh-lam_1.png" alt="" width="344" height="198" /> </strong></p>
                                     <p> </p>
                                 </div>
                                 break;
                             case "12":
                                 <div class="detail-content">
-                                    <h3 class="title-detail">Cung cấp phần mềm hoá đơn điện tử</h3>
-                                    <p>Thời kỳ hiện đại hóa, công nghệ hóa, Hóa đơn điện tử là hình thức hóa đơn đang được sử dụng rộng rãi trong các doanh nghiệp hiện nay. Nhà nước Việt Nam đã triển khai sử dụng hóa đơn điện tử thực sự là giải pháp tối ưu trong việc tiết kiệm chi phí, thời gian, nguồn nhân lực, rút ngắn các thủ tục hành chính về hóa đơn.</p>
-                                    <p><strong>Đầy đủ nghiệp vụ: </strong>Đáp ứng đầy đủ nghiệp vụ theo Thông tư 32/2011/TT-BTC, Thông tư 39/2014/TT-BTC và sẵn sàng đáp ứng Nghị định 119/2018/NĐ-CP, Thông tư 68/2019/TT-BTC, Nghị định 123/2020/NĐ-CP.</p>
-                                    <p><strong>Quản trị toàn diện: </strong>Người bán thực hiện phát hành, quản lý, báo cáo hóa đơn mọi lúc, mọi nơi qua mobile, website, desktop.</p>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
+                                    <p>@Html.Raw(Model.SubMenus.ElementAt(0).DescriptionCN)</p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(0).TitleCN)</strong>@Html.Raw(Model.Contents.ElementAt(0).ContentsCN)</p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(1).TitleCN) </strong>@Html.Raw(Model.Contents.ElementAt(1).ContentsCN)</p>
                                     <div>
-                                        <p><strong>An toàn, bảo mật: </strong>Phần mềm hóa đơn điện tử đầu tiên tại Việt Nam ứng dụng công nghệ Blockchain đảm bảo an toàn, bảo mật và chống làm giả hóa đơn.</p>
-                                        <p><strong>Hinh Lam đồng hành cùng các nhà cung cấp hóa đơn điện tử uy tín nhất Việt Nam</strong></p>
+                                        <p><strong>@Html.Raw(Model.Contents.ElementAt(2).TitleCN)</strong>@Html.Raw(Model.Contents.ElementAt(2).ContentsCN)</p>
+                                        <p><strong>@Html.Raw(Model.Contents.ElementAt(3).ContentsCN)</strong></p>
                                         <p><img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-2021_2.png" alt="" width="729" height="163" /></p>
                                         <p><img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-misa.png" alt="" width="729" height="163" /></p>
                                         <p> </p>

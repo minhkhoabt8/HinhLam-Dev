@@ -31,7 +31,7 @@ namespace HinhLam_Infrastructure.Repositories.Menu
 
         public HinhLam_DataObject.Model.Menu? GetAllContentOfMenu(string menuName)
         {
-            // Assuming you have an instance of your database context called "dbContext"
+            //Assuming you have an instance of your database context called "dbContext"
 
             // Get the menu by its MenuId with included related entities
             //return _context.Menu
