@@ -196,7 +196,7 @@
                         case "5":
                             <div class="detail-content">
                                     <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
-                                    <p><strong>@Html.Raw(Model.SubMenus.ElementAt(0).Description)</strong></p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(0).Title)</strong></p>
                                     @{
                                         var content7 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                         <ul>
@@ -212,44 +212,44 @@
                         case "6":
                             <div class="detail-content">
                                     <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
-                                    <h3 id="Các_bước_thực_hiện_thủ_tục_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài:">@Html.Raw(Model.Contents.ElementAt(0).Title)</h3>
+                                    <h3 style="color: #3465a4" id="Các_bước_thực_hiện_thủ_tục_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài:"><strong>@Html.Raw(Model.Contents.ElementAt(0).Title)</strong></h3>
                                     @{
                                         var content8 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                         <ul>
                                             @foreach (var item in content8)
                                             {
-                                                <li>@Html.Raw(@item)</li>
+                                                <li><p>@Html.Raw(@item)</p></li>
                                             }
                                         </ul>
                                     }
-                                    <h3 id="Hồ_sơ_khách_hàng_cần_chuẩn_bị_khi_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài_tại_Việt_Nam:"><span style="color: #0000ff;">@Html.Raw(Model.SubMenus.ElementAt(1).Description)</span></h3>
+                                    <h3 style="color: #3465a4" id="Hồ_sơ_khách_hàng_cần_chuẩn_bị_khi_thành_lập_công_ty_có_vốn_đầu_tư_nước_ngoài_tại_Việt_Nam:"><strong>@Html.Raw(Model.SubMenus.ElementAt(1).Title)</strong></h3>
                                     <p id="Đối_với_nhà_đầu_tư_là_cá_nhân_(do_cá_nhân,_các_cá_nhân_người_nước_ngoài_góp_vốn_thành_lập_công_ty_tại_Việt_Nam)."><strong>@Html.Raw(Model.Contents.ElementAt(1).Title)</strong></p>
                                     @{
                                         var content9 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                         <ul>
                                             @foreach (var item in content9)
                                             {
-                                                <li>@Html.Raw(@item)</li>
+                                                <li><p>@Html.Raw(@item)</p></li>
                                             }
                                         </ul>
                                     }
                                     <p id="Đối_với_nhà_đầu_tư_là_tổ_chức_(do_công_ty_có_trụ_sở_tại_nước_ngoài_góp_vốn,_đầu_tư_vốn_thành_lập_công_ty_tại_Việt_Nam)."><strong>@Html.Raw(Model.Contents.ElementAt(2).Title)</strong></p>
                                     @{
-                                        var content10 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content10 = Model.Contents.ElementAt(2).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                         <ul>
                                             @foreach (var item in content10)
                                             {
-                                                <li>@Html.Raw(@item)</li>
+                                                <li><p>@Html.Raw(@item)</p></li>
                                             }
                                         </ul>
                                     }
-                                    <h3>@Html.Raw(Model.Contents.ElementAt(3).Title)</h3>
+                                    <h3 style="color: #3465a4"><strong>@Html.Raw(Model.Contents.ElementAt(3).Title)</strong></h3>
                                     @{
-                                        var content11 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content11 = Model.Contents.ElementAt(3).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                         <ul>
                                             @foreach (var item in content11)
                                             {
-                                                <li>@Html.Raw(@item)</li>
+                                                <li><p>@Html.Raw(@item)</p></li>
                                             }
                                         </ul> 
                                     }
@@ -259,18 +259,16 @@
                             <div class="detail-content">
                                     <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
                                     <p><span>@Html.Raw(Model.SubMenus.ElementAt(0).Description)</span></p>
-                                    <p>@Html.Raw(Model.Contents.ElementAt(0).Title)</p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(0).Title)</strong></p>
                                 @*<p>– Đơn đề nghị điều chỉnh Giấy phép kinh doanh.</p>
                                 <p>– Trường hợp thay đổi tên, mã số doanh nghiệp, địa chỉ trụ sở chính và người đại diện theo pháp luật, trừ trường hợp chuyển địa điểm đặt trụ sở chính, chuẩn bị thêm Bản sao Giấy chứng nhận đăng ký doanh nghiệp ghi nhận nội dung điều chỉnh;</p>
                                 *@
                                     @{
-                                        var content12 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
-                                        <ul>
+                                        var content12 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                             @foreach (var item in content12)
                                             {
                                                 <p>@Html.Raw(@item)</p>
                                             }
-                                        </ul>
                                     }
                                 @*<p>– Trường hợp thay đổi các nội dung khác của Giấy phép kinh doanh thì phải thêm một số tài liệu sau:</p>*@
                                     <p>@Html.Raw(Model.Contents.ElementAt(1).Title)</p>
@@ -283,8 +281,9 @@
                                             }
                                         </ul>
                                     }
+                                    
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(2).Title) </strong> @Html.Raw(@Model.Contents.ElementAt(2).Contents)</p>
                                     @*Buoc 1*@
-                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(2).Title) </strong> Html.Raw(@Model.Contents.ElementAt(2).Contents)</p>
                                     <p><strong>@Html.Raw(Model.Contents.ElementAt(3).Title)</strong></p>
                                     @{
                                         var content14 = Model.Contents.ElementAt(3).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
@@ -305,9 +304,9 @@
                                         }
                                     }
                                     @*Buoc 2*@
-                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(6).Title)</strong></p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(5).Title)</strong></p>
                                     @{
-                                        var content16 = Model.Contents.ElementAt(6).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content16 = Model.Contents.ElementAt(5).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
                                         @foreach (var item in content16)
                                         {
@@ -315,9 +314,9 @@
                                         }
                                     }
                                     @*Buoc 3*@
-                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(7).Title)</strong></p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(6).Title)</strong></p>
                                     @{
-                                        var content17 = Model.Contents.ElementAt(7).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content17 = Model.Contents.ElementAt(6).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
                                         @foreach (var item in content17)
                                         {
@@ -325,9 +324,9 @@
                                         }
                                     }
                                     @*Buoc 4*@
-                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(8).Title)</strong></p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(7).Title)</strong></p>
                                     @{
-                                        var content18 = Model.Contents.ElementAt(8).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content18 = Model.Contents.ElementAt(7).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
                                         @foreach (var item in content18)
                                         {
@@ -335,9 +334,9 @@
                                         }
                                     }
                                     @*Buoc 5*@
-                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(9).Title)</strong></p>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(8).Title)</strong></p>
                                     @{
-                                        var content19 = Model.Contents.ElementAt(9).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content19 = Model.Contents.ElementAt(8).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
                                         @foreach (var item in content19)
                                         {
@@ -352,7 +351,7 @@
                                     <p><span>@Html.Raw(Model.SubMenus.ElementAt(0).Description)</span></p>
                                     <p><strong>@Html.Raw(Model.Contents.ElementAt(0).Title)</strong></p>
                                     @{
-                                        var content20 = Model.Contents.ElementAt(9).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content20 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
                                         @foreach (var item in content20)
                                         {
@@ -420,9 +419,7 @@
                                                                 <p>@Html.Raw(@item)</p>
                                                             }
                                                         }
-                                                        <p><span>@Html.Raw(Model.Contents.ElementAt(3).Contents)</span></p>
-@*                                                    <p><span>Với những chuyên viên có nhiều kinh nghiệm trong việc làm thủ tục <strong>giải thể công ty, tạm ngưng hoạt động,</strong> <strong>Hinh Lam</strong> sẽ tư vấn và hỗ trợ doanh nghiệp thực hiện đầy đủ và chính xác tất cả những thủ tục cần thiết trong quá trình giải thể. </span></p>
-*@                                                </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -438,8 +435,8 @@
                                         <ul>
                                         @foreach (var item in content24)
                                         {
-                                            
-                                                <li>@Html.Raw(@item)</li>
+
+                                                <li><p>@Html.Raw(@item)</p></li>
                                             
                                         }
                                         </ul>
@@ -448,11 +445,11 @@
                                     @{
                                         var content25 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
-                                        <ul style ="list-style-type: circle;">
+                                        <ul>
                                         @foreach (var item in content25)
                                         {
-                                            
-                                                <li>@Html.Raw(@item)</li>
+
+                                                <li><p>@Html.Raw(@item)</p></li>
                                             
                                         }
                                         </ul>
@@ -465,7 +462,7 @@
                                     <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
                                     <p>@Html.Raw(Model.Contents.ElementAt(0).Title)</p>
                                     @{
-                                        var content26 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content26 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
                                         <ul class="list3t">
                                             @foreach (var item in content26)
@@ -477,7 +474,7 @@
                                         </ul>
                                     }
                                     <p><strong>@Html.Raw(Model.Contents.ElementAt(1).Title)</strong></p>
-                                <p><strong><img src="/images/2021/phan-mem-misa-hinh-lam_1.png" alt="" width="344" height="198" /> </strong></p>
+                                    <p><strong><img src="/images/2021/thumb-esign.png" alt="misa-esign" width="100%" height="100%" /> </strong></p>
                                 <p> </p>
                             </div>
                             break;
@@ -490,7 +487,7 @@
                                 <div>
                                         <p><strong>@Html.Raw(Model.Contents.ElementAt(2).Title)</strong>@Html.Raw(Model.Contents.ElementAt(2).Contents)</p>
                                         <p><strong>@Html.Raw(Model.Contents.ElementAt(3).Contents)</strong></p>
-                                    <p><img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-2021_2.png" alt="" width="729" height="163" /></p>
+                                    <p><img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-2021.png" alt="" width="729" height="163" /></p>
                                     <p><img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-misa.png" alt="" width="729" height="163" /></p>
                                     <p> </p>
                                 </div>

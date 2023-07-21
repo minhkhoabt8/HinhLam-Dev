@@ -25,9 +25,9 @@ namespace HinhLam_DataObject.DataAccess
                 b.HasKey(e => e.ContentID);
                 b.Property(e => e.ContentID).HasMaxLength(50);
 
-                b.Property(e => e.Title).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
-                b.Property(e => e.TitleEN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
-                b.Property(e => e.TitleCN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                b.Property(e => e.Title).HasColumnType("nvarchar").HasMaxLength(250).IsRequired();
+                b.Property(e => e.TitleEN).HasColumnType("nvarchar").HasMaxLength(250).IsRequired();
+                b.Property(e => e.TitleCN).HasColumnType("nvarchar").HasMaxLength(250).IsRequired();
                 b.Property(e => e.Contents).HasColumnType("ntext").IsRequired();
                 b.Property(e => e.ContentsCN).HasColumnType("ntext").IsRequired();
                 b.Property(e => e.ContentsEN).HasColumnType("ntext").IsRequired();

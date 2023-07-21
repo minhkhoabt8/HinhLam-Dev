@@ -11,13 +11,13 @@ namespace HinhLam_DataObject.Model
     {
         [Key][MaxLength(50)]
         public string ContentID { get; set; } = Guid.NewGuid().ToString();
-        [Column(TypeName = "nvarchar")][MaxLength(100)]
+        [Column(TypeName = "nvarchar")][MaxLength(250)]
         public string Title { get; set; }
         [Column(TypeName = "nvarchar")]
-        [MaxLength(100)]
+        [MaxLength(250)]
         public string TitleCN { get; set; }
         [Column(TypeName = "nvarchar")]
-        [MaxLength(100)]
+        [MaxLength(250)]
         public string TitleEN { get; set; }
         [Required][Column(TypeName = "ntext")]
         public string Contents { get; set; }
