@@ -9,6 +9,7 @@
     ViewData["Title"] = "Chi tiết";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
  
 <body class="lang-vn">
     <noscript>JavaScript is off. Please enable to view full site.</noscript>
@@ -495,175 +496,227 @@
                             break;
                         case "13":
                             <div class="detail-content">
-                                <h3 class="title-detail">Cung cấp chữ ký số</h3>
-                                <p><strong>Đối tác</strong></p>
+                                <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(0).Title)</strong></p>
                                 <p><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="/images/2021/chu-ky-so-hinh-lam.jpg" alt="" width="398" height="126" /></strong></p>
                                 <p><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="/images/2021/chu-ky-so-hinh-lam-2021-2.jpg" alt="" width="800" height="240" /></strong></p>
-                                <ul>
-                                    <li><strong>Chữ ký số</strong> hoạt động theo giấy phép GP-BTTTT do Bộ Thông tin và Truyền thông cấp.</li>
-                                    <li>Chữ Ký Số có hệ thống vận hành bảo mật và an ninh thông tin đáp ứng tiêu chuẩn quốc tế FIPS PUB 140-2.</li>
-                                    <li>Đáp ứng hầu hết các giao dịch điện tử.</li>
-                                </ul>
-                                <p><strong>Tiện ích của chữ ký số:</strong></p>
-                                <ul style="list-style-type: circle;">
-                                    <li><span lang="EN-US">Nộp thuế môn bài công ty trực tuyến qua mạng.</span></li>
-                                    <li><span lang="EN-US">Dùng để kê khai Bảo hiểm xã hội.</span></li>
-                                    <li><span lang="EN-US">Dùng để kê khai làm thủ tục bên hải quan</span></li>
-                                    <li><span lang="EN-US">Dùng để kê khai thuế lên chi cục thuế</span></li>
-                                </ul>
-                                <p><span lang="EN-US"><strong>Hồ sơ đăng ký gồm</strong>:</span></p>
-                                <ul>
-                                    <li>01 Bản sao giấy đăng ký kinh doanh hoặc quyết định thành lập của đơn vị, tổ chức, doanh nghiệp.</li>
-                                    <li>01 Bản sao CMND hoặc hộ chiếu người đại diện pháp lý.</li>
-                                </ul>
-                                <p><strong>Hinh Lam gửi quý khách: </strong></p>
-                                <ul>
-                                    <li>Một thiết bị USB TOKEN chữ ký số.</li>
-                                    <li>Một giấy chứng nhận sử dụng chứng thư số.</li>
-                                    <li>Một hóa đơn VAT tương ứng với gói cước dịch vụ mà Quý khách đã đăng ký.</li>
-                                    <li>Một bản hợp đồng cung cấp dịch vụ.</li>
-                                    <li>Thông tin tài khoản đăng nhập gồm Tên đăng nhập và Mật khẩu của quý khách.</li>
-                                </ul>
+                                    @{
+                                        var content27 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content27)
+                                            {
+
+                                                <li>@Html.Raw(@item)</li>
+
+                                            }
+                                        </ul>
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(1).Title)</strong></p>
+                                    @{
+                                        var content28 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content28)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p><span lang="EN-US"><strong>@Html.Raw(Model.Contents.ElementAt(2).Title)</strong></span></p>
+                                    @{
+                                        var content29 = Model.Contents.ElementAt(2).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content29)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(3).Title)</strong></p>
+                                    @{
+                                        var content30 = Model.Contents.ElementAt(3).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content30)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
                                 <p> </p>
                             </div>
                             break;
                         case "14":
-                            <div class="detail-content">
-                                <h3 class="title-detail">Cung cấp phần mềm khai báo Bảo Hiểm Xã Hội</h3>
-                                <p>Phần mềm kê khai BHXH điện tử KBHXH là công cụ giúp Doanh nghiệp thực hiện quy trình kê khai BHXH. KBHXH giúp Doanh nghiệp dễ dàng lập và quản lý các bộ hồ sơ theo nghiệp vụ BHXH. Thông qua KBHXH, Doanh nghiệp có thể kê khai và nộp hồ sơ BHXH qua mạng Internet tới cơ quan BHXH quản lý thông qua Cổng thông tin điện tử BHXH Việt Nam hoặc kết xuất bộ hồ sơ điện tử thành bộ hồ sơ giấy để nộp trực tiếp.</p>
-                            </div>
+                                <div class="detail-content">
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
+                                    <p>@Html.Raw(Model.Contents.ElementAt(0).Contents)</p>
+                                </div>
                             break;
                         case "15":
                             <div class="detail-content">
-                                <h3 class="title-detail">Xin giấy phép lao động cho người nước ngoài</h3>
-                                <p><span>Thời kỳ kinh tế Việt Nam ngày càng phát triển với nền kinh tế mở, nhu cầu tuyển dụng người lao động nước ngoài vào Việt Nam làm việc ngày càng nhiều, pháp luật Việt Nam cho phép doanh nghiệp, cơ quan, tổ chức, cá nhân, nhà thầu tuyển dụng người lao động Người nước ngoài vào Việt Nam ngày một tăng cao. Để người lao động nước ngoài làm việc hợp pháp tại Việt Nam thì người lao động nước ngoài cần có giấy phép lao động. Công ty Hinh Lam thông tin cơ bản đến quý khách:</span></p>
-                                <h3 id="Đối_tượng_người_nước_ngoài_nào_được_cấp_giấy_phép_lao_động_tại_Việt_Nam">Đối tượng người nước ngoài nào được cấp giấy phép lao động tại Việt Nam:</h3>
-                                <ul>
-                                    <li>Thực hiện hợp đồng lao động.</li>
-                                    <li>Di chuyển trong nội bộ doanh nghiệp.</li>
-                                    <li>Thực hiện các loại hợp đồng hoặc thỏa thuận về kinh tế, thương mại, tài chính, ngân hàng, bảo hiểm, khoa học kỹ thuật, văn hóa, thể thao, giáo dục, giáo dục nghề nghiệp và y tế.</li>
-                                    <li>Nhà cung cấp dịch vụ theo hợp đồng.</li>
-                                    <li>Chào bán dịch vụ.</li>
-                                    <li>Làm việc cho tổ chức phi chính phủ nước ngoài, tổ chức quốc tế tại Việt Nam được phép hoạt động theo quy định của pháp luật Việt Nam.</li>
-                                    <li>Tình nguyện viên.</li>
-                                    <li>Người chịu trách nhiệm thành lập hiện diện thương mại.</li>
-                                    <li>Nhà quản lý, giám đốc điều hành, chuyên gia, lao động kỹ thuật.</li>
-                                    <li>Tham gia thực hiện các gói thầu, dự án tại Việt Nam.</li>
-                                    <li>Thân nhân thành viên cơ quan đại diện nước ngoài tại Việt Nam được phép làm việc tại Việt Nam theo quy định tại điều ước quốc tế mà nước Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên.</li>
-                                </ul>
-                                <p><strong>Hồ sơ xin cấp giấy phép theo quy định mới bao gồm:</strong></p>
-                                <p>1. Đơn đề nghị  xin cấp giấy phép lao động theo Mẫu số 11/PLI - Phụ lục 11 <span lang="VI">(Kèm theo Nghị định số 152/2020/NĐ-CP ngày 30 tháng 12 năm 2020 của Chính phủ).</span></p>
-                                <p>2. Giấy chứng nhận sức khỏe khám tại nước ngoài hoặc giấy khám sức khỏe khám tại Việt Nam tại các bệnh viện, phòng khám, có sở y tế đủ điều kiện theo quy định của Bộ y tế ( trong thời hạn 12 tháng).</p>
-                                <p>3. Lý lịch tư pháp của người nước ngoài cấp tại nước ngoài hoặc phiếu lý lịch số 1 được cấp tại Việt Nam (Được cấp không quá 06 tháng).</p>
-                                <p>4. Văn bản thông báo chấp thuận vị trí công việc sử dụng người lao động nước ngoài.</p>
-                                <p>5. Bản chứng thực hộ chiếu và visa của người nước ngoài.</p>
-                                <p>6. Văn bản chứng minh là quản lý, giám đốc điều hành, chuyên gia, lao động kỹ thuật, giáo viên ( Bằng đại học, giấy xác nhận kinh nghiệm làm việc nước ngoài tối thiểu là 03 năm,…)</p>
-                                <p><em>Ngoài ra, đối với các ngành, nghề có yêu cầu đặc biệt (cầu thủ bóng đá, phi công, bảo dưỡng máy bay) hoặc các trường hợp lao động nước ngoài cung cấp dịch vụ hoặc thực hiện hợp đồng, chào bán dịch vụ…tại Việt Nam, hồ sơ sẽ bao gồm các giấy tờ khác theo quy định của pháp luật.</em></p>
-                                <p>7. 02 ảnh chân dung, kích thước 4x6, phông nền trắng, không đeo kính.</p>
-                                <p>8. Các giấy tờ liên quan đến người lao động nước ngoài ( tùy từng trường hợp theo quy định: Quyết định bổ nhiệm của công ty mẹ, hợp đồng lao động, Điều lệ công ty…)</p>
-                                <p><em>Lưu ý: Các giấy tờ được cấp ở nước ngoài hoặc được cấp bởi cơ quan Đại diện ngoại giao của nước ngoài tại Việt Nam phải được Hợp pháp hoá lãnh sự và dịch thuật công chứng ra tiếng Việt.</em></p>
-                                <h3 id="Dịch_vụ_tư_vấn_cấp_giấy_phép_lao_động_cho_người_nước_ngoài_của_Công_ty_luật_Việt_An"><span style="color: #0000ff;">Quy trình tự chuẩn bị hồ sơ và đăng ký khá mất nhiều thời gian khi Quý khách chưa thành thạo, Công ty Hinh Lam rất hân hạnh hỗ trợ quý khách hoàn thành quá trình đăng ký giấy phép lao động cho người nước ngoài:</span></h3>
-                                <ul>
-                                    <li>Dịch, công chứng dịch, hợp pháp lãnh sự các tài liệu phục vụ cho việc cấp giấy phép lao động.</li>
-                                    <li>Tư vấn điều kiện để được cấp giấy phép lao động tại Việt Nam.</li>
-                                    <li>Hoàn thiện hồ sơ cấp giấy phép lao động tại Việt Nam cho khách hàng.</li>
-                                    <li>Tư vấn các trường hợp không thuộc diện phải cấp giấy phép lao động và thực hiện thủ tục cấp xác nhận thuộc trường hợp không phải xin cấp giấy phép lao động.</li>
-                                    <li>Đại diện doanh nghiệp và người lao động thực hiện thủ tục xin cấp giấy phép lao động tại cơ quan nhà nước có thẩm quyền.</li>
-                                    <li>Tư vấn, hướng dẫn chuẩn bị hồ sơ cấp thẻ tạm trú cho người nước ngoài sau khi được cấp giấy phép lao động.</li>
-                                </ul>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
+                                    <p><span>@Html.Raw(Model.SubMenus.ElementAt(0).Description)</span></p>
+                                    <h3 id="Đối_tượng_người_nước_ngoài_nào_được_cấp_giấy_phép_lao_động_tại_Việt_Nam">@Html.Raw(Model.Contents.ElementAt(0).Title)</h3>
+                                    @{
+                                        var content31 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content31)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(1).Title)</strong></p>
+                                    @{
+                                        var content32 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                            @foreach (var item in content32)
+                                            {
+                                                <p>@Html.Raw(@item)</p>
+                                            }
+                                    }
+                                    <h3 id="Dịch_vụ_tư_vấn_cấp_giấy_phép_lao_động_cho_người_nước_ngoài_của_Công_ty_luật_Việt_An"><span style="color: #0000ff;">@Html.Raw(Model.Contents.ElementAt(2).Title)</span></h3>
+                                    @{
+                                        var content33 = Model.Contents.ElementAt(2).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content33)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
                             </div>
                             break;
                         case "16":
-                            <div class="detail-content">
-                                <h3 class="title-detail">Xin cấp thị thực cho người nước ngoài</h3>
-                                <p><strong>Thủ tục xin cấp thị thực (visa) cho người nước ngoài sau khi có công văn nhập cảnh.</strong></p>
-                                <p>Khi có Công văn nhập cảnh, Khách hàng làm thủ tục nhập cảnh (tại Đại sứ quán hoặc Cửa khẩu quốc tế Nội Bài, Tân Sơn Nhất, Đà Nẵng…), đóng thêm lệ phí xin visa là có thể yên tâm vào Việt Nam theo đúng nhu cầu mong muốn, thủ tục bao gồm:</p>
-                                <ul>
-                                    <li>Hộ chiếu gốc.</li>
-                                    <li>Công văn chấp thuận thị thực bản photo.</li>
-                                    <li>02 Ảnh hộ chiếu 4 cm x 6 cm.</li>
-                                    <li>Đơn khai nhập cảnh theo mẫu: NA1/NG1/...</li>
-                                    <li>Lệ phí cấp visa (Khách hàng nộp phí theo giá trị visa tương ứng).</li>
-                                </ul>
-                                <p>Trong trường hợp đến Việt Nam ngoài mục đích du lịch thì cần thêm các giấy tờ sau:</p>
-                                <ul>
-                                    <li>Bản sao công chứng Giấy chứng nhận đăng ký kinh doanh hoặc giấy tờ có giá trị tương đương.</li>
-                                    <li>Bản sao công chứng Giấy chứng nhận đăng ký mẫu dấu.</li>
-                                </ul>
-                                <h5>Dịch vụ xin cấp thị thực/visa cho người nước ngoài tại Việt Nam của Công ty Hinh Lam:</h5>
-                                <ul>
-                                    <li>Hướng dẫn khách hàng chuẩn bị các loại giấy tờ, tài liệu cần thiết để xin cấp visa cho người lao động nước ngoài.</li>
-                                    <li>Hoàn thiện hồ sơ xin cấp visa tại Việt Nam cho khách hàng.</li>
-                                    <li>Thay mặt khách hàng thực hiện thủ tục cấp visa tại cơ quan nhà nước có thẩm quyền.</li>
-                                </ul>
-                                <p> </p>
-                                <p><em><strong>Liên hệ ngay để có được sự hỗ trợ nhanh nhất, hiệu quả, tư vấn hoàn toàn miễn phí.</strong></em></p>
-                            </div>
+                                <div class="detail-content">
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
+                                    <h3>@Html.Raw(Model.Contents.ElementAt(0).Title)</h3>
+                                    @{
+                                        var content34 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+
+                                        <p>@Html.Raw(content34[0])</p>
+
+                                        <ul>
+                                            @for (int i = 1; i < content34.Length; i++)
+                                            {
+                                                <li>@Html.Raw(content34[i])</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p>@Html.Raw(Model.Contents.ElementAt(1).Title)</p>
+                                    @{
+                                        var content35 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content35)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <h3>@Html.Raw(Model.Contents.ElementAt(2).Title)</h3>
+                                    @{
+                                        var content36 = Model.Contents.ElementAt(2).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content36)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p><em><strong>@Html.Raw(Model.Contents.ElementAt(3).Contents)</strong></em></p>
+                                </div>
                             break;
                         case "17":
                             <div class="detail-content">
-                                <h3 class="title-detail">Xin cấp đổi giấy phép lái xe  cho người nước ngoài</h3>
-                                <p>Thủ tục đổi giấy phép lái xe cho người nước ngoài được thực hiện theo quy định pháp luật. Theo đó, người nước ngoài hoặc người Việt Nam cư trú ở nước ngoài có nhu cầu lái xe ở Việt Nam nếu có giấy phép lái xe quốc gia phải làm thủ tục đổi sang giấy phép lái xe tương ứng của Việt Nam.</p>
-                                <p><span style="color: #0000ff;"><strong>Dịch vụ đổi giấy phép lái xe cho người nước ngoài của Công ty Hinh Lam:</strong></span></p>
-                                <ul>
-                                    <li>Hướng dẫn khách hàng chuẩn bị các loại giấy tờ, tài liệu cần thiết để xin cấp visa cho người lao động nước ngoài.</li>
-                                    <li>Hoàn thiện hồ sơ xin cấp visa tại Việt Nam cho khách hàng.</li>
-                                    <li>Thay mặt khách hàng thực hiện thủ tục cấp visa tại cơ quan nhà nước có thẩm quyền.</li>
-                                </ul>
-                                <p><strong>Hồ sơ cần chuẩn bị:</strong></p>
-                                <ul>
-                                    <li>Đơn <span>đề nghị đổi</span> giấy phép lái xe theo mẫu quy định (mẫu dùng cho người nước ngoài).</li>
-                                    <li>Bản dịch giấy phép lái xe nước ngoài ra tiếng Việt được bảo chứng chất lượng dịch thuật của cơ quan Công chứng hoặc Đại sứ quán, Lãnh sự quán tại Việt Nam mà người dịch làm việc, đóng dấu giáp lai với bản sao giấy phép lái xe.</li>
-                                </ul>
-                                <p>Đối với người Việt Nam xuất trình hợp pháp hóa lãnh sự giấy phép lái xe hoặc bằng lái xe của nước ngoài theo quy định của pháp luật về chứng nhận lãnh sự, hợp pháp hóa lãnh sự, trừ các trường hợp được miễn trừ theo quy định của pháp luật.</p>
-                                <ul>
-                                    <li>Bản sao hộ chiếu (gồm phần số hộ chiếu, họ tên và ảnh người được cấp, thời hạn sử dụng và trang thị thực nhập cảnh vào Việt Nam).</li>
-                                    <li>Bản sao chụp một trong các giấy tờ sau đây: thẻ <span>cư trú</span>, thẻ lưu trú, thẻ tạm trú, thẻ thường trú, giấy tờ xác minh định cư lâu dài tại Việt Nam.</li>
-                                    <li>2 ảnh 3×4 nền xanh như thẻ căn cước hoặc CMND.</li>
-                                </ul>
-                                <p><strong>Điều kiện đổi giấy phép lái xe quy định như sau:</strong></p>
-                                <ul>
-                                    <li>Người nước ngoài có thời gian cư trú, làm việc, học tập tại Việt Nam từ 03 tháng trở lên.</li>
-                                    <li>Giấy phép lái xe nước ngoài còn đủ các yếu tố cần thiết: Còn thời hạn sử dụng, hạng xe được phép điều khiển, không có biểu hiện tẩy xóa hoặc rách nát, không có sự khác biệt về nhận dạng.</li>
-                                    <li>Không đổi giấy phép lái xe tạm thời của nước ngoài, giấy phép lái xe quốc tế.</li>
-                                </ul>
-                                <p><span>Cơ quan có thẩm quyền đổi giấy phép lái xe là Tổng cục Đường bộ Việt Nam hoặc Sở Giao thông vận tải (nơi đăng ký cư trú, lưu trú, </span><span>tạm trú</span><span> hoặc định cư lâu dài).</span></p>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
+                                    <p>@Html.Raw(Model.SubMenus.ElementAt(0).Description)</p>
+                                    <p><span><strong>@Html.Raw(Model.Contents.ElementAt(0).Title)</strong></span></p>
+                                    @{
+                                        var content37 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content37)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(1).Title)</strong></p>
+                                    @{
+                                        var content38 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content38)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    @{
+                                        var content39 = Model.Contents.ElementAt(2).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+
+                                        <p>@Html.Raw(content39[0])</p>
+
+                                        <ul>
+                                            @for (int i = 1; i < content39.Length; i++)
+                                            {
+                                                <li>@Html.Raw(content39[i])</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(3).Title)</strong></p>
+                                    @{
+                                        var content40 = Model.Contents.ElementAt(3).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content39)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    <p><span>@Html.Raw(Model.Contents.ElementAt(4).Contents)</span></p>
                             </div>
                             break;
                         case "18":
                             <div class="detail-content">
-                                <h3 class="title-detail">Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</h3>
-                                <p>Hiện nay, để đảm bảo thực hiện các biện pháp an toàn phòng, chống dịch Covid-19, Chính phủ Việt Nam chỉ giải quyết cho người nước ngoài là:</p>
-                                <p>- Nhà đầu tư.</p>
-                                <p>- Chuyên gia kỹ thuật.</p>
-                                <p>- Lao động tay nghề cao.</p>
-                                <p>- Nhà quản lý doanh nghiệp vào Việt Nam làm việc và phải đảm bảo phương án cách ly.</p>
-                                <p>- Thân nhân là cha, mẹ, vợ, chồng, con của chuyên gia nước ngoài.</p>
-                                <p>- Học sinh, sinh viên nước ngoài đang học tập tại Việt Nam.</p>
-                                <p>- Người hoặc tổ chức được các cơ quan, tổ chức tại Việt Nam mời, đón nhập cảnh.</p>
-                                <p>Người nước ngoài thuộc các diện đối tượng này, nếu có nhu cầu nhập cảnh Việt Nam trong thời điểm hiện nay, cần liên hệ với cơ quan, tổ chức tại Việt Nam nơi dự kiến làm việc để làm thủ tục cấp thị thực nhập cảnh theo quy định. Cục Quản lý xuất nhập cảnh sẽ xem xét, giải quyết sau khi Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương đồng ý về việc nhập cảnh của Người nước ngoài  thuộc các diện đối tượng trên theo đề nghị của cơ quan, tổ chức tại Việt Nam.</p>
-                                <p>Việc cách ly đối với Người nước ngoài nhập cảnh Việt Nam đang thực hiện theo Hướng dẫn tại công văn số 4674/BYT-MT ngày 31/8/2020 của Bộ Y tế.</p>
-                                <p><span style="color: #0000ff;"><strong>Hinh Lam cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</strong></span></p>
-                                <ul>
-                                    <li>
-                                        <h3><span><span>Xin công văn chấp thuận của UBND.</span></span></h3>
-                                    </li>
-                                    <li>
-                                        <h3><span><span>Tiến hành xin Công Văn Nhập Cảnh trên Cục xuất nhập cảnh.</span></span></h3>
-                                    </li>
-                                    <li>
-                                        <h3><span><span>Xin công văn phương án cách ly tại trung tâm kiểm dịch quốc tế tại HCM.</span></span></h3>
-                                    </li>
-                                    <li>
-                                        <h3><span><span>Booking vé máy bay.</span></span></h3>
-                                    </li>
-                                    <li>
-                                        <h3><span><span>Booking khách sạn.</span></span></h3>
-                                    </li>
-                                    <li>
-                                        <h3><span>Đặt xe y tế đưa đón từ sân bay về khách sạn.</span></h3>
-                                    </li>
-                                </ul>
+                                    <h3 class="title-detail">@Html.Raw(Model.MenuName)</h3>
+                                    <p>@Html.Raw(Model.Contents.ElementAt(0).Title)</p>
+                                    @{
+                                        var content41 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content41)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
+                                    @{
+                                        var content42 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content42)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+                                        }
+                                    }
+                                <p><strong>@Html.Raw(Model.Contents.ElementAt(2).Title)</strong></p>
+                                    @{
+                                        var content43 = Model.Contents.ElementAt(2).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        <ul>
+                                            @foreach (var item in content43)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+                                    }
                             </div>
                             break;
                     }
@@ -704,5 +757,5 @@
 
         </div>
     </div>
-   
+    
 </body>

@@ -13,6 +13,8 @@ using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using Microsoft.Extensions.Localization;
+using HinhLam_Infrastructure.Services.Email.Repositories;
+using HinhLam_Infrastructure.Services.Email.Services;
 
 namespace HinhLam_Dev.Extensions
 {
@@ -22,6 +24,8 @@ namespace HinhLam_Dev.Extensions
         public static void AddBusinessServices(this IServiceCollection services)
         {
             services.AddScoped<IMenuService, MenuService>();
+
+            services.AddScoped<IEmailServices, EmailServices>();
 
         }
        
