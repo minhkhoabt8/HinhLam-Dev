@@ -1,25 +1,20 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
+﻿using System.Net.Mail;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using HinhLam_DataObject.ViewModel;
 using HinhLam_Infrastructure.Services.Email.Repositories;
 using Microsoft.Extensions.Options;
+
 
 namespace HinhLam_Infrastructure.Services.Email.Services
 {
     public class EmailServices : IEmailServices
     {
         private readonly EmailSettings _emailSettings;
-
         public EmailServices(IOptions<EmailSettings> emailSettings)
         {
             _emailSettings = emailSettings.Value;
         }
+
 
         public void SendEmail(EmailViewModel email)
         {
@@ -45,6 +40,9 @@ namespace HinhLam_Infrastructure.Services.Email.Services
                 smtpClient.Send(message);
             }
         }
+
+
+
 
     }
 }

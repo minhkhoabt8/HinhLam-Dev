@@ -37,7 +37,7 @@ namespace HinhLam_Dev.Controllers
             return View("Home-en", result);
         }
 
-        [HttpPost("/lien-he")]
+        [HttpPost("/my-lien-he")]
         public IActionResult Contact(string email)
         {
             //call send email

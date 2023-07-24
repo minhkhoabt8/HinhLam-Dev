@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HinhLam_DataObject.ViewModels.ConsultViewModel;
 
 namespace HinhLam_Infrastructure.Services.Menu
 {
@@ -16,7 +17,7 @@ namespace HinhLam_Infrastructure.Services.Menu
         void Update(UpdateMenuModel model);
         MenuInfoModel GetContentOfMenu(string menuName);
         public MenuInfoModel GetAllContentOfMenu(string menuName);
-
+        void SendConsultEmail(ConsultWriteModel model);
 
     }
 }

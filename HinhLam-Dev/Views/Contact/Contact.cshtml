@@ -1,8 +1,8 @@
-﻿@{
+﻿@model HinhLam_DataObject.ViewModels.ConsultViewModel.ConsultWriteModel;
+@{
     ViewData["Title"] = "Liên Hệ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <body class="lang-vn">
     <noscript>JavaScript is off. Please enable to view full site.</noscript>
@@ -155,27 +155,26 @@
                     <a id="formcontacts"></a>
 
 
-                    <form class="frm-contact" name="cartform" method="POST" action="#formcontacts" ENCTYPE="multipart/form-data">
-                        <input type="hidden" name="submit" value="1" />
+                    <form class="frm-contact" name="cartform" method="POST" action="/lien-he/send" ENCTYPE="multipart/form-data">
                         <div class="form-group">
-                            <label for="fullname">Họ tên *</label>
-                            <input class="form-control" type="text" name="fullname" id="fullname" placeholder="" value="">
+                            <label for="CustomerName">Họ tên *</label>
+                            <input class="form-control" type="text" name="CustomerName" id="CustomerName" placeholder="" value="">
                         </div>
                         <div class="form-group">
-                            <label for="company">Công ty</label>
-                            <input class="form-control" type="text" name="company" id="company" placeholder="" value="">
+                            <label for="CustomerCompany">Công ty</label>
+                            <input class="form-control" type="text" name="CustomerCompany" id="CustomerCompany" placeholder="" value="">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input class="form-control" type="text" name="email" id="email" placeholder="" value="">
+                            <label for="Email">Email *</label>
+                            <input class="form-control" type="text" name="Email" id="Email" placeholder="" value="">
                         </div>
                         <div class="form-group">
-                            <label for="telephone">Điện thoại</label>
-                            <input class="form-control" type="text" name="telephone" id="telephone" placeholder="" value="">
+                            <label for="PhoneNumber">Điện thoại</label>
+                            <input class="form-control" type="text" name="PhoneNumber" id="PhoneNumber" placeholder="" value="">
                         </div>
                         <div class="form-group">
-                            <label for="content">Nội dung</label>
-                            <textarea class="form-control" name="content" id="content" rows="5"></textarea>
+                            <label for="Contents">Nội dung</label>
+                            <textarea class="form-control" name="Contents" id="Contents" rows="5"></textarea>
                         </div>
                         <div class="actions">
                             <input class="btn-submit" type="submit" value="Gửi">

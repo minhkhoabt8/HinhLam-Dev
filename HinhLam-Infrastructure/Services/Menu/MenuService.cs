@@ -1,11 +1,16 @@
 ﻿using AutoMapper;
+using HinhLam_DataObject.ViewModel;
 using HinhLam_DataObject.ViewModels;
 using HinhLam_Infrastructure.Repositories.Menu;
+using HinhLam_Infrastructure.Services.Email.Repositories;
+using HinhLam_Infrastructure.Services.Email.Services;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HinhLam_DataObject.ViewModels.ConsultViewModel;
 
 namespace HinhLam_Infrastructure.Services.Menu
 {
@@ -13,11 +18,15 @@ namespace HinhLam_Infrastructure.Services.Menu
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IMapper _mapper;
+        private readonly IEmailServices _emailServices;
+        private readonly IConfiguration _configuration;
 
-        public MenuService(IMenuRepository menuRepository, IMapper mapper)
+        public MenuService(IMenuRepository menuRepository, IMapper mapper, IEmailServices emailServices,IConfiguration configuration)
         {
             _menuRepository = menuRepository;
             _mapper = mapper;
+            _emailServices = emailServices;
+            _configuration = configuration;
         }
 
         public void Create(CreateMenuModel model)
@@ -61,5 +70,29 @@ namespace HinhLam_Infrastructure.Services.Menu
         {
             throw new NotImplementedException();
         }
+
+        public void SendConsultEmail(ConsultWriteModel model)
+        {
+            try
+            {
+                _emailServices.SendEmail(new EmailViewModel()
+                {
+
+                    To = _configuration["CTDMailSettings:CTDEmail"],
+                    Subject = $"New Quick Consult Service",
+                    Text =
+                        $"<br>Client Infomation: " +
+                        $"<br>Name: {model.CustomerName} " +
+                        $"<br>Name: {model.CustomerCompany} " +
+                        $"<br>Email: {model.Email} " +
+                        $"<br>Phone Number: {model.PhoneNumber} " +
+                        $"<br>City: {model.Contents} "
+                });
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }

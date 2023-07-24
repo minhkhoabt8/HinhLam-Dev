@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HinhLam_DataObject.ViewModels.ConsultViewModel;
 
 namespace HinhLam_Infrastructure.Mapper
 {
@@ -21,6 +22,10 @@ namespace HinhLam_Infrastructure.Mapper
 
             CreateMap<SubMenu, SubMenuInfoModel>()
                 .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.SubMenuContent.Select(c => c.Content)));
+
+
+            CreateMap<Consult, ConsultInfoModel>();
+            CreateMap<ConsultWriteModel, Consult>();
         }
     }
 }
