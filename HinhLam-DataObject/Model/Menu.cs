@@ -22,6 +22,7 @@ namespace HinhLam_DataObject.Model
             [Required][Column(TypeName = "nvarchar")][MaxLength(100)]
             public string MenuNameEN { get; set; }
             public int MenuCount { get; set; }
+            
             [Column(TypeName = "nvarchar")]
             [MaxLength(100)]
             public string HrefLink { get; set; }
@@ -34,5 +35,6 @@ namespace HinhLam_DataObject.Model
             public DateTime CreatedDate { get; set; } = DateTime.Now;
             public bool Status { get; set; } = true;
             public virtual ICollection<MenuSubMenu> MenuSubMenu { get; set; }
-        }
+            public virtual Category Category { get; set; }
+    }
 }

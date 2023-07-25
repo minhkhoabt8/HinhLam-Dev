@@ -40,28 +40,32 @@ namespace HinhLam_DataObject.DataAccess
 
             });
 
-            builder.Entity<Menu>(b =>
-            {
-                b.ToTable("Menu");
+                builder.Entity<Menu>(b =>
+                {
+                    b.ToTable("Menu");
 
-                b.HasKey(e => e.MenuId);
-                b.Property(e => e.MenuId).HasMaxLength(50);
+                    b.HasKey(e => e.MenuId);
+                    b.Property(e => e.MenuId).HasMaxLength(50);
 
-                b.Property(e => e.MenuName).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
-                b.Property(e => e.MenuNameCN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
-                b.Property(e => e.MenuNameEN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
-                b.Property(e => e.HrefLink).HasColumnType("nvarchar").HasMaxLength(100);
-                b.Property(e => e.HrefLinkCN).HasColumnType("nvarchar").HasMaxLength(100);
-                b.Property(e => e.HrefLinkEN).HasColumnType("nvarchar").HasMaxLength(100);
-                b.Property(e => e.MenuCount).HasColumnType("int");
+                    b.Property(e => e.MenuName).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                    b.Property(e => e.MenuNameCN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                    b.Property(e => e.MenuNameEN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                    b.Property(e => e.HrefLink).HasColumnType("nvarchar").HasMaxLength(100);
+                    b.Property(e => e.HrefLinkCN).HasColumnType("nvarchar").HasMaxLength(100);
+                    b.Property(e => e.HrefLinkEN).HasColumnType("nvarchar").HasMaxLength(100);
+                    b.Property(e => e.MenuCount).HasColumnType("int");
 
-                b.HasMany(e => e.MenuSubMenu)
-                    .WithOne(e => e.Menu)
-                    .HasForeignKey(ur => ur.MenuId)
-                    .IsRequired();
+                    b.HasMany(e => e.MenuSubMenu)
+                        .WithOne(e => e.Menu)
+                        .HasForeignKey(ur => ur.MenuId)
+                        .IsRequired();
 
+                    // One-to-one relationship with Category
+                    b.HasOne(e => e.Category)
+                           .WithOne(c => c.Menu)
+                           .HasForeignKey<Menu>(m => m.MenuId);
 
-            });
+                });
 
  
             builder.Entity<SubMenu>(b =>
@@ -91,6 +95,19 @@ namespace HinhLam_DataObject.DataAccess
 
             });
 
+            builder.Entity<Category>(builder =>
+            {
+                builder.ToTable("Category");
+                    
+                builder.HasKey(c => c.CateId);
+                builder.Property(c => c.CateId).HasMaxLength(50);
+
+                builder.Property(c => c.CateName).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                builder.Property(c => c.CateNameCN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+                builder.Property(c => c.CateNameEN).HasColumnType("nvarchar").HasMaxLength(100).IsRequired();
+
+                
+            });
         }
 
         public virtual DbSet<Menu> Menu { get; set; }
@@ -101,5 +118,7 @@ namespace HinhLam_DataObject.DataAccess
 
         public virtual DbSet<SubMenuContent> SubMenuContent { get; set; }
         public virtual DbSet<MenuSubMenu> MenuSubMenu { get; set; }
+
+        public virtual DbSet<Category> Categories { get; set; }
     }
 }
