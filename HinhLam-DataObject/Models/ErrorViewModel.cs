@@ -1,4 +1,4 @@
-namespace HinhLam_Dev.Models
+namespace HinhLam_DataObject.Models
 {
     public class ErrorViewModel
     {

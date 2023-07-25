@@ -10,43 +10,43 @@ namespace HinhLam_Infrastructure.Repositories.SubMenu
 {
     public class SubMenuRepository : ISubMenuRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HinhLamDBContext _context;
 
-        public SubMenuRepository(ApplicationDbContext context)
+        public SubMenuRepository(HinhLamDBContext context)
         {
             _context = context;
         }
 
-        public void Create(HinhLam_DataObject.Model.SubMenu menu)
+        public void Create(HinhLam_DataObject.Models.SubMenu menu)
         {
-            _context.SubMenu.Add(menu);
+            _context.SubMenus.Add(menu);
         }
 
-        public List<HinhLam_DataObject.Model.SubMenu> GetAllMenu()
+        public List<HinhLam_DataObject.Models.SubMenu> GetAllMenu()
         {
-            return _context.SubMenu.ToList();
+            return _context.SubMenus.ToList();
         }
 
         
 
-        public HinhLam_DataObject.Model.SubMenu? GetMenuById(string id)
+        public HinhLam_DataObject.Models.SubMenu? GetMenuById(string id)
         {
-            return _context.SubMenu.FirstOrDefault( s => s.SubMenuID == id && s.Status == true);
+            return _context.SubMenus.FirstOrDefault( s => s.SubMenuId == id && s.Status == true);
         }
 
-        public HinhLam_DataObject.Model.SubMenu? GetSubMenuWithContentOfMenu(string menu)
+        public HinhLam_DataObject.Models.SubMenu? GetSubMenuWithContentOfMenu(string menu)
         {
-            return _context.SubMenu.Include(c => c.SubMenuContent.Select(c => c.Content)).FirstOrDefault(s => s.Status == true);
+            return _context.SubMenus.Include(c => c.SubMenuContents.Select(c => c.Content)).FirstOrDefault(s => s.Status == true);
         }
 
-        public void Remove(HinhLam_DataObject.Model.SubMenu menu)
+        public void Remove(HinhLam_DataObject.Models.SubMenu menu)
         {
-           _context.SubMenu.Remove(menu);
+           _context.SubMenus.Remove(menu);
         }
 
-        public void Update(HinhLam_DataObject.Model.SubMenu menu)
+        public void Update(HinhLam_DataObject.Models.SubMenu menu)
         {
-            _context.SubMenu.Update(menu);
+            _context.SubMenus.Update(menu);
         }
     }
 }

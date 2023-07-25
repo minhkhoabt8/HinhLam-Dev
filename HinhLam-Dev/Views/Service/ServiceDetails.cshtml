@@ -1,6 +1,6 @@
 ﻿@model MenuInfoModel;
 @using HinhLam_Infrastructure.Services.Menu;
-@using HinhLam_DataObject.Model;
+@using HinhLam_DataObject.Models;
 @using HinhLam_DataObject.ViewModels;
 
 @using System.Web;
@@ -136,13 +136,13 @@
                                         <ul>
                                             @foreach (var item in content1)
                                             {
-                                                <li>@Html.Raw(@item)</li>
+                                                <li><p>@Html.Raw(@item)</p></li>
                                             }
                                         </ul>
                                     }
                                     <p><strong><span lang="en-US">@Html.Raw(Model.Contents.ElementAt(1).Title)</span></strong></p>
                                     @{
-                                        var content2 = Model.Contents.ElementAt(0).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content2 = Model.Contents.ElementAt(1).Contents.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                         <ul>
                                             @foreach (var item in content2)
                                             {

@@ -57,7 +57,7 @@ namespace HinhLam_Dev.Extensions
         public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {
             // Other service registrations...
-            services.AddDbContext<ApplicationDbContext>(opt =>
+            services.AddDbContext<HinhLamDBContext>(opt =>
             {
                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString"),
                     b => b.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name)

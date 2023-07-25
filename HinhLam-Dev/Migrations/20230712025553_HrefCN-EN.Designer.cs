@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HinhLam_Dev.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(HinhLamDBContext))]
     [Migration("20230712025553_HrefCN-EN")]
     partial class HrefCNEN
     {

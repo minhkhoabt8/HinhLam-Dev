@@ -1,4 +1,4 @@
-﻿using HinhLam_DataObject.Model;
+﻿using HinhLam_DataObject.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HinhLam_Dev.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(HinhLamDBContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -21,6 +21,38 @@ namespace HinhLam_Dev.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("HinhLam_DataObject.Model.Category", b =>
+                {
+                    b.Property<string>("CateId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CateName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("CateNameCN")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("CateNameEN")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("CateId");
+
+                    b.ToTable("Category", (string)null);
+                });
 
             modelBuilder.Entity("HinhLam_DataObject.Model.Content", b =>
                 {
@@ -72,6 +104,11 @@ namespace HinhLam_Dev.Migrations
             modelBuilder.Entity("HinhLam_DataObject.Model.Menu", b =>
                 {
                     b.Property<string>("MenuId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CateId")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -213,6 +250,17 @@ namespace HinhLam_Dev.Migrations
                     b.ToTable("SubMenuContent");
                 });
 
+            modelBuilder.Entity("HinhLam_DataObject.Model.Menu", b =>
+                {
+                    b.HasOne("HinhLam_DataObject.Model.Category", "Category")
+                        .WithOne("Menu")
+                        .HasForeignKey("HinhLam_DataObject.Model.Menu", "MenuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("HinhLam_DataObject.Model.MenuSubMenu", b =>
                 {
                     b.HasOne("HinhLam_DataObject.Model.Menu", "Menu")
@@ -249,6 +297,12 @@ namespace HinhLam_Dev.Migrations
                     b.Navigation("Content");
 
                     b.Navigation("SubMenu");
+                });
+
+            modelBuilder.Entity("HinhLam_DataObject.Model.Category", b =>
+                {
+                    b.Navigation("Menu")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HinhLam_DataObject.Model.Content", b =>
