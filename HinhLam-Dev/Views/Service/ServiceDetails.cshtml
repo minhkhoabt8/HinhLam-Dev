@@ -14,6 +14,11 @@
 <body class="lang-vn">
     <noscript>JavaScript is off. Please enable to view full site.</noscript>
     
+    <div class="language">
+        <a id="vnFlag" href="/"><img src="/themes/vip/img/flag-vn.png"></a>
+        <a id="enFlag" href="/en/"><img src="/themes/vip/img/flag-en.png"></a>
+        <a id="cnFlag" href="/cn/"><img src="/themes/vip/img/flag-cn.png"></a>
+    </div>
 
     <div class="section-banner">
 
@@ -754,8 +759,15 @@
                     $('.blockLeft').html($('.profileHinhLam').html());
                 })
             </script>
-
+            
         </div>
     </div>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // This code will run after the DOM is fully loaded
+            document.getElementById('vnFlag').setAttribute('href', '@Model.HrefLink');
+            document.getElementById('enFlag').setAttribute('href', '@Model.HrefLinkEN');
+            document.getElementById('cnFlag').setAttribute('href', '@Model.HrefLinkCN');
+        });
+    </script>
 </body>

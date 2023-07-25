@@ -764,5 +764,12 @@
 
         </div>
     </div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // This code will run after the DOM is fully loaded
+            document.getElementById('vnFlag').setAttribute('href', '@Model.HrefLink');
+            document.getElementById('enFlag').setAttribute('href', '@Model.HrefLinkEN');
+            document.getElementById('cnFlag').setAttribute('href', '@Model.HrefLinkCN');
+        });
+    </script>
 </body>

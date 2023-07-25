@@ -1,4 +1,5 @@
-﻿using HinhLam_Dev.Models;
+﻿using HinhLam_DataObject.ViewModels;
+using HinhLam_Dev.Models;
 using HinhLam_Infrastructure.Services.Menu;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -43,6 +44,6 @@ namespace HinhLam_Dev.Controllers
             //call send email
             throw new NotImplementedException();
         }
-
+        
     }
 }

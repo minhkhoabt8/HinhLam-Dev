@@ -131,5 +131,12 @@
 
         </div>
     </div>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // This code will run after the DOM is fully loaded
+            document.getElementById('vnFlag').setAttribute('href', '/tin-tuc');
+            document.getElementById('enFlag').setAttribute('href', '/en' + '/news');
+            document.getElementById('cnFlag').setAttribute('href', '/cn' + '/news-chinese');
+        });
+    </script>
 </body>

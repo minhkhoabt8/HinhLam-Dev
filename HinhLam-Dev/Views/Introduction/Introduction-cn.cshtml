@@ -10,6 +10,12 @@
 <body class="lang-cn">
     <noscript>JavaScript is off. Please enable to view full site.</noscript>
     
+    <div class="language">
+        <a id="vnFlag" href="/"><img src="/themes/vip/img/flag-vn.png"></a>
+        <a id="enFlag" href="/en/"><img src="/themes/vip/img/flag-en.png"></a>
+        <a id="cnFlag" href="/cn/"><img src="/themes/vip/img/flag-cn.png"></a>
+    </div>
+
     <div class="section-banner">
 
         <img src="/images/b/banner-inner.jpg" alt="" class="banner-desktop">
@@ -64,5 +70,12 @@
 
         </div>
     </div>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // This code will run after the DOM is fully loaded
+            document.getElementById('vnFlag').setAttribute("href", "gioi-thieu");
+            document.getElementById('enFlag').setAttribute("href", "/en/about-us");
+            document.getElementById('cnFlag').setAttribute("href", "/cn/about-us-chines");
+        });
+    </script>
 </body>

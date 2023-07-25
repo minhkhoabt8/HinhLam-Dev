@@ -439,5 +439,12 @@
 
         </div>
     </div>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // This code will run after the DOM is fully loaded
+            document.getElementById('vnFlag').setAttribute('href', '/dich-vu');
+            document.getElementById('enFlag').setAttribute('href', '/en' + '/services');
+            document.getElementById('cnFlag').setAttribute('href', '/cn' + '/services-chinese');
+        });
+    </script>
 </body>
