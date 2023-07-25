@@ -15,6 +15,7 @@ using System.Text.Unicode;
 using Microsoft.Extensions.Localization;
 using HinhLam_Infrastructure.Services.Email.Repositories;
 using HinhLam_Infrastructure.Services.Email.Services;
+using HinhLam_DataObject.ViewModel;
 
 namespace HinhLam_Dev.Extensions
 {
@@ -40,6 +41,11 @@ namespace HinhLam_Dev.Extensions
             services.AddAutoMapper(typeof(MappingProfile));
         }
 
+        public static void AddEmailSettings(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
+        }
+
         public static void UsingUtf8(this IServiceCollection services)
         {
             services.Configure<WebEncoderOptions>(options =>
@@ -47,10 +53,10 @@ namespace HinhLam_Dev.Extensions
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
             });
         }
-
+        
         public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {
-
+            // Other service registrations...
             services.AddDbContext<ApplicationDbContext>(opt =>
             {
                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString"),

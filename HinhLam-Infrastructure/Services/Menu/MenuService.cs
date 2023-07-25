@@ -71,22 +71,22 @@ namespace HinhLam_Infrastructure.Services.Menu
             throw new NotImplementedException();
         }
 
-        public void SendConsultEmail(ConsultWriteModel model)
+        public async Task SendConsultEmail(ConsultWriteModel model)
         {
             try
             {
-                _emailServices.SendEmail(new EmailViewModel()
+                await _emailServices.SendEmailAsync(new EmailViewModel()
                 {
 
-                    To = _configuration["CTDMailSettings:CTDEmail"],
+                    To = _configuration["HinhLamMailSettings:HinhLamEmail"],
                     Subject = $"New Quick Consult Service",
                     Text =
                         $"<br>Client Infomation: " +
                         $"<br>Name: {model.CustomerName} " +
-                        $"<br>Name: {model.CustomerCompany} " +
+                        $"<br>Company: {model.CustomerCompany} " +
                         $"<br>Email: {model.Email} " +
                         $"<br>Phone Number: {model.PhoneNumber} " +
-                        $"<br>City: {model.Contents} "
+                        $"<br>Content: {model.Contents} "
                 });
             }catch(Exception ex)
             {

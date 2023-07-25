@@ -17,7 +17,7 @@ namespace HinhLam_Infrastructure.Services.Menu
         void Update(UpdateMenuModel model);
         MenuInfoModel GetContentOfMenu(string menuName);
         public MenuInfoModel GetAllContentOfMenu(string menuName);
-        void SendConsultEmail(ConsultWriteModel model);
+        Task SendConsultEmail(ConsultWriteModel model);
 
     }
 }
