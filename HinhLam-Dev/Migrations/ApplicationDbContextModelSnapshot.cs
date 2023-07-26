@@ -22,7 +22,7 @@ namespace HinhLam_Dev.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.Category", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.Category", b =>
                 {
                     b.Property<string>("CateId")
                         .HasMaxLength(50)
@@ -33,15 +33,17 @@ namespace HinhLam_Dev.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("CateNameCN")
+                    b.Property<string>("CateNameCn")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("CateNameCN");
 
-                    b.Property<string>("CateNameEN")
+                    b.Property<string>("CateNameEn")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("CateNameEN");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
@@ -54,11 +56,12 @@ namespace HinhLam_Dev.Migrations
                     b.ToTable("Category", (string)null);
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.Content", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.Content", b =>
                 {
-                    b.Property<string>("ContentID")
+                    b.Property<string>("ContentId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("ContentID");
 
                     b.Property<int>("ContentCount")
                         .HasColumnType("int");
@@ -67,13 +70,15 @@ namespace HinhLam_Dev.Migrations
                         .IsRequired()
                         .HasColumnType("ntext");
 
-                    b.Property<string>("ContentsCN")
+                    b.Property<string>("ContentsCn")
                         .IsRequired()
-                        .HasColumnType("ntext");
+                        .HasColumnType("ntext")
+                        .HasColumnName("ContentsCN");
 
-                    b.Property<string>("ContentsEN")
+                    b.Property<string>("ContentsEn")
                         .IsRequired()
-                        .HasColumnType("ntext");
+                        .HasColumnType("ntext")
+                        .HasColumnName("ContentsEN");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -86,29 +91,30 @@ namespace HinhLam_Dev.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("TitleCN")
+                    b.Property<string>("TitleCn")
                         .IsRequired()
                         .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("TitleCN");
 
-                    b.Property<string>("TitleEN")
+                    b.Property<string>("TitleEn")
                         .IsRequired()
                         .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("TitleEN");
 
-                    b.HasKey("ContentID");
+                    b.HasKey("ContentId");
 
                     b.ToTable("Content", (string)null);
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.Menu", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.Menu", b =>
                 {
                     b.Property<string>("MenuId")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("CateId")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -117,18 +123,26 @@ namespace HinhLam_Dev.Migrations
 
                     b.Property<string>("HrefLink")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(N'')");
 
-                    b.Property<string>("HrefLinkCN")
+                    b.Property<string>("HrefLinkCn")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("HrefLinkCN")
+                        .HasDefaultValueSql("(N'')");
 
-                    b.Property<string>("HrefLinkEN")
+                    b.Property<string>("HrefLinkEn")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("HrefLinkEN")
+                        .HasDefaultValueSql("(N'')");
 
                     b.Property<int>("MenuCount")
                         .HasColumnType("int");
@@ -138,69 +152,79 @@ namespace HinhLam_Dev.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("MenuNameCN")
+                    b.Property<string>("MenuNameCn")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("MenuNameCN");
 
-                    b.Property<string>("MenuNameEN")
+                    b.Property<string>("MenuNameEn")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("MenuNameEN");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
                     b.HasKey("MenuId");
 
+                    b.HasIndex("CateId");
+
                     b.ToTable("Menu", (string)null);
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.MenuSubMenu", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.MenuSubMenu", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("MenuId")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("SubMenuId")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MenuId");
+                    b.HasIndex(new[] { "MenuId" }, "IX_MenuSubMenu_MenuId");
 
-                    b.HasIndex("SubMenuId");
+                    b.HasIndex(new[] { "SubMenuId" }, "IX_MenuSubMenu_SubMenuId");
 
-                    b.ToTable("MenuSubMenu");
+                    b.ToTable("MenuSubMenu", (string)null);
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.SubMenu", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.SubMenu", b =>
                 {
-                    b.Property<string>("SubMenuID")
+                    b.Property<string>("SubMenuId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("SubMenuID");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("ntext");
 
-                    b.Property<string>("DescriptionCN")
+                    b.Property<string>("DescriptionCn")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("ntext");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("ntext")
+                        .HasColumnName("DescriptionCN")
+                        .HasDefaultValueSql("(N'')");
 
-                    b.Property<string>("DescriptionEN")
+                    b.Property<string>("DescriptionEn")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("ntext");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("ntext")
+                        .HasColumnName("DescriptionEN")
+                        .HasDefaultValueSql("(N'')");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -209,68 +233,68 @@ namespace HinhLam_Dev.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("TitleCN")
-                        .IsRequired()
+                    b.Property<string>("TitleCn")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("TitleCN");
 
-                    b.Property<string>("TitleEN")
-                        .IsRequired()
+                    b.Property<string>("TitleEn")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("TitleEN");
 
-                    b.HasKey("SubMenuID");
+                    b.HasKey("SubMenuId");
 
                     b.ToTable("SubMenu", (string)null);
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.SubMenuContent", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.SubMenuContent", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ContentId")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("SubMenuId")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ContentId");
+                    b.HasIndex(new[] { "ContentId" }, "IX_SubMenuContent_ContentId");
 
-                    b.HasIndex("SubMenuId");
+                    b.HasIndex(new[] { "SubMenuId" }, "IX_SubMenuContent_SubMenuId");
 
-                    b.ToTable("SubMenuContent");
+                    b.ToTable("SubMenuContent", (string)null);
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.Menu", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.Menu", b =>
                 {
-                    b.HasOne("HinhLam_DataObject.Model.Category", "Category")
-                        .WithOne("Menu")
-                        .HasForeignKey("HinhLam_DataObject.Model.Menu", "MenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("HinhLam_DataObject.Models.Category", "Cate")
+                        .WithMany("Menus")
+                        .HasForeignKey("CateId")
+                        .HasConstraintName("FK_Menu_Category");
 
-                    b.Navigation("Category");
+                    b.Navigation("Cate");
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.MenuSubMenu", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.MenuSubMenu", b =>
                 {
-                    b.HasOne("HinhLam_DataObject.Model.Menu", "Menu")
-                        .WithMany("MenuSubMenu")
+                    b.HasOne("HinhLam_DataObject.Models.Menu", "Menu")
+                        .WithMany("MenuSubMenus")
                         .HasForeignKey("MenuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HinhLam_DataObject.Model.SubMenu", "SubMenu")
-                        .WithMany("MenuSubMenu")
+                    b.HasOne("HinhLam_DataObject.Models.SubMenu", "SubMenu")
+                        .WithMany("MenuSubMenus")
                         .HasForeignKey("SubMenuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -280,16 +304,16 @@ namespace HinhLam_Dev.Migrations
                     b.Navigation("SubMenu");
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.SubMenuContent", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.SubMenuContent", b =>
                 {
-                    b.HasOne("HinhLam_DataObject.Model.Content", "Content")
-                        .WithMany("SubMenuContent")
+                    b.HasOne("HinhLam_DataObject.Models.Content", "Content")
+                        .WithMany("SubMenuContents")
                         .HasForeignKey("ContentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HinhLam_DataObject.Model.SubMenu", "SubMenu")
-                        .WithMany("SubMenuContent")
+                    b.HasOne("HinhLam_DataObject.Models.SubMenu", "SubMenu")
+                        .WithMany("SubMenuContents")
                         .HasForeignKey("SubMenuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -299,27 +323,26 @@ namespace HinhLam_Dev.Migrations
                     b.Navigation("SubMenu");
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.Category", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.Category", b =>
                 {
-                    b.Navigation("Menu")
-                        .IsRequired();
+                    b.Navigation("Menus");
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.Content", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.Content", b =>
                 {
-                    b.Navigation("SubMenuContent");
+                    b.Navigation("SubMenuContents");
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.Menu", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.Menu", b =>
                 {
-                    b.Navigation("MenuSubMenu");
+                    b.Navigation("MenuSubMenus");
                 });
 
-            modelBuilder.Entity("HinhLam_DataObject.Model.SubMenu", b =>
+            modelBuilder.Entity("HinhLam_DataObject.Models.SubMenu", b =>
                 {
-                    b.Navigation("MenuSubMenu");
+                    b.Navigation("MenuSubMenus");
 
-                    b.Navigation("SubMenuContent");
+                    b.Navigation("SubMenuContents");
                 });
 #pragma warning restore 612, 618
         }
