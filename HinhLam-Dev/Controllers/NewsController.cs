@@ -21,5 +21,11 @@ namespace HinhLam_Dev.Controllers
         {
             return View("News-en");
         }
+
+        [HttpGet("/dich-vu/bhxh-viet-nam-trien-khai-dang-ky-giao-dich-dien-tu-cho-ca-nhan-duoi-18-tuoi-chua-co-cmnd-cccd", Name = "NewsDetails")]
+        public IActionResult NewsDetails()
+        {
+            return View("NewsDetails");
+        }
     }
 }

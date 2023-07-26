@@ -61,6 +61,23 @@ app.UseEndpoints(endpoints =>
         pattern: "dich-vu/{name}",
         defaults: new { controller = "Service", action = "Services" }
     );
+    endpoints.MapControllerRoute(
+       name: "en-services",
+       pattern: "en/news/{name}",
+       defaults: new { controller = "News", action = "NewsDetailsEN" }
+   );
+
+    endpoints.MapControllerRoute(
+        name: "en-news",
+        pattern: "cn/news-chinese/{name}",
+        defaults: new { controller = "News", action = "NewsDetailsCN" }
+    );
+
+    endpoints.MapControllerRoute(
+        name: "news",
+        pattern: "dich-vu/{name}",
+        defaults: new { controller = "News", action = "News" }
+    );
 });
 
 app.Run();
