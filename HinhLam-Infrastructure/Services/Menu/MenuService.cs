@@ -81,12 +81,17 @@ namespace HinhLam_Infrastructure.Services.Menu
                     To = _configuration["HinhLamMailSettings:HinhLamEmail"],
                     Subject = $"New Quick Consult Service",
                     Text =
-                        $"<br>Client Infomation: " +
-                        $"<br>Name: {model.CustomerName} " +
-                        $"<br>Company: {model.CustomerCompany} " +
-                        $"<br>Email: {model.Email} " +
-                        $"<br>Phone Number: {model.PhoneNumber} " +
-                        $"<br>Content: {model.Contents} "
+                        
+                        $"<h3 style=\"color: #2856a3;\">Thông tin khách hàng: </h3>" +
+                        $"<br>" +
+                        $"<ul>" +
+                        $"<li><p>Tên: {model.CustomerName}</p> </li>" +
+                        $"<li><p>Công ty: {model.CustomerCompany} </p></li>" +
+                        $"<li><p>Email: {model.Email} </p>" +
+                        $"<li><p>Số điện thoại: {model.PhoneNumber}</p></li>" +
+                        $"<li><p>Content: {model.Contents}</p></li> " +
+                        $"</ul>",
+
                 });
             }catch(Exception ex)
             {

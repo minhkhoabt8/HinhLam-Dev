@@ -34,7 +34,7 @@ namespace HinhLam_Infrastructure.Services.Email.Services
 
                 message.To.Add(email.To);
 
-                message.CC.Add("support@hinhlam.com");
+                message.CC.Add(_configuration["HinhLamMailSettings:CC"]);
 
                 if (email.Attachment != null)
                 {

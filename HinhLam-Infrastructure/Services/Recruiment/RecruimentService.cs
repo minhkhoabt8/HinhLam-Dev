@@ -32,18 +32,22 @@ namespace HinhLam_Infrastructure.Services.Recruiment
         {
             try
             {
+               
                 await _emailServices.SendEmailAsync(new EmailViewModel()
                 {
 
                     To = _configuration["HinhLamMailSettings:HinhLamEmail"],
                     Subject = $"[Tuyển Dụng] - {model.ApplyPosition} - {model.CandidateName}",
                     Text =
-                        $"<br>Thông tin ứng viên: " +
-                        $"<br>Tên: {model.CandidateName} " +
-                        $"<br>Email: {model.Email} " +
-                        
-                        $"<br>Số điện thoại: {model.PhoneNumber} " +
-                        $"<br>Vị trí: {model.ApplyPosition} ",
+                        $"<h3 style=\"color: #2856a3;\">Thông tin ứng viên: </h3>" +
+                        $"<br>" +
+                        $"<ul>" + 
+                        $"<li><p>Tên: {model.CandidateName} </li></p>" +
+                        $"<li><p>Email: {model.Email} </p>" +
+                        $"<li><p>Số điện thoại: {model.PhoneNumber}</li><p>" +
+                        $"<li><p>Vị trí: {model.ApplyPosition}</li></p> " +
+                        $"</ul>",
+
                     Attachment = model.ApplyFile
 
                 });
@@ -53,5 +57,8 @@ namespace HinhLam_Infrastructure.Services.Recruiment
                 Console.WriteLine(ex.Message);
             }
         }
+
+
+        
     }
 }
