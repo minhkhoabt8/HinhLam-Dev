@@ -126,17 +126,17 @@
                                     <p><strong><span lang="en-US">@Html.Raw(Model.Contents.ElementAt(0).TitleCn)</span></strong></p>
 
                                     @{
-                                        var content1 = @Model.Contents.ElementAt(0).ContentsCn.Replace("|", "<li>");
+                                        var content1 = Model.Contents.ElementAt(0).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                         <ul>
                                             @foreach (var item in content1)
                                             {
-                                                <li>@Html.Raw(@item)</li>
+                                                <li><p>@Html.Raw(@item)</p></li>
                                             }
                                         </ul>
                                     }
                                     <p><strong><span lang="en-US">@Html.Raw(Model.Contents.ElementAt(1).TitleCn)</span></strong></p>
                                     @{
-                                        var content2 = @Model.Contents.ElementAt(1).ContentsCn.Replace("|", "<li>");
+                                        var content2 = Model.Contents.ElementAt(1).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
                                         <ul>
                                             @foreach (var item in content2)
                                             {

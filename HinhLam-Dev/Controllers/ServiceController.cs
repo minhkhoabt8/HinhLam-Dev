@@ -34,7 +34,10 @@ namespace HinhLam_Dev.Controllers
         public IActionResult ServiceDetailsEN(string name)
         {
             var result = _menuService.GetAllContentOfMenu(name);
-
+            if(result == null)
+            {
+                return View("Error");
+            }
             return View("ServiceDetails-en", result);
         }
 
@@ -42,7 +45,10 @@ namespace HinhLam_Dev.Controllers
         public IActionResult ServiceDetailsCN(string name)
         {
             var result = _menuService.GetAllContentOfMenu(name);
-
+            if (result == null)
+            {
+                return View("Error");
+            }
             return View("ServiceDetails-cn", result);
         }
 
@@ -55,7 +61,10 @@ namespace HinhLam_Dev.Controllers
             //}
 
             var result = _menuService.GetAllContentOfMenu(name);
-
+            if (result == null)
+            {
+                return View("Error");
+            }
             return View("ServiceDetails", result);
         }
     }
