@@ -31,15 +31,7 @@ namespace HinhLam_Infrastructure.Repositories.Menu
 
         public HinhLam_DataObject.Models.Menu? GetAllContentOfMenu(string menuName)
         {
-            //Assuming you have an instance of your database context called "dbContext"
-
-            // Get the menu by its MenuId with included related entities
-            //return _context.Menu
-            //     .Include(m => m.MenuSubMenu)
-            //         .ThenInclude(ms => ms.SubMenu)
-            //             .ThenInclude(sm => sm.SubMenuContent)
-            //                 .ThenInclude(sc => sc.Content)
-            //     .FirstOrDefault(m => m.HrefLink.Contains(menuName) && m.Status == true || m.HrefLinkCN.Contains(menuName) && m.Status == true || m.HrefLinkEN.Contains(menuName) && m.Status == true);
+            
             return _context.Menus
                 .Include(m => m.MenuSubMenus)
                     .ThenInclude(ms => ms.SubMenu)
