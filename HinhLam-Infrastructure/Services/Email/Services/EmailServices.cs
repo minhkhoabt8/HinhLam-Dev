@@ -4,6 +4,7 @@ using HinhLam_DataObject.ViewModel;
 using HinhLam_Infrastructure.Services.Email.Repositories;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace HinhLam_Infrastructure.Services.Email.Services
 {
@@ -27,14 +28,23 @@ namespace HinhLam_Infrastructure.Services.Email.Services
                     From = new MailAddress(_configuration["HinhLamMailSettings:HinhLamEmail"]),
                     Subject = email.Subject,
                     Body = email.Text,
-                    IsBodyHtml = true
+                    IsBodyHtml = true,
+                     
                 };
+
                 message.To.Add(email.To);
 
-                if (!string.IsNullOrEmpty(email.ImagePath))
+                message.CC.Add("support@hinhlam.com");
+
+                if (email.Attachment != null)
                 {
-                    Attachment imageAttachment = new Attachment(email.ImagePath);
-                    message.Attachments.Add(imageAttachment);
+                    MemoryStream stream = new MemoryStream();
+
+                    await email.Attachment.CopyToAsync(stream);
+                    stream.Seek(0, SeekOrigin.Begin); // Reset the position to the beginning of the stream
+
+                    Attachment fileAttachment = new Attachment(stream, email.Attachment.FileName, email.Attachment.ContentType);
+                    message.Attachments.Add(fileAttachment);
                 }
 
                 using (SmtpClient smtpClient = new SmtpClient(_emailSettings.SmtpServer, _emailSettings.Port))

@@ -32,7 +32,7 @@ namespace HinhLam_Dev.Controllers
             return View("Contact-en");
         }
 
-        [HttpPost("/lien-he/send")]
+        [HttpPost("/lien-he")]
         public IActionResult Contact([FromForm] ConsultWriteModel model)
         {
             if (ModelState.IsValid)

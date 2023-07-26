@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace HinhLam_DataObject.ViewModel
         public string To { get; set; }
         public string Subject { get; set; }
         public string Text { get; set; }
-        public string ImagePath { get; set; }
+        public IFormFile Attachment { get; set; }
     }
 
     public class EmailSettings

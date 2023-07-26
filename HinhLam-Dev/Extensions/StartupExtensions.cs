@@ -16,6 +16,8 @@ using Microsoft.Extensions.Localization;
 using HinhLam_Infrastructure.Services.Email.Repositories;
 using HinhLam_Infrastructure.Services.Email.Services;
 using HinhLam_DataObject.ViewModel;
+using HinhLam_Infrastructure.Services.Recruiment;
+using HinhLam_Infrastructure.Repositories.Recruiment;
 
 namespace HinhLam_Dev.Extensions
 {
@@ -27,12 +29,14 @@ namespace HinhLam_Dev.Extensions
             services.AddScoped<IMenuService, MenuService>();
 
             services.AddScoped<IEmailServices, EmailServices>();
+            services.AddScoped<IRecruimentService, RecruimentService>();
 
         }
        
         public static void AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<IRecuimentRepository, RecruimentRepository>();
         }
 
         //install AutoMapper.Extensions.Microsoft.DependencyInjection
