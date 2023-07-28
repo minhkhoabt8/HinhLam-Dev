@@ -5,7 +5,7 @@ namespace HinhLam_DataObject.Models
 {
     public partial class MenuSubMenu
     {
-        public string Id { get; set; } = null!;
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public string MenuId { get; set; } = null!;
         public string SubMenuId { get; set; } = null!;
 

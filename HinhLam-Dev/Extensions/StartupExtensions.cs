@@ -20,6 +20,8 @@ using HinhLam_Infrastructure.Services.Recruiment;
 using HinhLam_Infrastructure.Repositories.Recruiment;
 using HinhLam_Infrastructure.Services.Home;
 using HinhLam_Infrastructure.Repositories.Home;
+using HinhLam_Infrastructure.Services.News;
+using HinhLam_Infrastructure.Repositories.New;
 
 namespace HinhLam_Dev.Extensions
 {
@@ -33,6 +35,8 @@ namespace HinhLam_Dev.Extensions
             services.AddScoped<IEmailServices, EmailServices>();
             services.AddScoped<IRecruimentService, RecruimentService>();
             services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<INewsService, NewsService>();
+
 
 
         }
@@ -42,6 +46,8 @@ namespace HinhLam_Dev.Extensions
             services.AddScoped<IMenuRepository, MenuRepository>();
             services.AddScoped<IRecuimentRepository, RecruimentRepository>();
             services.AddScoped<IHomeRepository, HomeRepository>();
+            services.AddScoped<INewsRepository, NewsRepository>();
+
 
         }
 

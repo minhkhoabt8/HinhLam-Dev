@@ -62,7 +62,7 @@ app.UseEndpoints(endpoints =>
         defaults: new { controller = "Service", action = "Services" }
     );
     endpoints.MapControllerRoute(
-       name: "en-services",
+       name: "en-news",
        pattern: "en/news/{name}",
        defaults: new { controller = "News", action = "NewsDetailsEN" }
    );
@@ -75,9 +75,10 @@ app.UseEndpoints(endpoints =>
 
     endpoints.MapControllerRoute(
         name: "news",
-        pattern: "dich-vu/{name}",
-        defaults: new { controller = "News", action = "News" }
+        pattern: "tin-tuc/{name}",
+        defaults: new { controller = "News", action = "NewsDetails" }
     );
+    
 });
 
 app.Run();

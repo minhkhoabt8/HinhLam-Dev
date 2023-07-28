@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HinhLam_Infrastructure.Services.News;
+using Microsoft.AspNetCore.Mvc;
+using System.Xml.Linq;
 
 namespace HinhLam_Dev.Controllers
 {
     public class NewsController : Controller
     {
+        private readonly INewsService _newsService;
+
+        public NewsController(INewsService newsService)
+        {
+            _newsService = newsService;
+        }
+
         [HttpGet("/tin-tuc")]
         public IActionResult News()
         {
@@ -22,10 +31,41 @@ namespace HinhLam_Dev.Controllers
             return View("News-en");
         }
 
-        [HttpGet("/dich-vu/bhxh-viet-nam-trien-khai-dang-ky-giao-dich-dien-tu-cho-ca-nhan-duoi-18-tuoi-chua-co-cmnd-cccd", Name = "NewsDetails")]
-        public IActionResult NewsDetails()
+        [HttpGet("/tin-tuc/{name}", Name = "NewsDetails")]
+        public IActionResult NewsDetails(string name)
         {
-            return View("NewsDetails");
+            var result = _newsService.GetAllContentsOfNews(name);
+            if (result == null)
+            {
+                return View("Error");
+            }
+            return View("NewsDetails", result);
+           
         }
+
+        [HttpGet("/en/news/{name}", Name = "NewsDetailsEN")]
+        public IActionResult NewsDetailsEN(string name)
+        {
+            var result = _newsService.GetAllContentsOfNews(name);
+            if (result == null)
+            {
+                return View("Error");
+            }
+            return View("NewsDetails-en", result);
+
+        }
+
+        [HttpGet("/cn/news-chinese/{name}", Name = "NewsDetailsCN")]
+        public IActionResult NewsDetailsCN(string name)
+        {
+            var result = _newsService.GetAllContentsOfNews(name);
+            if (result == null)
+            {
+                return View("Error");
+            }
+            return View("NewsDetails-cn", result);
+
+        }
+
     }
 }

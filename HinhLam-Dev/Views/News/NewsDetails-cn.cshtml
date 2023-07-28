@@ -1,5 +1,254 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model NewsInfoModels;
+@using HinhLam_Infrastructure.Services.Menu;
+@using static HinhLam_DataObject.ViewModels.NewsViewModels;
+
+
+
 @{
+    ViewData["Title"] = "Chi tiết";
+    Layout = "~/Views/Shared/_LayoutCN.cshtml";
 }
+
+<body class="lang-vn">
+    <noscript>JavaScript is off. Please enable to view full site.</noscript>
+
+
+    <div class="language">
+        <a id="vnFlag" href="/"><img src="/themes/vip/img/flag-vn.png"></a>
+        <a id="enFlag" href="/en/"><img src="/themes/vip/img/flag-en.png"></a>
+        <a id="cnFlag" href="/cn/"><img src="/themes/vip/img/flag-cn.png"></a>
+    </div>
+
+    <div class="section-banner">
+
+        <img src="/images/b/banner-inner_2.jpg" alt="" class="banner-desktop">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="pageBannerTitle"></h3>
+                </div>
+                <div class="col-12">
+                    <div class="breabcrumbs"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="breabcrumbsPath hide">
+
+        <a href="|">主頁</a>
+
+        <span>新聞</span>
+
+    </div>
+
+    <div class="pageTitle hidden">新聞</div>
+
+    <div class="section-main">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12 col-md-10 ml-auto mr-auto">
+                    <div class="heading-page"><div class="d-md-flex"><h3 class="w-100">@Model.TitleCn</h3></div></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-10 ml-auto mr-auto">
+
+                    @{
+                        var id = Model.NewsId;
+                    }
+                    <div class="switch-menu">
+                        @switch (id)
+                        {
+                            case "1":
+                                <div class="detail-content">
+
+                                    @{
+                                        var content1 = Model.Contents.ElementAt(0).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        @foreach (var item in content1)
+                                        {
+                                            <p><span><span><span>@Html.Raw(@item)</span></span></span></p>
+                                        }
+                                    }
+                                    @{
+                                        var content2 = Model.Contents.ElementAt(1).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content2)
+                                        {
+                                            <p><span><span><span>@Html.Raw(@item)</span></span></span></p>
+                                        }
+
+                                    }
+
+                                    @{
+                                        var content3 = Model.Contents.ElementAt(2).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content3)
+                                        {
+                                            <p><span><span><span>@Html.Raw(@item)</span></span></span></p>
+                                        }
+
+                                    }
+                                    @{
+                                        var content4 = Model.Contents.ElementAt(3).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+                                        @foreach (var item in content4)
+                                        {
+                                            <p><span><span><span>@Html.Raw(@item)</span></span></span></p>
+                                        }
+
+                                    }
+
+
+                                </div>
+
+                                break;
+
+                        }
+                    </div>
+                </div>
+
+                <div class="related-news">
+                    <h3>Tin liên quan</h3>
+                    <div class="row">
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="item-news">
+                                <div class="thumb-img"><a href="/tin-tuc/nghiem-cam-viec-nhan-ho-tro-tu-don-vi-duoc-kiem-toan.html" title="Nghiêm cấm việc nhận hỗ trợ từ đơn vị được kiểm toán"><img src="/images/2021/chi-phi-ban-hang.png" /></a></div>
+                                <div class="summary-news">
+                                    <a class="text-title" href="/tin-tuc/nghiem-cam-viec-nhan-ho-tro-tu-don-vi-duoc-kiem-toan.html" title="Nghiêm cấm việc nhận hỗ trợ từ đơn vị được kiểm toán">Nghiêm cấm việc nhận hỗ trợ từ đơn vị được kiểm toán</a>
+                                    <p>Đó là một trong những nội dung tại Công điện số 786 về việc siết chặt kỷ luật, kỷ cương, tăng cường công tác quản lý hoạt động của các đơn vị trực thuộc Kiểm...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="item-news">
+                                <div class="thumb-img"><a href="/tin-tuc/quy-dinh-viec-ap-dung-quan-ly-rui-ro-trong-quan-ly-hoa-don-chung-tu.html" title="Quy định việc áp dụng quản lý rủi ro trong quản lý hóa đơn, chứng từ"><img src="/images/2021/hinh-lam-ke-toan-thue.png" /></a></div>
+                                <div class="summary-news">
+                                    <a class="text-title" href="/tin-tuc/quy-dinh-viec-ap-dung-quan-ly-rui-ro-trong-quan-ly-hoa-don-chung-tu.html" title="Quy định việc áp dụng quản lý rủi ro trong quản lý hóa đơn, chứng từ">Quy định việc áp dụng quản lý rủi ro trong quản lý hóa đơn, chứng từ</a>
+                                    <p>Theo quy định tại Điều 21, Thông tư số 31/2021/TT-BTC về việc áp dụng quản lý rủi ro trong quản lý hóa đơn, chứng từ, thì cơ quan thuế căn cứ danh sách người nộp thuế...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="item-news">
+                                <div class="thumb-img"><a href="/tin-tuc/tu-0172021-thay-doi-khai-niem-ho-gia-dinh-tham-gia-bhyt.html" title="Từ 01/7/2021: Thay đổi khái niệm Hộ gia đình tham gia BHYT"><img src="/images/2021/bhythg_.jpg" /></a></div>
+                                <div class="summary-news">
+                                    <a class="text-title" href="/tin-tuc/tu-0172021-thay-doi-khai-niem-ho-gia-dinh-tham-gia-bhyt.html" title="Từ 01/7/2021: Thay đổi khái niệm Hộ gia đình tham gia BHYT">Từ 01/7/2021: Thay đổi khái niệm Hộ gia đình tham gia BHYT</a>
+                                    <p>Ngày 13/11/2020, Quốc hội đã thông qua Luật Cư trú năm 2020, có hiệu lực từ ngày 01/7/2021. Luật này sửa đổi, bổ sung nội dung một số Luật khác liên quan, trong đó có Luật...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="row hightlight">
+                <div class="col-12 col-md-6">
+                    <div class="vf_block">
+
+                        <h3 class="title-ft">công ty tnhh Dv TƯ VẤN THUẾ HINH LAM</h3>
+                        <p>Địa chỉ: Số 40 đường N5, KDC Dịch vụ Tân Bình, Phường Tân Bình, Thành Phố Dĩ An, Tỉnh Bình Dương</p>
+                        <p>Số ĐKKD: 3702862785 do Sở KHĐT Tỉnh Bình Dương cấp ngày 24/03/2020</p>
+                        <p> </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="vf_block">
+
+                        <h3 class="title-ft border-r"><span>liên hệ nhanh</span></h3>
+                        <div class="list-sp">
+                            <div class="d-md-flex">
+                                <div class="list-item">
+                                    <div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0983204115"><span><img src="/images/assets/images/icon/icon-zalo.png" alt="" /></span><span>0983 204 115</span></a></div>
+                                    <div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0919 724872"><span><img src="/images/assets/images/icon/icon-zalo.png" alt="" /></span><span>0919 724 872</span></a></div>
+                                    <div class="item-sp"><a class="d-flex align-items-center" href="https://chat.zalo.me/?phone=0274 6267789"><span><img src="/images/assets/images/icon/icon-phone.png" alt="" /></span><span>0274 626 77 89</span></a></div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="item-sp"><a class="d-flex align-items-center" href="mailto:dailythuehinhlam@gmail.com"><span><img src="/images/assets/images/icon/icon-email.png" alt="" /></span><span>dailythuehinhlam@gmail.com</span></a></div>
+                                    <div class="item-sp"><a class="d-flex align-items-center" href="skype:dailythue_hinhlam?chat"><span><img src="/images/assets/images/icon/icon-skype.png" alt="" /></span><span>dailythue_hinhlam</span></a></div>
+                                    <div class="item-sp"><a class="d-flex align-items-center" href="https://api.whatsapp.com/send?phone=dailythe_hinhlam"><span><img src="/images/assets/images/icon/icon-what.png" alt="" /></span><span>dailythe_hinhlam</span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="vf_block">
+
+                        <p>© 2020 Bản quyền của Công ty TNHH Dịch Vụ Tư Vấn Thuế Hinh Lam</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+
+                    <div class="link-footer">
+
+                        <a href="/chinh-sach-bao-mat/" title="Chính sách bảo mật">Chính sách bảo mật</a>
+
+                        <a href="/quyen-rieng-tu/" title="Quyền riêng tư">Quyền riêng tư</a>
+
+                    </div>
+
+                    <div class="vf_block">
+
+                        <p><a href="https://www.facebook.com/Hinhlamtaxingaccouting/?ref=pages_you_manage" target="_blank" title="facebook"><img src="/images/assets/images/icon/icon-facebook.png" alt="facebook" /></a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fix-right">
+        <a href="tel:0983204115" title="">
+            <span class="icon-fix">
+                <img src="/themes/vip/assets/images/icon-hotline.png" alt="Icon hotline">
+            </span>
+            <span class="text">
+                0983204115
+            </span>
+        </a>
+        <a href="/lien-he" class="show-contact" title="Thông tin liên hệ">
+            <span class="icon-fix">
+                <img src="/themes/vip/assets/images/icon-lienhe.png" alt="Icon hotline">
+            </span>
+        </a>
+    </div>
+    <input id="itemTemplatePath" type="hidden" value="./">
+    <script src="/themes/vip/scripts/dev/pages/home.js" defer></script>
+    <script>
+        $(function () {
+            if ($('.pageTitle').length) {
+                $('.pageBannerTitle').html($('.pageTitle').html());
+                $('.breabcrumbs').html($('.breabcrumbsPath').html())
+            }
+        })
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // This code will run after the DOM is fully loaded
+            document.getElementById('vnFlag').setAttribute('href', '@Model.LinkHref');
+            document.getElementById('enFlag').setAttribute('href', '@Model.LinkHrefEn');
+            document.getElementById('cnFlag').setAttribute('href', '@Model.LinkHrefCn');
+        });
+    </script>
+</body>

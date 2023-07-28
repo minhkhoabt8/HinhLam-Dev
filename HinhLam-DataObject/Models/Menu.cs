@@ -10,13 +10,13 @@ namespace HinhLam_DataObject.Models
             MenuSubMenus = new HashSet<MenuSubMenu>();
         }
 
-        public string MenuId { get; set; } = null!;
+        public string MenuId { get; set; } = Guid.NewGuid().ToString();
         public string MenuName { get; set; } = null!;
         public string MenuNameCn { get; set; } = null!;
         public string MenuNameEn { get; set; } = null!;
         public string CateId { get; set; } = null!;
-        public DateTime CreatedDate { get; set; }
-        public bool Status { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public bool Status { get; set; } = false;
         public int MenuCount { get; set; }
         public string HrefLink { get; set; } = null!;
         public string HrefLinkCn { get; set; } = null!;

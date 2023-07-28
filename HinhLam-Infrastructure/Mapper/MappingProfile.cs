@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static HinhLam_DataObject.ViewModels.ConsultViewModel;
+using static HinhLam_DataObject.ViewModels.NewsViewModels;
 
 namespace HinhLam_Infrastructure.Mapper
 {
@@ -22,7 +23,9 @@ namespace HinhLam_Infrastructure.Mapper
 
             CreateMap<SubMenu, SubMenuInfoModel>()
                 .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.SubMenuContents.Select(c => c.Content)));
-
+            CreateMap<News, NewsInfoModels>()
+                .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.NewsContents.Select(c => c.Content)));
+            CreateMap<NewsCreateModels, News>();
 
             //CreateMap<Consults, ConsultInfoModel>();
             //CreateMap<ConsultWriteModel, Consults>();
