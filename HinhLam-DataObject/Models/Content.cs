@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 namespace HinhLam_DataObject.Models
+
 {
     public partial class Content
     {
