@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HinhLam_Dev.Migrations
 {
     [DbContext(typeof(HinhLamDBContext))]
-    [Migration("20230726004216_AddCategory")]
-    partial class AddCategory
+    [Migration("20230728054506_AddNews")]
+    partial class AddNews
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,55 @@ namespace HinhLam_Dev.Migrations
                     b.HasKey("CateId");
 
                     b.ToTable("Category", (string)null);
+                });
+
+            modelBuilder.Entity("HinhLam_DataObject.Models.Consult", b =>
+                {
+                    b.Property<string>("ConsultId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Contents")
+                        .HasColumnType("ntext");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CustomerCompany")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Response")
+                        .HasColumnType("ntext");
+
+                    b.Property<DateTime?>("ResponseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("ResponseStatus")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ConsultId");
+
+                    b.ToTable("Consult", (string)null);
                 });
 
             modelBuilder.Entity("HinhLam_DataObject.Models.Content", b =>
@@ -117,6 +166,7 @@ namespace HinhLam_Dev.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("CateId")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -198,6 +248,62 @@ namespace HinhLam_Dev.Migrations
                     b.HasIndex(new[] { "SubMenuId" }, "IX_MenuSubMenu_SubMenuId");
 
                     b.ToTable("MenuSubMenu", (string)null);
+                });
+
+            modelBuilder.Entity("HinhLam_DataObject.Models.News", b =>
+                {
+                    b.Property<string>("NewsId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LinkHref")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("TitleCn")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("TitleCN");
+
+                    b.Property<string>("TitleEn")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("TitleEN");
+
+                    b.HasKey("NewsId");
+
+                    b.ToTable("News");
+                });
+
+            modelBuilder.Entity("HinhLam_DataObject.Models.NewsContent", b =>
+                {
+                    b.Property<string>("ContentId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("NewsId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasIndex("ContentId");
+
+                    b.HasIndex("NewsId");
+
+                    b.ToTable("NewsContent", (string)null);
                 });
 
             modelBuilder.Entity("HinhLam_DataObject.Models.SubMenu", b =>
@@ -282,6 +388,8 @@ namespace HinhLam_Dev.Migrations
                     b.HasOne("HinhLam_DataObject.Models.Category", "Cate")
                         .WithMany("Menus")
                         .HasForeignKey("CateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("FK_Menu_Category");
 
                     b.Navigation("Cate");
@@ -304,6 +412,23 @@ namespace HinhLam_Dev.Migrations
                     b.Navigation("Menu");
 
                     b.Navigation("SubMenu");
+                });
+
+            modelBuilder.Entity("HinhLam_DataObject.Models.NewsContent", b =>
+                {
+                    b.HasOne("HinhLam_DataObject.Models.Content", "Content")
+                        .WithMany()
+                        .HasForeignKey("ContentId")
+                        .HasConstraintName("FK_NewsContent_Content");
+
+                    b.HasOne("HinhLam_DataObject.Models.News", "News")
+                        .WithMany()
+                        .HasForeignKey("NewsId")
+                        .HasConstraintName("FK_NewsContent_News");
+
+                    b.Navigation("Content");
+
+                    b.Navigation("News");
                 });
 
             modelBuilder.Entity("HinhLam_DataObject.Models.SubMenuContent", b =>

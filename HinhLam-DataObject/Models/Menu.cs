@@ -14,7 +14,7 @@ namespace HinhLam_DataObject.Models
         public string MenuName { get; set; } = null!;
         public string MenuNameCn { get; set; } = null!;
         public string MenuNameEn { get; set; } = null!;
-        public string? CateId { get; set; }
+        public string CateId { get; set; } = null!;
         public DateTime CreatedDate { get; set; }
         public bool Status { get; set; }
         public int MenuCount { get; set; }

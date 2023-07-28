@@ -102,7 +102,7 @@ namespace HinhLam_DataObject.DataAccess
 
             entity.Property(e => e.MenuId).HasMaxLength(50);
 
-            entity.Property(e => e.CateId).HasMaxLength(50);
+            entity.Property(e => e.CateId).HasMaxLength(50).IsRequired();
 
             entity.Property(e => e.HrefLink)
                 .HasMaxLength(100)
