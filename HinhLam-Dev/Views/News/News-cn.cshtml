@@ -1,4 +1,9 @@
-﻿@{
+﻿@model NewsInfoModels;
+@using HinhLam_Infrastructure.Services.Menu;
+@using static HinhLam_DataObject.ViewModels.NewsViewModels;
+@using HinhLam_Infrastructure.Services.News;
+
+@{
     ViewData["Title"] = "Info";
     Layout = "~/Views/Shared/_LayoutCN.cshtml";
 }
@@ -47,67 +52,26 @@
             </div>
             <div class="row">
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-news">
-                        <div class="thumb-img"><a href="/cn/news-chinese/troubleshooting-accounting-books-accounting-services-tax-refund-chinese.html" title="嚴禁從被審計單位獲得支持"><img src="/images/2021/angiang-phucvu.png" /></a></div>
-                        <div class="summary-news">
-                            <a class="text-title" href="/cn/news-chinese/troubleshooting-accounting-books-accounting-services-tax-refund-chinese.html" title="嚴禁從被審計單位獲得支持">嚴禁從被審計單位獲得支持</a>
-                            <p></p>
+                @inject INewsService menuService;
+
+                @foreach(var item in menuService.GetAllNews())
+                {
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="item-news">
+                            <div class="thumb-img"><a href="@item.LinkHrefCn" title="@item.TitleCn"><img src="/images/2021/angiang-phucvu.png" /></a></div>
+                            <div class="summary-news">
+                                <a class="text-title" href="@item.LinkHrefCn" title="@item.TitleCn">@item.TitleCn</a>
+                                <p></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
+                
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-news">
-                        <div class="thumb-img"><a href="/cn/news-chinese/18cccd.html" title="越南社會保險：為18歲以下的個人無身份證，公民身份證實施電子交易登記。"><img src="/images/2021/chi-phi-ban-hang.png" /></a></div>
-                        <div class="summary-news">
-                            <a class="text-title" href="/cn/news-chinese/18cccd.html" title="越南社會保險：為18歲以下的個人無身份證，公民身份證實施電子交易登記。">越南社會保險：為18歲以下的個人無身份證，公民身份證實施電子交易登記。</a>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-news">
-                        <div class="thumb-img"><a href="/cn/news-chinese/1-1.html" title="關於發票和憑證管理中風險管理的應用規定"><img src="/images/2021/hinh-lam-ke-toan-thue.png" /></a></div>
-                        <div class="summary-news">
-                            <a class="text-title" href="/cn/news-chinese/1-1.html" title="關於發票和憑證管理中風險管理的應用規定">關於發票和憑證管理中風險管理的應用規定</a>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-news">
-                        <div class="thumb-img"><a href="/cn/news-chinese/202171.html" title="從2021年7月1日起：改變家庭參保觀念"><img src="/images/2021/_n_20210521031650pm.jpg" /></a></div>
-                        <div class="summary-news">
-                            <a class="text-title" href="/cn/news-chinese/202171.html" title="從2021年7月1日起：改變家庭參保觀念">從2021年7月1日起：改變家庭參保觀念</a>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-news">
-                        <div class="thumb-img"><a href="/cn/news-chinese/vssid.html" title="同奈：成立指導委員會以展開 VssID 應用程序"><img src="/images/2021/bhythg_.jpg" /></a></div>
-                        <div class="summary-news">
-                            <a class="text-title" href="/cn/news-chinese/vssid.html" title="同奈：成立指導委員會以展開 VssID 應用程序">同奈：成立指導委員會以展開 VssID 應用程序</a>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-news">
-                        <div class="thumb-img"><a href="/cn/news-chinese/1-2.html" title="個人在會計領域的行政違規將被處以最高伍仟萬越南盾的罰款"><img src="/images/2021/_n_20210521031650pm.jpg" /></a></div>
-                        <div class="summary-news">
-                            <a class="text-title" href="/cn/news-chinese/1-2.html" title="個人在會計領域的行政違規將被處以最高伍仟萬越南盾的罰款">個人在會計領域的行政違規將被處以最高伍仟萬越南盾的罰款</a>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-
+                
             </div>
+
+
             <div class="row">
                 <div class="col-12 mt-2">
                     <div class="paging">
