@@ -34,7 +34,11 @@ namespace HinhLam_Infrastructure.Repositories.New
 
         public List<News> GetAllNews()
         {
-            throw new NotImplementedException();
+            return _dbContext.News
+                .Where(n => n.Status == true && n.NewsContents.Any(nc => nc.Content.Status == true))
+                .Include(m => m.NewsContents)
+                .ThenInclude(nc => nc.Content)
+                .ToList();
         }
 
         public News GetNewsById(string id)

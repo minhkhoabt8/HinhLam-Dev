@@ -22,7 +22,7 @@ namespace HinhLam_DataObject.ViewModels
 
             public bool Status { get; set; }
             public DateTime CreateDate { get; set; }
-            public List<Content> Contents { get; set; }
+            public List<Content>? Contents { get; set; }
         }
 
         public class NewsCreateModels

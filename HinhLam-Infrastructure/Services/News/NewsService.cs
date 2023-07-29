@@ -36,7 +36,7 @@ namespace HinhLam_Infrastructure.Services.News
 
         public List<NewsInfoModels> GetAllNews()
         {
-            throw new NotImplementedException();
+            return _mapper.Map<List<NewsInfoModels>>(_newsRepository.GetAllNews());
         }
 
         public NewsInfoModels GetAllContentsOfNews(string newsName)
