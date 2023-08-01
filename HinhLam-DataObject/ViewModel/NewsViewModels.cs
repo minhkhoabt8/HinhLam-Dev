@@ -14,7 +14,10 @@ namespace HinhLam_DataObject.ViewModels
             public string NewsId { get; set; }
             public string Title { get; set; } 
             public string TitleCn { get; set; }
-            public string TitleEn { get; set; } 
+            public string TitleEn { get; set; }
+            public string ShortDescription { get; set; }
+            public string ShortDescriptionEn { get; set; }
+            public string ShortDescriptionCn { get; set; }
             public string LinkHref { get; set; } 
 
             public string LinkHrefEn { get; set; } 

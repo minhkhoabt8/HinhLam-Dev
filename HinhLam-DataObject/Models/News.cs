@@ -15,6 +15,9 @@ namespace HinhLam_DataObject.Models
         public string Title { get; set; } = null!;
         public string TitleCn { get; set; } = null!;
         public string TitleEn { get; set; } = null!;
+        public string ShortDescription { get; set; }
+        public string ShortDescriptionEn { get; set; }
+        public string ShortDescriptionCn { get; set; }
         public string LinkHref { get; set; } = null!;
         public string LinkHrefEn { get; set; } = null!;
         public string LinkHrefCn { get; set; } = null!;

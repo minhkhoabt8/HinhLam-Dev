@@ -54,14 +54,28 @@
 
                 @inject INewsService menuService;
 
-                @foreach(var item in menuService.GetAllNews())
+                @foreach (var item in menuService.GetAllNews())
                 {
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="item-news">
-                            <div class="thumb-img"><a href="@item.LinkHrefCn" title="@item.TitleCn"><img src="@item.FileNews.SelectMany(c=>c.FileHref)" /></a></div>
+                            @if (item.FileNews != null && item.FileNews.Any())
+                            {
+                                var firstFile = item.FileNews.FirstOrDefault();
+                                if (firstFile != null)
+                                {
+                                    var imageUrl = firstFile.FileHref;
+                                    <div class="thumb-img">
+                                        <a href="@Html.Raw(item.LinkHrefCn)" title="@Html.Raw(item.TitleCn)">
+                                            <img src="@imageUrl" />
+                                        </a>
+                                    </div>
+                                }
+                            }
                             <div class="summary-news">
-                                <a class="text-title" href="@item.LinkHrefCn" title="@item.TitleCn">@item.TitleCn</a>
-                                <p></p>
+                                <a class="text-title" href="@Html.Raw(item.LinkHrefCn)" title="@Html.Raw(item.TitleCn)">@Html.Raw(item.TitleCn)</a>
+                                <p>
+                                    @Html.Raw(item.ShortDescriptionCn?.Length > 150 ? item.ShortDescriptionCn?.Substring(0, 150) + "..." : item.ShortDescriptionCn)
+                                </p>
                             </div>
                         </div>
                     </div>

@@ -278,6 +278,16 @@ namespace HinhLam_DataObject.DataAccess
                 entity.Property(e => e.TitleEn)
                     .HasMaxLength(150)
                     .HasColumnName("TitleEN");
+
+                entity.Property(e => e.ShortDescription).HasMaxLength(250);
+
+                entity.Property(e => e.ShortDescriptionCn)
+                    .HasMaxLength(250)
+                    .HasColumnName("ShortDescriptionCN");
+
+                entity.Property(e => e.ShortDescriptionEn)
+                    .HasMaxLength(250)
+                    .HasColumnName("ShortDescriptionEN");
             });
 
             modelBuilder.Entity<NewsContent>(entity =>
