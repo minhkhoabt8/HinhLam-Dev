@@ -1,4 +1,8 @@
-﻿@{
+﻿@model NewsInfoModels;
+@using HinhLam_Infrastructure.Services.Menu;
+@using static HinhLam_DataObject.ViewModels.NewsViewModels;
+@using HinhLam_Infrastructure.Services.News;
+@{
     ViewData["Title"] = "Tin Tức";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -45,8 +49,37 @@
                 </div>
             </div>
             <div class="row">
+               
 
-                <div class="col-12 col-md-6 col-lg-4">
+                    @inject INewsService menuService;
+                    
+                    @foreach (var item in menuService.GetAllNews())
+                    {
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="item-news">
+                            @if (item.FileNews != null && item.FileNews.Any())
+                            {
+                                var firstFile = item.FileNews.FirstOrDefault();
+                                if (firstFile != null)
+                                {
+                                    var imageUrl = firstFile.FileHref;
+                                    <div class="thumb-img">
+                                        <a href="@Html.Raw(item.LinkHref)" title="@Html.Raw(item.Title)">
+                                            <img src="@imageUrl" />
+                                        </a>
+                                    </div>
+                                }
+                            }   
+                            <div class="summary-news">
+                                <a class="text-title" href="@Html.Raw(item.LinkHref)" title="@Html.Raw(item.Title)">@Html.Raw(item.Title)</a>
+                                <p>Để tiếp tục triển khai Nghị định số 45/2020/NĐ-CP ngày 8/4/2020 của Chính phủ về thực hiện thủ tục hành chính trên môi trường điện tử.</p>
+                            </div>
+                        </div>
+                    </div>
+                    }
+
+               
+                @*<div class="col-12 col-md-6 col-lg-4">
                     <div class="item-news">
                         <div class="thumb-img"><a href="/tin-tuc/bhxh-viet-nam-trien-khai-dang-ky-giao-dich-dien-tu-cho-ca-nhan-duoi-18-tuoi-chua-co-cmnd-cccd" title="BHXH Việt Nam: Triển khai đăng ký giao dịch điện tử cho cá nhân dưới 18 tuổi chưa có CMND, CCCD"><img src="/images/2021/angiang-phucvu.png" /></a></div>
                         <div class="summary-news">
@@ -105,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-
+*@
             </div>
             <div class="row">
                 <div class="col-12 mt-2">

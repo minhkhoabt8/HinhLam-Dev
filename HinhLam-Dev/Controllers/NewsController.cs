@@ -16,7 +16,7 @@ namespace HinhLam_Dev.Controllers
         [HttpGet("/tin-tuc")]
         public IActionResult News()
         {
-            return View();
+            return View("News");
         }
 
         [HttpGet("/cn/news-chinese", Name = "news-chinese")]

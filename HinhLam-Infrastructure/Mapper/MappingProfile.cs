@@ -24,7 +24,9 @@ namespace HinhLam_Infrastructure.Mapper
             CreateMap<SubMenu, SubMenuInfoModel>()
                 .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.SubMenuContents.Select(c => c.Content)));
             CreateMap<News, NewsInfoModels>()
-                .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.NewsContents.Select(c => c.Content)));
+                .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.NewsContents.Select(c => c.Content)))
+                .ForMember(dest => dest.FileNews, opt => opt.MapFrom(src => src.FileNews.Select(c => c.File)));
+        
             CreateMap<NewsCreateModels, News>();
 
             //CreateMap<Consults, ConsultInfoModel>();

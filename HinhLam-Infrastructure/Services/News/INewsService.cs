@@ -15,5 +15,6 @@ namespace HinhLam_Infrastructure.Services.News
         void Create(NewsCreateModels model);
         NewsInfoModels GetContentOfNews(string newsName);
         public NewsInfoModels GetAllContentsOfNews(string newsName);
+        public List<NewsInfoModels> PaginatedNews(int currentPage, int PageSize);
     }
 }

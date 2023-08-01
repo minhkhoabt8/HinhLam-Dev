@@ -36,7 +36,9 @@ namespace HinhLam_Infrastructure.Services.News
 
         public List<NewsInfoModels> GetAllNews()
         {
-            return _mapper.Map<List<NewsInfoModels>>(_newsRepository.GetAllNews());
+            var result = _newsRepository.GetAllNews();
+            return _mapper.Map<List<NewsInfoModels>>(result);
+            
         }
 
         public NewsInfoModels GetAllContentsOfNews(string newsName)
@@ -57,6 +59,12 @@ namespace HinhLam_Infrastructure.Services.News
         public void Remove(string id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<NewsInfoModels> PaginatedNews(int currentPage, int pageSize)
+        {
+            var result = GetAllNews();
+            return result.OrderBy(d => d.NewsId).Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
         }
     }
 }

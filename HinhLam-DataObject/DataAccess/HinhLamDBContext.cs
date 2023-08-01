@@ -20,6 +20,11 @@ namespace HinhLam_DataObject.DataAccess
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<Consult> Consults { get; set; } = null!;
         public virtual DbSet<Content> Contents { get; set; } = null!;
+        public virtual DbSet<HinhLam_DataObject.Models.File> Files { get; set; } = null!;
+        public virtual DbSet<FileContent> FileContents { get; set; } = null!;
+        public virtual DbSet<FileMenu> FileMenus { get; set; } = null!;
+        public virtual DbSet<FileNews> FileNews { get; set; } = null!;
+        public virtual DbSet<FileSubMenu> FileSubMenus { get; set; } = null!;
         public virtual DbSet<Menu> Menus { get; set; } = null!;
         public virtual DbSet<MenuSubMenu> MenuSubMenus { get; set; } = null!;
         public virtual DbSet<News> News { get; set; } = null!;
@@ -94,6 +99,101 @@ namespace HinhLam_DataObject.DataAccess
                 entity.Property(e => e.TitleEn)
                     .HasMaxLength(250)
                     .HasColumnName("TitleEN");
+            });
+
+            modelBuilder.Entity<HinhLam_DataObject.Models.File>(entity =>
+            {
+                entity.ToTable("File");
+
+                entity.Property(e => e.FileId).HasMaxLength(50);
+
+                entity.Property(e => e.FileHref).HasMaxLength(150);
+
+                entity.Property(e => e.FileName).HasMaxLength(150);
+            });
+
+            modelBuilder.Entity<FileContent>(entity =>
+            {
+                entity.ToTable("FileContent");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.ContentId).HasMaxLength(50);
+
+                entity.Property(e => e.FileId).HasMaxLength(50);
+
+                entity.HasOne(d => d.Content)
+                    .WithMany(p => p.FileContents)
+                    .HasForeignKey(d => d.ContentId)
+                    .HasConstraintName("FK_FileContent_Content");
+
+                entity.HasOne(d => d.File)
+                    .WithMany(p => p.FileContents)
+                    .HasForeignKey(d => d.FileId)
+                    .HasConstraintName("FK_FileContent_File");
+            });
+
+            modelBuilder.Entity<FileMenu>(entity =>
+            {
+                entity.ToTable("FileMenu");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.FileId).HasMaxLength(50);
+
+                entity.Property(e => e.MenuId).HasMaxLength(50);
+
+                entity.HasOne(d => d.IdNavigation)
+                    .WithOne(p => p.FileMenu)
+                    .HasForeignKey<FileMenu>(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_FileMenu_File");
+
+                entity.HasOne(d => d.Menu)
+                    .WithMany(p => p.FileMenus)
+                    .HasForeignKey(d => d.MenuId)
+                    .HasConstraintName("FK_FileMenu_Menu");
+            });
+
+            modelBuilder.Entity<FileNews>(entity =>
+            {
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.FileId).HasMaxLength(50);
+
+                entity.Property(e => e.NewsId).HasMaxLength(50);
+
+                entity.HasOne(d => d.File)
+                    .WithMany(p => p.FileNews)
+                    .HasForeignKey(d => d.FileId)
+                    .HasConstraintName("FK_FileNews_File");
+
+                entity.HasOne(d => d.News)
+                    .WithMany(p => p.FileNews)
+                    .HasForeignKey(d => d.NewsId)
+                    .HasConstraintName("FK_FileNews_News");
+            });
+
+            modelBuilder.Entity<FileSubMenu>(entity =>
+            {
+                entity.ToTable("FileSubMenu");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.FileId).HasMaxLength(50);
+
+                entity.Property(e => e.SubMenuId).HasMaxLength(50);
+
+                entity.HasOne(d => d.IdNavigation)
+                    .WithOne(p => p.FileSubMenu)
+                    .HasForeignKey<FileSubMenu>(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_FileSubMenu_File");
+
+                entity.HasOne(d => d.SubMenu)
+                    .WithMany(p => p.FileSubMenus)
+                    .HasForeignKey(d => d.SubMenuId)
+                    .HasConstraintName("FK_FileSubMenu_SubMenu");
             });
 
             modelBuilder.Entity<Menu>(entity =>
