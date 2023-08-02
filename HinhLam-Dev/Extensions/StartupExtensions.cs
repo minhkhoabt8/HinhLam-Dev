@@ -2,17 +2,11 @@
 using HinhLam_Infrastructure.Mapper;
 using HinhLam_Infrastructure.Repositories.Menu;
 using HinhLam_Infrastructure.Services.Menu;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Options;
 using Microsoft.Extensions.WebEncoders;
-using System.Configuration;
-using System.Globalization;
 using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
-using Microsoft.Extensions.Localization;
 using HinhLam_Infrastructure.Services.Email.Repositories;
 using HinhLam_Infrastructure.Services.Email.Services;
 using HinhLam_DataObject.ViewModel;
@@ -22,6 +16,7 @@ using HinhLam_Infrastructure.Services.Home;
 using HinhLam_Infrastructure.Repositories.Home;
 using HinhLam_Infrastructure.Services.News;
 using HinhLam_Infrastructure.Repositories.New;
+using Microsoft.Extensions.Logging; 
 
 namespace HinhLam_Dev.Extensions
 {
@@ -79,6 +74,18 @@ namespace HinhLam_Dev.Extensions
                     b => b.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name)
                 );
             });
+        }
+
+
+        public static IServiceCollection AddConfigureLogging(this IServiceCollection services)
+        {
+            services.AddLogging(builder =>
+            {
+                //denied writing sql query log to console
+                builder.AddFilter("Microsoft.EntityFrameworkCore.Database.Command", LogLevel.Warning);
+            });
+
+            return services;
         }
     }
 }
