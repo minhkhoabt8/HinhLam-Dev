@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using File = HinhLam_DataObject.Models.File;
 
 namespace HinhLam_DataObject.ViewModels
 {
@@ -19,6 +20,7 @@ namespace HinhLam_DataObject.ViewModels
         public bool Status { get; set; }
         public List<SubMenu> SubMenus { get; set; }
         public List<Content> Contents { get; set; }
+        public List<File> Files { get; set; }
     }
 
     public class CreateMenuModel

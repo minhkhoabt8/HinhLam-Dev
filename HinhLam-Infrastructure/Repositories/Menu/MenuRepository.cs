@@ -26,7 +26,11 @@ namespace HinhLam_Infrastructure.Repositories.Menu
 
         public List<HinhLam_DataObject.Models.Menu> GetAllMenu()
         {
-            return _context.Menus.OrderBy(m=>m.MenuCount).ToList();
+            return _context.Menus
+                .Include(m => m.FileMenus)
+                    .ThenInclude(fm => fm.File)
+                .OrderBy(m=>m.MenuCount)
+                .ToList();
         }
 
         public HinhLam_DataObject.Models.Menu? GetAllContentOfMenu(string menuName)
@@ -37,6 +41,8 @@ namespace HinhLam_Infrastructure.Repositories.Menu
                     .ThenInclude(ms => ms.SubMenu)
                         .ThenInclude(sm => sm.SubMenuContents)
                             .ThenInclude(sc => sc.Content)
+                .Include(m=>m.FileMenus)
+                    .ThenInclude(fm=>fm.File)
                 .Where(m => (m.HrefLink.Contains(menuName) || m.HrefLinkCn.Contains(menuName) || m.HrefLinkEn.Contains(menuName)) && m.Status == true)
                 .FirstOrDefault(m => m.MenuSubMenus.Any(ms => ms.SubMenu.Status == true && ms.SubMenu.SubMenuContents.Any(sc => sc.Content.Status == true)));
         }

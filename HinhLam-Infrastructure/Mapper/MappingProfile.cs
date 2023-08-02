@@ -17,7 +17,8 @@ namespace HinhLam_Infrastructure.Mapper
         {
             CreateMap<Menu, MenuInfoModel>()
                 .ForMember(dest => dest.SubMenus, opt => opt.MapFrom(src => src.MenuSubMenus.Select(c => c.SubMenu)))
-                .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.MenuSubMenus.SelectMany(ms => ms.SubMenu.SubMenuContents).Select(smc => smc.Content)));
+                .ForMember(dest => dest.Contents, opt => opt.MapFrom(src => src.MenuSubMenus.SelectMany(ms => ms.SubMenu.SubMenuContents).Select(smc => smc.Content)))
+                .ForMember(dest => dest.Files, otp => otp.MapFrom(src => src.FileMenus.Select(c => c.File)));
             CreateMap<CreateMenuModel, Menu>();
             CreateMap<UpdateMenuModel, Menu>();
 

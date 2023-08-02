@@ -39,8 +39,6 @@ namespace HinhLam_Infrastructure.Repositories.New
         {
             return _dbContext.News
                 .Where(n => n.Status == true && n.NewsContents.Any(nc => nc.Content.Status == true) && n.FileNews.Any(nc => nc.File.Status == true))
-                .Include(m => m.NewsContents)
-                    .ThenInclude(nc=>nc.Content)
                 .Include(m => m.FileNews)
                     .ThenInclude(nc=>nc.File)
                 .ToList();

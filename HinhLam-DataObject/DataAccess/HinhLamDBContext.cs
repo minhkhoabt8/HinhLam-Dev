@@ -143,9 +143,9 @@ namespace HinhLam_DataObject.DataAccess
 
                 entity.Property(e => e.MenuId).HasMaxLength(50);
 
-                entity.HasOne(d => d.IdNavigation)
+                entity.HasOne(d => d.File)
                     .WithOne(p => p.FileMenu)
-                    .HasForeignKey<FileMenu>(d => d.Id)
+                    .HasForeignKey<FileMenu>(d => d.FileId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_FileMenu_File");
 
@@ -184,7 +184,7 @@ namespace HinhLam_DataObject.DataAccess
 
                 entity.Property(e => e.SubMenuId).HasMaxLength(50);
 
-                entity.HasOne(d => d.IdNavigation)
+                entity.HasOne(d => d.File)
                     .WithOne(p => p.FileSubMenu)
                     .HasForeignKey<FileSubMenu>(d => d.Id)
                     .OnDelete(DeleteBehavior.ClientSetNull)

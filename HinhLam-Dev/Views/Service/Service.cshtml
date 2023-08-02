@@ -1,11 +1,19 @@
-﻿@{
+﻿@using HinhLam_DataObject.Models;
+@using HinhLam_DataObject.ViewModels;
+@using HinhLam_Infrastructure.Services.Menu;
+@{
     ViewData["Title"] = "Dịch Vụ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <body class="lang-vn">
     <noscript>JavaScript is off. Please enable to view full site.</noscript>
-    
+
+    <div class="language">
+        <a id="vnFlag" href="/"><img src="/themes/vip/img/flag-vn.png"></a>
+        <a id="enFlag" href="/en/"><img src="/themes/vip/img/flag-en.png"></a>
+        <a id="cnFlag" href="/cn/"><img src="/themes/vip/img/flag-cn.png"></a>
+    </div>
 
     <div class="section-banner">
 
@@ -69,368 +77,39 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/" title="Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế">
-                            <div class="thumb-img">
+                @inject IMenuService menuService;
+                
+                @{
+                    int count = 1;
+                }
+                @foreach (var menuItem in menuService.GetAllMenu())
+                {
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="item-service">
+                            <a href="@menuItem.HrefLink" title="@Html.Raw(menuItem.MenuName)">
+                                <div class="thumb-img">
 
-                                <img src="/images/2021/img-service-1_9.jpg" />
+                                    <img src="@menuItem.Files.FirstOrDefault()?.FileHref">
 
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>01</span></div>
-                                    <div class="text-title">Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/" title="Xem chi tiết">Xem chi tiết</a>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/cung-cap-dich-vu-ke-toan-tron-goi/" title="Cung cấp dịch vụ kế toán trọn gói">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/cung-cap-dich-vu-ke-toan-tron-goi.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>02</span></div>
-                                    <div class="text-title">Cung cấp dịch vụ kế toán trọn gói</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/cung-cap-dich-vu-ke-toan-tron-goi/" title="Xem chi tiết">Xem chi tiết</a>
+                                <div class="summary-service">
+                                    <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
+                                    <div class="block-1">
+                                        <div class="icon-number"><span>@Html.Raw(count)</span></div>
+                                        @{
+                                            count++; 
+                                        }
+                                        <div class="text-title">@Html.Raw(menuItem.MenuName)</div>
+                                        <a class="link-viewchitiet" href="@menuItem.HrefLink" title="Xem chi tiết">Xem chi tiết</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/dao-tao-ke-toan-thuc-hanh/" title="Đào tạo kế toán thực hành">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/dao-tao-ke-toan-thuc-hanh.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>03</span></div>
-                                    <div class="text-title">Đào tạo kế toán thực hành</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/dao-tao-ke-toan-thuc-hanh/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/dai-ly-thue/" title="Đại lý thuế">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/dai-ly-thue.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>04</span></div>
-                                    <div class="text-title">Đại lý thuế</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/dai-ly-thue/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/hoan-thue-gtgt-du-an/" title="Hoàn thuế GTGT dự án">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/hoan-thue-gtgt-du-an.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>05</span></div>
-                                    <div class="text-title">Hoàn thuế GTGT dự án</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/hoan-thue-gtgt-du-an/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/thanh-lap-doanh-nghiep-viet-nam-va-doanh-nghiep-nuoc-ngoai/" title="Thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/thanh-lap-doanh-nghiep-viet-nam-va-doanh-nghiep-nuoc-ngoai.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>06</span></div>
-                                    <div class="text-title">Thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/thanh-lap-doanh-nghiep-viet-nam-va-doanh-nghiep-nuoc-ngoai/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/dieu-chinh-thay-doi-giay-phep-kinh-doanh-giay-phep-dau-tu/" title="Điều chỉnh thay đổi giấy phép kinh doanh, giấy phép đầu tư">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/dieu-chinh-thay-doi-giay-phep-kinh-doanh-giay-phep-dau-tu.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>07</span></div>
-                                    <div class="text-title">Điều chỉnh thay đổi giấy phép kinh doanh, giấy phép đầu tư</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/dieu-chinh-thay-doi-giay-phep-kinh-doanh-giay-phep-dau-tu/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/sat-nhap-cong-ty-trong-nuoc-va-cong-ty-nuoc-ngoai/" title="Sát Nhập công ty trong nước và công ty nước ngoài">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/sat-nhap-cong-ty-trong-nuoc-va-cong-ty-nuoc-ngoai.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>08</span></div>
-                                    <div class="text-title">Sát Nhập công ty trong nước và công ty nước ngoài</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/sat-nhap-cong-ty-trong-nuoc-va-cong-ty-nuoc-ngoai/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/giai-the-cong-ty-tam-ngung-hoat-dong/" title="Giải thể công ty, tạm ngưng hoạt động">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/giai-the-cong-ty-tam-ngung-hoat-dong.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>09</span></div>
-                                    <div class="text-title">Giải thể công ty, tạm ngưng hoạt động</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/giai-the-cong-ty-tam-ngung-hoat-dong/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/thiet-lap-tu-van-bo-phan-ke-toan-he-thong-ke-toan/" title="Thiết lập, tư vấn bộ phận kế toán, hệ thống kế toán">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/thiet-lap-tu-van-bo-phan-ke-toan-he-thong-ke-toan.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>010</span></div>
-                                    <div class="text-title">Thiết lập, tư vấn bộ phận kế toán, hệ thống kế toán</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/thiet-lap-tu-van-bo-phan-ke-toan-he-thong-ke-toan/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/cung-cap-phan-mem-ke-toan/" title="Cung cấp phần mềm kế toán">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/phan-mem-misa-hinh-lam.png" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>11</span></div>
-                                    <div class="text-title">Cung cấp phần mềm kế toán</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/cung-cap-phan-mem-ke-toan/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/cung-cap-phan-mem-hoa-don-dien-tu/" title="Cung cấp phần mềm hoá đơn điện tử">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-2021.png" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>12</span></div>
-                                    <div class="text-title">Cung cấp phần mềm hoá đơn điện tử</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/cung-cap-phan-mem-hoa-don-dien-tu/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/cung-cap-chu-ky-so/" title="Cung cấp chữ ký số">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/chu-ky-so-hinh-lam-2021-2_1.png" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>13</span></div>
-                                    <div class="text-title">Cung cấp chữ ký số</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/cung-cap-chu-ky-so/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/cung-cap-phan-mem-khai-bao-bao-hiem-xa-hoi/" title="Cung cấp phần mềm khai báo Bảo Hiểm Xã Hội">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/img-service-1_22.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>14</span></div>
-                                    <div class="text-title">Cung cấp phần mềm khai báo Bảo Hiểm Xã Hội</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/cung-cap-phan-mem-khai-bao-bao-hiem-xa-hoi/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/xin-giay-phep-lao-dong-cho-nguoi-nuoc-ngoai/" title="Xin giấy phép lao động cho người nước ngoài">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/xin-giay-phep-lao-dong-cho-nguoi-nuoc-ngoai_1.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>15</span></div>
-                                    <div class="text-title">Xin giấy phép lao động cho người nước ngoài</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/xin-giay-phep-lao-dong-cho-nguoi-nuoc-ngoai/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/xin-cap-thi-thuc-cho-nguoi-nuoc-ngoai/" title="Xin cấp thị thực cho người nước ngoài">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/xin-cap-thi-thuc-cho-nguoi-nuoc-ngoai.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>16</span></div>
-                                    <div class="text-title">Xin cấp thị thực cho người nước ngoài</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/xin-cap-thi-thuc-cho-nguoi-nuoc-ngoai/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/xin-cap-doi-giay-phep-lai-xe-cho-nguoi-nuoc-ngoai/" title="Xin cấp đổi giấy phép lái xe  cho người nước ngoài">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/xin-cap-doi-giay-phep-lai-xe-cho-nguoi-nuoc-ngoai.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>17</span></div>
-                                    <div class="text-title">Xin cấp đổi giấy phép lái xe  cho người nước ngoài</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/xin-cap-doi-giay-phep-lai-xe-cho-nguoi-nuoc-ngoai/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/dich-vu/cung-cap-dich-vu-xin-phep-nhap-canh-vao-viet-nam/" title="Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/cung-cap-dich-vu-xin-phep-nhap-canh-vao-viet-nam.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>18</span></div>
-                                    <div class="text-title">Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</div>
-                                    <a class="link-viewchitiet" href="/dich-vu/cung-cap-dich-vu-xin-phep-nhap-canh-vao-viet-nam/" title="Xem chi tiết">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                }
             </div>
 
         </div>

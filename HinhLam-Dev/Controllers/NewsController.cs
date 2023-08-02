@@ -67,5 +67,14 @@ namespace HinhLam_Dev.Controllers
 
         }
 
+        [HttpGet("/tintuc/p", Name = "PaginatedNews")]
+        public IActionResult PaginatedNews([FromQuery] int p)
+        {
+            // Assuming _newsService.PaginatedNews(trang, 10) returns the paginated data
+            var result = _newsService.PaginatedNews(p, 6);
+
+            return View("NewsDetails", result);
+        }
+
     }
 }

@@ -1,4 +1,7 @@
-﻿@{
+﻿@using HinhLam_DataObject.Models;
+@using HinhLam_DataObject.ViewModels;
+@using HinhLam_Infrastructure.Services.Menu;
+@{
     ViewData["Title"] = "服務";
     Layout = "~/Views/Shared/_LayoutCN.cshtml";
 }
@@ -70,367 +73,36 @@
             </div>
             <div class="row">
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/troubleshooting-accounting-books-chinese/" title="會計賬簿、會計服務、退稅等故障排除">
-                            <div class="thumb-img">
+                @inject IMenuService menuService;
 
-                                <img src="/images/2021/img-service-1_9.jpg" />
+                @{
+                    int count = 1;
+                }
+                @foreach (var menuItem in menuService.GetAllMenu())
+                {
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="item-service">
+                            <a href="@menuItem.HrefLink" title="@Html.Raw(menuItem.MenuNameCN)">
+                                <div class="thumb-img">
 
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>01</span></div>
-                                    <div class="text-title">會計賬簿、會計服務、退稅等故障排除</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/troubleshooting-accounting-books-chinese/" title="細節">細節</a>
+                                    <img src="@menuItem.Files.FirstOrDefault()?.FileHref">
+
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/providing-complete-package-accounting-service/" title="提供全套的會計服務">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/cung-cap-dich-vu-ke-toan-tron-goi.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>02</span></div>
-                                    <div class="text-title">提供全套的會計服務</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/providing-complete-package-accounting-service/" title="細節">細節</a>
+                                <div class="summary-service">
+                                    <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
+                                    <div class="block-1">
+                                        <div class="icon-number"><span>@Html.Raw(count)</span></div>
+                                        @{
+                                            count++;
+                                        }
+                                        <div class="text-title">@Html.Raw(menuItem.MenuNameCN)</div>
+                                        <a class="link-viewchitiet" href="@menuItem.HrefLink" title="細節">細節</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/training-practical-accountants-chinese/" title="實務會計培訓">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/dao-tao-ke-toan-thuc-hanh.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>03</span></div>
-                                    <div class="text-title">實務會計培訓</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/training-practical-accountants-chinese/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/tax-agent-chinese/" title="稅務代理">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/dai-ly-thue.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>04</span></div>
-                                    <div class="text-title">稅務代理</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/tax-agent-chinese/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/conducting-vat-refund-by-project-chinese/" title="項目增值稅退稅">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/hoan-thue-gtgt-du-an.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>05</span></div>
-                                    <div class="text-title">項目增值稅退稅</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/conducting-vat-refund-by-project-chinese/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/consulting-business-establishment/" title="成立越南和外國企業">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/thanh-lap-doanh-nghiep-viet-nam-va-doanh-nghiep-nuoc-ngoai.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>06</span></div>
-                                    <div class="text-title">成立越南和外國企業</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/consulting-business-establishment/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/adjusting-and-amending-investment-licenses/" title="營業執照、投資執照的調整和變更">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/dieu-chinh-thay-doi-giay-phep-kinh-doanh-giay-phep-dau-tu.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>07</span></div>
-                                    <div class="text-title">營業執照、投資執照的調整和變更</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/adjusting-and-amending-investment-licenses/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/merging-domestic-and-foreign-companies-hinh-lam/" title="合併國內外公司">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/sat-nhap-cong-ty-trong-nuoc-va-cong-ty-nuoc-ngoai.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>08</span></div>
-                                    <div class="text-title">合併國內外公司</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/merging-domestic-and-foreign-companies-hinh-lam/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/dissolution-of-the-company-suspend-operations-1/" title="公司解散，暫停營業">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/giai-the-cong-ty-tam-ngung-hoat-dong.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>09</span></div>
-                                    <div class="text-title">公司解散，暫停營業</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/dissolution-of-the-company-suspend-operations-1/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/setting-up-consulting-the-accounting-department-the-accounting-system-2/" title="設立、諮詢會計部門、會計系統">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/thiet-lap-tu-van-bo-phan-ke-toan-he-thong-ke-toan.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>010</span></div>
-                                    <div class="text-title">設立、諮詢會計部門、會計系統</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/setting-up-consulting-the-accounting-department-the-accounting-system-2/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/provide-accounting-software-3/" title="提供會計軟件">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/phan-mem-misa-hinh-lam.png" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>11</span></div>
-                                    <div class="text-title">提供會計軟件</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/provide-accounting-software-3/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/provide-electronic-invoice-software-2/" title="提供電子發票軟件">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/cung-cap-phan-mem-hoa-don-dien-tu-hinh-lam-2021.png" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>12</span></div>
-                                    <div class="text-title">提供電子發票軟件</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/provide-electronic-invoice-software-2/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/supply-digital-signature/" title="提供數字簽名">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/chu-ky-so-hinh-lam-2021-2_1.png" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>13</span></div>
-                                    <div class="text-title">提供數字簽名</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/supply-digital-signature/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/supply-social-insurance-reporting-software/" title="提供社會保險報告軟件">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/img-service-1_22.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>14</span></div>
-                                    <div class="text-title">提供社會保險報告軟件</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/supply-social-insurance-reporting-software/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/apply-for-work-permit-for-foreigners/" title="為外國人申請工作許可證">
-                            <div class="thumb-img">
-
-                                <<img src="/images/2021/xin-giay-phep-lao-dong-cho-nguoi-nuoc-ngoai_1.jpg" />
-
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>15</span></div>
-                                    <div class="text-title">為外國人申請工作許可證</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/apply-for-work-permit-for-foreigners/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/apply-for-visa-for-foreigners/" title="為外國人申請簽證">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/xin-cap-thi-thuc-cho-nguoi-nuoc-ngoai.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>16</span></div>
-                                    <div class="text-title">為外國人申請簽證</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/apply-for-visa-for-foreigners/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/apply-for-replacement-drivers-license-for-foreigners/" title="為外國人申請駕駛證">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/xin-cap-doi-giay-phep-lai-xe-cho-nguoi-nuoc-ngoai.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>17</span></div>
-                                    <div class="text-title">為外國人申請駕駛證</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/apply-for-replacement-drivers-license-for-foreigners/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="item-service">
-                        <a href="/cn/services-chinese/providing-services-of-applying-for-entry-to-vietnam/" title="提供申請越南入境許可的服務">
-                            <div class="thumb-img">
-
-                                <img src="/images/2021/cung-cap-dich-vu-xin-phep-nhap-canh-vao-viet-nam.jpg" />
-
-                            </div>
-                            <div class="summary-service">
-                                <img class="img-default" src="/images/assets/images/arrow-dich-vu.png" alt=""><img class="img-hover" src="/images/assets/images/arrow-dich-vu-hover.png" alt="">
-                                <div class="block-1">
-                                    <div class="icon-number"><span>18</span></div>
-                                    <div class="text-title">提供申請越南入境許可的服務</div>
-                                    <a class="link-viewchitiet" href="/cn/services-chinese/providing-services-of-applying-for-entry-to-vietnam/" title="細節">細節</a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                }
             </div>
 
         </div>
