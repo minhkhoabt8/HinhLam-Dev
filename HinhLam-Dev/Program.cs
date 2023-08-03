@@ -31,6 +31,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
