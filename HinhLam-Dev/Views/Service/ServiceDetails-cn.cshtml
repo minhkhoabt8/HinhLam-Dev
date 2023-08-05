@@ -463,9 +463,9 @@
                                     <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
                                     <p>@Html.Raw(Model.Contents.ElementAt(0).TitleCn)</p>
                                     @{
-                                        var content26 = Model.Contents.ElementAt(1).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        var content26 = Model.Contents.ElementAt(0).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
-                                        <ul class="list3t">
+                                        <ul>
                                             @foreach (var item in content26)
                                             {
 
