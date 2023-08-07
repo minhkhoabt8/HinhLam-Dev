@@ -155,6 +155,7 @@
 
 
                     <form class="frm-contact" name="cartform" method="POST" action="/lien-he" ENCTYPE="multipart/form-data">
+                        <input type="hidden" name="language" value="en" />
                         <div class="form-group">
                             <label for="CustomerName">Full Name *</label>
                             <input class="form-control" type="text" name="CustomerName" id="CustomerName" placeholder="" value="" required>
@@ -173,7 +174,7 @@
                         </div>
                         <div class="form-group">
                             <label for="Contents">Content</label>
-                            <textarea class="form-control" name="Contents" id="Contents" rows="5"></textarea>
+                            <textarea class="form-control" name="Contents" id="Contents" rows="5" maxlength="250"></textarea>
                         </div>
                         <div class="actions d-flex justify-content-center align-items-center">
                             <input class="btn btn-primary btn-lg" type="submit" style="position:center; width:40%" value="Submit">
@@ -184,5 +185,25 @@
             </div>
         </div>
     </div>
- 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // This code will run after the DOM is fully loaded
+            document.getElementById('vnFlag').setAttribute('href', '/tuyen-dung');
+            document.getElementById('enFlag').setAttribute('href', '/en' + '/careers');
+            document.getElementById('cnFlag').setAttribute('href', '/cn' + '/careers-chinese');
+        });
+    </script>
+    @if (TempData.ContainsKey("NotificationMessage"))
+    {
+        <script>
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000,
+                toastClass: 'custom-toast-class'
+            };
+            toastr['@TempData["NotificationType"]']('@TempData["NotificationMessage"]');
+        </script>
+    }
 </body>

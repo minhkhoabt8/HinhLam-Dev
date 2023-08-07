@@ -28,37 +28,29 @@ namespace HinhLam_Infrastructure.Services.Recruiment
             _configuration = configuration;
         }
 
-        public async Task SendRecruitmentEmail(RecruitmentInfoModel model)
+        public async Task<bool> SendRecruitmentEmail(RecruitmentInfoModel model)
         {
-            try
+            var result = await _emailServices.SendEmailAsync(new EmailViewModel()
             {
-               
-                await _emailServices.SendEmailAsync(new EmailViewModel()
-                {
 
-                    To = _configuration["HinhLamMailSettings:HinhLamEmail"],
-                    Subject = $"[Tuyển Dụng] - {model.ApplyPosition} - {model.CandidateName}",
-                    Text =
+                To = _configuration["HinhLamMailSettings:HinhLamEmail"],
+                Subject = $"[Đơn Ứng Tuyển] - {model.ApplyPosition} - {model.CandidateName}",
+                Text =
                         $"<h3 style=\"color: #2856a3;\">Thông tin ứng viên: </h3>" +
                         $"<br>" +
-                        $"<ul>" + 
+                        $"<ul>" +
                         $"<li><p>Tên: {model.CandidateName} </li></p>" +
                         $"<li><p>Email: {model.Email} </p>" +
-                        $"<li><p>Số điện thoại: {model.PhoneNumber}</li><p>" +
+                        $"<li><p>Số điện thoại: {model.PhoneNumber}</li></p>" +
                         $"<li><p>Vị trí: {model.ApplyPosition}</li></p> " +
                         $"</ul>",
 
-                    Attachment = model.ApplyFile
+                Attachment = model.ApplyFile
 
-                });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            });
+            return result;
+
+
         }
-
-
-        
     }
 }

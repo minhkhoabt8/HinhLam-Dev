@@ -92,7 +92,7 @@
                         <h3>请在此处提交您的申请：</h3>
 
                         <form class="frm-contact" name="cartform" method="POST" action="/tuyen-dung" ENCTYPE="multipart/form-data">
-
+                            <input type="hidden" name="language" value="cn" />
                         <div class="container h-100">
 
                             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -109,7 +109,7 @@
                                                 </div>
                                                 <div class="col-md-9 pe-5">
 
-                                                    <input type="text" class="form-control form-control-lg" />
+                                                        <input type="text" name="CandidateName" class="form-control form-control-lg" required/>
 
                                                 </div>
                                             </div>
@@ -124,7 +124,7 @@
                                                 </div>
                                                 <div class="col-md-9 pe-5">
 
-                                                    <input type="email" class="form-control form-control-lg" placeholder="vd: abc@hinhlam.com" required />
+                                                        <input type="email" name="Email" class="form-control form-control-lg" placeholder="vd: abc@hinhlam.com" required />
 
                                                 </div>
                                             </div>
@@ -139,12 +139,25 @@
                                                 </div>
                                                 <div class="col-md-9 pe-5">
 
-                                                    <input type="tel" class="form-control form-control-lg" required />
+                                                        <input type="tel" name="PhoneNumber" class="form-control form-control-lg" required />
 
                                                 </div>
                                             </div>
 
                                             <hr class="mx-n3">
+
+                                                <div class="row align-items-center py-3">
+                                                    <div class="col-md-3 ps-5">
+
+                                                        <h6 class="mb-0">申请的职位 *</h6>
+
+                                                    </div>
+                                                    <div class="col-md-9 pe-5">
+
+                                                        <input type="text" name="ApplyPosition" class="form-control form-control-lg" required />
+
+                                                    </div>
+                                                </div>
 
                                             <div class="row align-items-center py-3">
                                                 <div class="col-md-3 ps-5">
@@ -154,7 +167,7 @@
                                                 </div>
                                                 <div class="col-md-9 pe-5">
                                                         <label for="imageUpload" class="form-control form-control-lg">選擇文件 (.pdf*)</label>
-                                                    <input class="form-control form-control-lg" id="imageUpload" type="file" style="display: none" accept="application/pdf" />
+                                                        <input class="form-control form-control-lg" name="ApplyFile" id="imageUpload" type="file" style="display: none" accept="application/pdf" />
                                                     <div class="small text-muted mt-2">
                                                             上傳您的個人資料/摘要或任何相關文件。
                                                             最大大小 50 MB
@@ -193,4 +206,17 @@
             document.getElementById('cnFlag').setAttribute('href', '/cn' + '/careers-chinese');
         });
     </script>
+    @if (TempData.ContainsKey("NotificationMessage"))
+    {
+        <script>
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000,
+                toastClass: 'custom-toast-class'
+            };
+            toastr['@TempData["NotificationType"]']('@TempData["NotificationMessage"]');
+        </script>
+    }
 </body>

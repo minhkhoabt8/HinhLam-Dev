@@ -8,6 +8,6 @@ namespace HinhLam_Infrastructure.Services.Home
 {
     public interface IHomeService
     {
-        Task SendRecruitmentEmail(string email);
+        Task<bool> SendHotContactEmail(string email);
     }
 }

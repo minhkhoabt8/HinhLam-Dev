@@ -10,7 +10,7 @@ namespace HinhLam_Infrastructure.Services.Email.Repositories
 {
     public interface IEmailServices
     {
-        Task SendEmailAsync(EmailViewModel email);
+        Task<bool> SendEmailAsync(EmailViewModel email);
 
     }
 }

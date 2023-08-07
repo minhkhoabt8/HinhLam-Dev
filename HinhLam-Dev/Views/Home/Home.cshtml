@@ -152,8 +152,8 @@
                         <h4 class="sub-title-2">BẠN ĐANG CẦN TƯ VẤN MỘT TRONG CÁC DỊCH VỤ CỦA HINH LAM </h4>
                         <p>Vui lòng gọi 0983 204115 hoặc điền vào mẫu thông tin bên dưới!</p>
                         <form class="homepage-frm-contact" method="post" action="/hot-contact">
-                            <input type="hidden" name="submit" value="1" />
-                            <input class="input-text" type="text" name="email" placeholder="Email của bạn" required>
+                            <input type="hidden" name="language" value="vn" />
+                            <input class="input-text" type="email" name="email" placeholder="Email của bạn" required>
                             <input class="btn-submit" type="submit" value="Gửi">
                         </form>
                     </div>
@@ -199,7 +199,19 @@
             </div>
         </div>
     </div>
-
+    @if (TempData.ContainsKey("NotificationMessage"))
+    {
+        <script>
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000,
+                toastClass: 'custom-toast-class'
+            };
+            toastr['@TempData["NotificationType"]']('@TempData["NotificationMessage"]');
+        </script>
+    }
     
 </body>
 

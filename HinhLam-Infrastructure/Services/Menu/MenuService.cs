@@ -71,32 +71,28 @@ namespace HinhLam_Infrastructure.Services.Menu
             throw new NotImplementedException();
         }
 
-        public async Task SendConsultEmail(ConsultWriteModel model)
+        public async Task<bool> SendConsultEmail(ConsultWriteModel model)
         {
-            try
+            var result = await _emailServices.SendEmailAsync(new EmailViewModel()
             {
-                await _emailServices.SendEmailAsync(new EmailViewModel()
-                {
 
-                    To = _configuration["HinhLamMailSettings:HinhLamEmail"],
-                    Subject = $"New Quick Consult Service",
-                    Text =
-                        
-                        $"<h3 style=\"color: #2856a3;\">Thông tin khách hàng: </h3>" +
-                        $"<br>" +
-                        $"<ul>" +
-                        $"<li><p>Tên: {model.CustomerName}</p> </li>" +
-                        $"<li><p>Công ty: {model.CustomerCompany} </p></li>" +
-                        $"<li><p>Email: {model.Email} </p>" +
-                        $"<li><p>Số điện thoại: {model.PhoneNumber}</p></li>" +
-                        $"<li><p>Content: {model.Contents}</p></li> " +
-                        $"</ul>",
+                To = _configuration["HinhLamMailSettings:HinhLamEmail"],
+                Subject = $"Khách Hàng Vừa Gửi Một Yêu Cầu Tư Vấn",
+                Text =
 
-                });
-            }catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+                       $"<h3 style=\"color: #2856a3;\">Thông tin khách hàng: </h3>" +
+                       $"<br>" +
+                       $"<ul>" +
+                       $"<li><p>Tên: {model.CustomerName}</p> </li>" +
+                       $"<li><p>Công ty: {model.CustomerCompany} </p></li>" +
+                       $"<li><p>Email: {model.Email} </p>" +
+                       $"<li><p>Số điện thoại: {model.PhoneNumber}</p></li>" +
+                       $"<li><p>Content: {model.Contents}</p></li> " +
+                       $"</ul>",
+
+            });
+            return result;
+
         }
 
     }

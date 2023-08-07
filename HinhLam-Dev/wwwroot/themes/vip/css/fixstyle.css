@@ -92,6 +92,14 @@
             transition: .2s;
         }
 
+/* Custom CSS class for the toastr notification */
+.custom-toast-class {
+    /* Set your desired background color, text color, or other styles here */
+    background-color: #2856a3;
+    color: #fff; /* Text color for better readability */
+    border: 1px solid #2856a3; /* Optional border color */
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
 
 body.lang-cn {

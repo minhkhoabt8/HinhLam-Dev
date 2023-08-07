@@ -10,6 +10,6 @@ namespace HinhLam_Infrastructure.Services.Recruiment
 {
     public interface IRecruimentService
     {
-        Task SendRecruitmentEmail(RecruitmentInfoModel model);
+        Task<bool> SendRecruitmentEmail(RecruitmentInfoModel model);
     }
 }

@@ -18,7 +18,7 @@ namespace HinhLam_DataObject.ViewModel
             public string Email { get; set; }
             public string PhoneNumber { get; set; }
             public string ApplyPosition { get; set; }
-
+            
             public IFormFile ApplyFile { get; set; }
 
         }

@@ -2,6 +2,7 @@
 using HinhLam_DataObject.ViewModel;
 using HinhLam_Infrastructure.Repositories.Recruiment;
 using HinhLam_Infrastructure.Services.Email.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -27,26 +28,19 @@ namespace HinhLam_Infrastructure.Services.Home
             _configuration = configuration;
         }
 
-        public async Task SendRecruitmentEmail(string email)
+        public async Task<bool> SendHotContactEmail(string email)
         {
-            try
+            var result = await _emailServices.SendEmailAsync(new EmailViewModel()
             {
 
-                await _emailServices.SendEmailAsync(new EmailViewModel()
-                {
-
-                    To = _configuration["HinhLamMailSettings:HinhLamEmail"],
-                    Subject = $"Liên Hệ Nhanh",
-                    Text =
-                        $"<h3 style=\"color: #2856a3;\">Liên Hệ Nhanh: </h3>" +
+                To = _configuration["HinhLamMailSettings:HinhLamEmail"],
+                Subject = $"Liên Hệ Nhanh",
+                Text =
+                        $"<h3 style=\"color: #2856a3;\">Khách Hàng Vừa Gửi Một Liên Hệ Nhanh: </h3>" +
                         $"</br>" +
                         $"<h2>Email: {email} </h2>"
-                });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            });
+            return result;
         }
     }
 }

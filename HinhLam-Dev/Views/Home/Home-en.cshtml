@@ -159,8 +159,8 @@
                         <h4 class="sub-title-2">You need advice on one of the services provided by Hinh Lam?</h4>
                         <p>Please call 0983 204115 or complete the information form below!</p>
                         <form class="homepage-frm-contact" method="post" action="/hot-contact">
-                            <input type="hidden" name="submit" value="1" />
-                            <input class="input-text" type="text" name="email" placeholder="Your Email">
+                            <input type="hidden" name="language" value="en" />
+                            <input class="input-text" type="email" name="email" placeholder="Your Email">
                             <input class="btn-submit" type="submit" value="Send">
                         </form>
                     </div>
@@ -206,5 +206,17 @@
             </div>
         </div>
     </div>
-
+    @if (TempData.ContainsKey("NotificationMessage"))
+    {
+        <script>
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000,
+                toastClass: 'custom-toast-class'
+            };
+            toastr['@TempData["NotificationType"]']('@TempData["NotificationMessage"]');
+        </script>
+    }
 </body>

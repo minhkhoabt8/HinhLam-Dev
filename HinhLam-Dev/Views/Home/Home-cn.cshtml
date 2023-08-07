@@ -161,8 +161,8 @@
                         <p>
                             請致電0983204115或填寫下表</ p>
                             <form class="homepage-frm-contact" method="post" action="/hot-contact">
-                                <input type="hidden" name="submit" value="1" />
-                                <input class="input-text" type="text" name="email" placeholder="您的電子郵件">
+                                <input type="hidden" name="language" value="cn" />
+                                <input class="input-text" type="email" name="email" placeholder="您的電子郵件">
                                 <input class="btn-submit" type="submit" value="發送">
                             </form>
                     </div>
@@ -208,5 +208,17 @@
             </div>
         </div>
     </div>
-
+    @if (TempData.ContainsKey("NotificationMessage"))
+    {
+        <script>
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000,
+                toastClass: 'custom-toast-class'
+            };
+            toastr['@TempData["NotificationType"]']('@TempData["NotificationMessage"]');
+        </script>
+    }
 </body>

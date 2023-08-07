@@ -19,8 +19,9 @@ namespace HinhLam_Infrastructure.Services.Email.Services
         }
 
 
-        public async Task SendEmailAsync(EmailViewModel email)
+        public async Task<bool> SendEmailAsync(EmailViewModel email)
         {
+            var result = true;
 
             var mimeemail = new MimeMessage();
             mimeemail.From.Add(MailboxAddress.Parse(_emailSettings.From));
@@ -68,6 +69,7 @@ namespace HinhLam_Infrastructure.Services.Email.Services
                 }
                 catch(Exception ex)
                 {
+                    result = false;
                     Console.WriteLine(ex);
                 }
                 finally
@@ -76,7 +78,7 @@ namespace HinhLam_Infrastructure.Services.Email.Services
                     client.Dispose();
                 }
             };
-            
+            return result;
         }
 
     }

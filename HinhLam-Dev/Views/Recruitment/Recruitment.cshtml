@@ -94,7 +94,7 @@
                         <h3>Nộp hồ sơ trực tiếp tại đây:</h3>
                     
                     <form class="frm-contact" name="cartform" method="POST" action="/tuyen-dung" ENCTYPE="multipart/form-data">
-                       
+                            <input type="hidden" name="language" value="vn" />
                             <div class="container h-100">
                             
                                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -145,7 +145,7 @@
 
                                                     </div>
                                                 </div>
-
+                                                <hr class="mx-n3">
                                                 <div class="row align-items-center py-3">
                                                     <div class="col-md-3 ps-5">
 
@@ -208,5 +208,18 @@
             document.getElementById('cnFlag').setAttribute('href', '/cn'+'/careers-chinese');
         });
     </script>
+    @if (TempData.ContainsKey("NotificationMessage"))
+    {
+        <script>
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000,
+                toastClass: 'custom-toast-class'
+            };
+            toastr['@TempData["NotificationType"]']('@TempData["NotificationMessage"]');
+        </script>
+    }
 </body>
 

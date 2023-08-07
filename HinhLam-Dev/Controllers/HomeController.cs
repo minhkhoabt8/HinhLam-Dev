@@ -46,9 +46,61 @@ namespace HinhLam_Dev.Controllers
         }
 
         [HttpPost("/hot-contact")]
-        public IActionResult Contact([FromForm] string email)
+        public async Task<IActionResult> Contact([FromForm] string email, [FromForm] string language)
         {
-            _homeService.SendRecruitmentEmail(email);
+            bool isEmailSent = await  _homeService.SendHotContactEmail(email);
+
+            switch (language)
+            {
+                case "vn":
+                    if (isEmailSent)
+                    {
+                        TempData["NotificationMessage"] = "Gửi Mail Thành Công! Cảm Ơn Quý Khách Đã Liên Hệ Với Chúng Tôi!";
+                        TempData["NotificationType"] = "success";
+                    }
+                    else
+                    {
+                        TempData["NotificationMessage"] = "Có Lỗi Xảy Ra Khi Gửi Email. Vui Lòng Thử Lại Sau!";
+                        TempData["NotificationType"] = "error";
+                    }
+                    break;
+
+                // Add more cases for other languages if needed
+                case "en":
+                    // Handle French language here
+                    if (isEmailSent)
+                    {
+                        TempData["NotificationMessage"] = "Send Email Successful! Thank You For Your Contact!";
+                        TempData["NotificationType"] = "success";
+                    }
+                    else
+                    {
+                        TempData["NotificationMessage"] = "Sending Email Error. Please try again later!";
+                        TempData["NotificationType"] = "error";
+                    }
+                    break;
+
+                case "cn":
+                    if (isEmailSent)
+                    {
+                        TempData["NotificationMessage"] = "发送电子邮件成功！感谢您的联系！";
+                        TempData["NotificationType"] = "success";
+                    }
+                    else
+                    {
+                        TempData["NotificationMessage"] = "发送电子邮件出错。请稍后再试！";
+                        TempData["NotificationType"] = "error";
+                    }
+                    break;
+
+                // Add more cases for other languages as necessary
+
+                default:
+                    // Default case if the language is not recognized
+                    TempData["NotificationMessage"] = "Default message for unrecognized language";
+                    TempData["NotificationType"] = "info";
+                    break;
+            }
             return Redirect("Home");
         }
         
