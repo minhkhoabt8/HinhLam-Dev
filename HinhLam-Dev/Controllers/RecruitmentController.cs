@@ -31,12 +31,12 @@ namespace HinhLam_Dev.Controllers
                     case "vn":
                         if (isEmailSent)
                         {
-                            TempData["NotificationMessage"] = "Gửi Mail Thành Công! Cảm Ơn Quý Khách Đã Liên Hệ Với Chúng Tôi!";
+                            TempData["NotificationMessage"] = "Gửi Thành Công! Cảm Ơn Quý Khách Đã Liên Hệ Với Chúng Tôi!";
                             TempData["NotificationType"] = "success";
                         }
                         else
                         {
-                            TempData["NotificationMessage"] = "Có Lỗi Xảy Ra Khi Gửi Email. Vui Lòng Thử Lại Sau!";
+                            TempData["NotificationMessage"] = "Có Lỗi Xảy Ra Khi Gửi. Vui Lòng Thử Lại Sau!";
                             TempData["NotificationType"] = "error";
                         }
                         break;
@@ -46,12 +46,12 @@ namespace HinhLam_Dev.Controllers
                         // Handle French language here
                         if (isEmailSent)
                         {
-                            TempData["NotificationMessage"] = "Send Email Successful! Thank You For Your Contact!";
+                            TempData["NotificationMessage"] = "Send Successful! Thank You For Your Contact!";
                             TempData["NotificationType"] = "success";
                         }
                         else
                         {
-                            TempData["NotificationMessage"] = "Sending Email Error. Please try again later!";
+                            TempData["NotificationMessage"] = "Sending Error. Please try again later!";
                             TempData["NotificationType"] = "error";
                         }
                         break;
@@ -59,12 +59,12 @@ namespace HinhLam_Dev.Controllers
                     case "cn":
                         if (isEmailSent)
                         {
-                            TempData["NotificationMessage"] = "发送电子邮件成功！感谢您的联系！";
+                            TempData["NotificationMessage"] = "发送成功！感谢您的联系！";
                             TempData["NotificationType"] = "success";
                         }
                         else
                         {
-                            TempData["NotificationMessage"] = "发送电子邮件出错。请稍后再试！";
+                            TempData["NotificationMessage"] = "发送错误，请稍后再试！";
                             TempData["NotificationType"] = "error";
                         }
                         break;
