@@ -1,4 +1,5 @@
-﻿@model HinhLam_DataObject.ViewModels.ConsultViewModel.ConsultWriteModel;
+﻿@using HinhLam_Infrastructure.Services.Menu;
+@model HinhLam_DataObject.ViewModels.ConsultViewModel.ConsultWriteModel;
 @{
     ViewData["Title"] = "Liên Hệ";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -41,45 +42,14 @@
 
                             <span class="ion ion-ios-arrow-down"></span>
                             <ul class="nav-main__menu-second">
+                                @inject IMenuService menuService;
+                                @foreach (var item in menuService.GetAllMenu())
+                                {
+                                    <li><a class="nav-main__menu-second-link" href="@item.HrefLink" title="@Html.Raw(item.MenuName)">@Html.Raw(item.MenuName)</a></li>
 
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/go-roi-so-sach-ke-toan-dich-vu-ke-toan-hoan-thue/" title="Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế">Gỡ rối sổ sách kế toán, dịch vụ kế toán, hoàn thuế</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/cung-cap-dich-vu-ke-toan-tron-goi/" title="Cung cấp dịch vụ kế toán trọn gói">Cung cấp dịch vụ kế toán trọn gói</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/dao-tao-ke-toan-thuc-hanh/" title="Đào tạo kế toán thực hành">Đào tạo kế toán thực hành</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/dai-ly-thue/" title="Đại lý thuế">Đại lý thuế</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/hoan-thue-gtgt-du-an/" title="Hoàn thuế GTGT dự án">Hoàn thuế GTGT dự án</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/thanh-lap-doanh-nghiep-viet-nam-va-doanh-nghiep-nuoc-ngoai/" title="Thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài">Thành lập doanh nghiệp Việt Nam và doanh nghiệp nước ngoài</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/dieu-chinh-thay-doi-giay-phep-kinh-doanh-giay-phep-dau-tu/" title="Điều chỉnh thay đổi giấy phép kinh doanh, giấy phép đầu tư">Điều chỉnh thay đổi giấy phép kinh doanh, giấy phép đầu tư</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/sat-nhap-cong-ty-trong-nuoc-va-cong-ty-nuoc-ngoai/" title="Sát Nhập công ty trong nước và công ty nước ngoài">Sát Nhập công ty trong nước và công ty nước ngoài</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/giai-the-cong-ty-tam-ngung-hoat-dong/" title="Giải thể công ty, tạm ngưng hoạt động">Giải thể công ty, tạm ngưng hoạt động</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/thiet-lap-tu-van-bo-phan-ke-toan-he-thong-ke-toan/" title="Thiết lập, tư vấn bộ phận kế toán, hệ thống kế toán">Thiết lập, tư vấn bộ phận kế toán, hệ thống kế toán</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/cung-cap-phan-mem-ke-toan/" title="Cung cấp phần mềm kế toán">Cung cấp phần mềm kế toán</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/cung-cap-phan-mem-hoa-don-dien-tu/" title="Cung cấp phần mềm hoá đơn điện tử">Cung cấp phần mềm hoá đơn điện tử</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/cung-cap-chu-ky-so/" title="Cung cấp chữ ký số">Cung cấp chữ ký số</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/cung-cap-phan-mem-khai-bao-bao-hiem-xa-hoi/" title="Cung cấp phần mềm khai báo Bảo Hiểm Xã Hội">Cung cấp phần mềm khai báo Bảo Hiểm Xã Hội</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/xin-giay-phep-lao-dong-cho-nguoi-nuoc-ngoai/" title="Xin giấy phép lao động cho người nước ngoài">Xin giấy phép lao động cho người nước ngoài</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/xin-cap-thi-thuc-cho-nguoi-nuoc-ngoai/" title="Xin cấp thị thực cho người nước ngoài">Xin cấp thị thực cho người nước ngoài</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/xin-cap-doi-giay-phep-lai-xe-cho-nguoi-nuoc-ngoai/" title="Xin cấp đổi giấy phép lái xe  cho người nước ngoài">Xin cấp đổi giấy phép lái xe  cho người nước ngoài</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/dich-vu/cung-cap-dich-vu-xin-phep-nhap-canh-vao-viet-nam/" title="Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam">Cung cấp dịch vụ xin phép nhập cảnh vào Việt Nam</a></li>
-
+                                }
                             </ul>
-
+                            
                         </li>
 
                         <li>

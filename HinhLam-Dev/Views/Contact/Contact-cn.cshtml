@@ -1,4 +1,5 @@
-﻿@{
+﻿@using HinhLam_Infrastructure.Services.Menu;
+@{
     ViewData["Title"] = "聯繫";
     Layout = "~/Views/Shared/_LayoutCN.cshtml";
 }
@@ -42,43 +43,12 @@
 
                             <span class="ion ion-ios-arrow-down"></span>
                             <ul class="nav-main__menu-second">
+                                @inject IMenuService menuService;
+                                @foreach (var item in menuService.GetAllMenu())
+                                {
+                                    <li><a class="nav-main__menu-second-link" href="@item.HrefLinkCN" title="@Html.Raw(item.MenuNameCN)">@Html.Raw(item.MenuNameCN)</a></li>
 
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/troubleshooting-accounting-books-chinese/" title="會計賬簿、會計服務、退稅等故障排除">會計賬簿、會計服務、退稅等故障排除</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/providing-complete-package-accounting-service/" title="提供全套的會計服務">提供全套的會計服務</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/training-practical-accountants-chinese/" title="實務會計培訓">實務會計培訓</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/tax-agent-chinese/" title="稅務代理">稅務代理</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/conducting-vat-refund-by-project-chinese/" title="項目增值稅退稅">項目增值稅退稅</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/consulting-business-establishment/" title="成立越南和外國企業">成立越南和外國企業</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/adjusting-and-amending-investment-licenses/" title="營業執照、投資執照的調整和變更">營業執照、投資執照的調整和變更</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/merging-domestic-and-foreign-companies-hinh-lam/" title="合併國內外公司">合併國內外公司</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/dissolution-of-the-company-suspend-operations-1/" title="公司解散，暫停營業">公司解散，暫停營業</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/setting-up-consulting-the-accounting-department-the-accounting-system-2/" title="設立、諮詢會計部門、會計系統">設立、諮詢會計部門、會計系統</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/provide-accounting-software-3/" title="提供會計軟件">提供會計軟件</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/provide-electronic-invoice-software-2/" title="提供電子發票軟件">提供電子發票軟件</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/supply-digital-signature/" title="提供數字簽名">提供數字簽名</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/supply-social-insurance-reporting-software/" title="提供社會保險報告軟件">提供社會保險報告軟件</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/apply-for-work-permit-for-foreigners/" title="為外國人申請工作許可證">為外國人申請工作許可證</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/apply-for-visa-for-foreigners/" title="為外國人申請簽證">為外國人申請簽證</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/apply-for-replacement-drivers-license-for-foreigners/" title="為外國人申請駕駛證">為外國人申請駕駛證</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/cn/services-chinese/providing-services-of-applying-for-entry-to-vietnam/" title="提供申請越南入境許可的服務">提供申請越南入境許可的服務</a></li>
-
+                                }
                             </ul>
 
                         </li>

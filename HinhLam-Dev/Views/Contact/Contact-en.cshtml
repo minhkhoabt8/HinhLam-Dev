@@ -1,4 +1,5 @@
-﻿@{
+﻿@using HinhLam_Infrastructure.Services.Menu;
+@{
     ViewData["Title"] = "Contacts";
     Layout = "~/Views/Shared/_LayoutEN.cshtml";
 }
@@ -40,43 +41,11 @@
 
                             <span class="ion ion-ios-arrow-down"></span>
                             <ul class="nav-main__menu-second">
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/troubleshooting-accounting-books/" title="Troubleshooting accounting books">Troubleshooting accounting books</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/providing-complete-package-accounting-service/" title="Providing complete-package accounting service">Providing complete-package accounting service</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/training-practical-accountants/" title="Training practical accountants">Training practical accountants</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/tax-agent/" title="Tax agent">Tax agent</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/conducting-vat-refund-by-project/" title="Conducting VAT refund by project">Conducting VAT refund by project</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/consulting-business-establishment/" title="Consulting business Establishment">Consulting business Establishment</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/adjusting-and-amending-investment-licenses/" title="Adjusting and amending investment licenses">Adjusting and amending investment licenses</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/merging-domestic-and-foreign-companies/" title="Merging domestic and foreign companies">Merging domestic and foreign companies</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/dissolution-of-the-company-suspend-operations/" title="Dissolution of the company, suspend operations">Dissolution of the company, suspend operations</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/setting-up-consulting-the-accounting-department-the-accounting-system/" title="Setting up, consulting the accounting department, the accounting system">Setting up, consulting the accounting department, the accounting system</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/provide-accounting-software/" title="Provide accounting software">Provide accounting software</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/provide-electronic-invoice-software/" title="Provide electronic invoice software">Provide electronic invoice software</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/supply-digital-signature/" title="Supply digital signature">Supply digital signature</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/supply-social-insurance-reporting-software/" title="Supply Social Insurance reporting software">Supply Social Insurance reporting software</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/apply-for-work-permit-for-foreigners/" title="Apply for work permits for foreigners">Apply for work permits for foreigners</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/apply-for-visa-for-foreigners/" title="Apply for visas for foreigners">Apply for visas for foreigners</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/apply-for-replacement-drivers-license-for-foreigners/" title="Apply for replacement driver's licenses for foreigners">Apply for replacement driver's licenses for foreigners</a></li>
-
-                                <li><a class="nav-main__menu-second-link" href="/en/services/providing-services-of-applying-for-entry-to-vietnam/" title="Providing services of applying for entry permits to Vietnam.">Providing services of applying for entry permits to Vietnam.</a></li>
-
+                                @inject IMenuService menuService;
+                                @foreach (var item in menuService.GetAllMenu())
+                                {
+                                    <li><a class="nav-main__menu-second-link" href="@item.HrefLinkEN" title="@Html.Raw(item.MenuNameEN)">@Html.Raw(item.MenuNameEN)</a></li>
+                                }
                             </ul>
 
                         </li>
