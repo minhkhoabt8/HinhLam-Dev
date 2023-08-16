@@ -552,7 +552,37 @@
                             case "14":
                                 <div class="detail-content">
                                     <h3 class="title-detail">@Html.Raw(Model.MenuNameCN)</h3>
-                                    <p>@Html.Raw(Model.Contents.ElementAt(0).ContentsCn)</p>
+
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(0).TitleCn)</strong></p>
+                                    @{
+                                        var contentService14 = Model.Contents.ElementAt(0).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        @foreach (var item in contentService14)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+
+                                        }
+
+                                    }
+                                    <p>@Html.Raw(Model.Contents.ElementAt(1).TitleCn)</p>@*Ưu điểm của KBHXH cho Doanh nghiệp:*@
+                                    @{
+                                        var contentService15 = Model.Contents.ElementAt(1).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        <ul>
+                                            @foreach (var item in contentService15)
+                                            {
+                                                <li>@Html.Raw(@item)</li>
+                                            }
+                                        </ul>
+
+                                    }
+                                    <p><strong>@Html.Raw(Model.Contents.ElementAt(2).TitleCn)</strong></p> @*Kết luận*@
+                                    @{
+                                        var contentService16 = Model.Contents.ElementAt(2).ContentsCn.Replace("|", "\n").Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                                        @foreach (var item in contentService16)
+                                        {
+                                            <p>@Html.Raw(@item)</p>
+
+                                        }
+                                    }
                                 </div>
                                 break;
                             case "15":
