@@ -203,6 +203,14 @@
     </script>
     <!--End of Tawk.to Script-->*@
 
-
+    <script>
+        $(function () {
+            if ($('.pageTitle').length) {
+                $('.pageBannerTitle').html($('.pageTitle').html());
+                $('.breabcrumbs').html($('.breabcrumbsPath').html())
+            }
+        });
+    </script>
+        
 </body>
 </html>
