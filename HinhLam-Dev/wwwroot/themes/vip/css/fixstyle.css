@@ -105,3 +105,54 @@
 body.lang-cn {
     font-family: 'Noto Sans SC', sans-serif !important;
 }
+
+
+.body-container {
+    font-family: 'Noto Sans SC', sans-serif !important;
+    margin: 0;
+    padding: 0;
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-heading {
+    text-align: center;
+}
+
+.content-heading-secondary {
+    margin-top: 20px;
+}
+
+.content-list {
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+.content-paragraph {
+    margin-top: 10px;
+}
+
+.content-contact {
+    margin-top: 20px;
+}
+
+.body-container {
+    position: relative;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 10px; 
+    right: 10px;
+    font-size: 12px; 
+    color: #888; 
+}
+.content-heading-small {
+    font-size: 30px;
+}
