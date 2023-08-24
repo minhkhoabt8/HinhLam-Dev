@@ -4,7 +4,7 @@ namespace HinhLam_Dev.Controllers
 {
     public class SiteMapController : Controller
     {
-        [Route("hinhlam-sitemap-route")] // Change this route to match the route defined in the endpoint mapping
+        [Route("hinhlam-sitemap-route")]
         [HttpGet]
         public IActionResult SiteMap()
         {
