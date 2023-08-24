@@ -84,7 +84,12 @@ app.UseEndpoints(endpoints =>
         pattern: "tin-tuc/{name}",
         defaults: new { controller = "News", action = "NewsDetails" }
     );
-    
+
+    endpoints.MapControllerRoute(
+        name: "sitemap",
+        pattern: "hinhlam-sitemap-route",
+        defaults: new { controller = "SiteMap", action = "SiteMap" });
+
 });
 
 app.Run();
